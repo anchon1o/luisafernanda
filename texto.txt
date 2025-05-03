@@ -40,8 +40,6 @@ Es que los hay... fascinantes.
 [ROSITA]
 No lo dirá usté por éstos
 
-
-
 [VENDEDOR]
 Van por el camino real
 los cacharreros de Andújar
@@ -50,7 +48,6 @@ y las mañanas de lluvia .
 
 ¡Quién me compra una alcarraza
 de barro que se rezuma!
-
 
 [NOGALES]
 ¿Me zurcieron la levita?
