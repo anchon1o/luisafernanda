@@ -1,67 +1,25 @@
+/* Estilo general */
 body {
   font-family: Arial, sans-serif;
-  margin: 2rem;
+  margin: 0;
+  padding: 0;
   background-color: #f8f8f8;
   color: #333;
 }
 
 header {
   text-align: center;
-  margin-bottom: 2rem;
-}
-
-button {
-  margin: 0.5rem;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 8px;
-  background-color: #ccc;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #aaa;
-}
-
-.guion pre {
-  font-family: 'Courier New', monospace;
-  background: #fff;
   padding: 1rem;
-  border-radius: 8px;
-  white-space: pre-wrap;
+  background-color: #ffffff;
+  border-bottom: 1px solid #ccc;
 }
 
-.chat .bubble {
-  margin: 1rem auto;
-  padding: 0.8rem;
-  border-radius: 12px;
-  max-width: 70%;
-  background-color: #e6e6e6;
+h1 {
+  margin: 0;
+  font-size: 1.5rem;
 }
 
-.chat .luisa-fernanda { background-color: #d8eafd; }
-.chat .vidal { background-color: #ffe2e2; }
-.chat .mariana { background-color: #dfffe0; }
-.chat .carolina { background-color: #f9e3ff; }
-.chat .aníbal, .chat .anibal { background-color: #e0f7fa; }
-
-.fragmento {
-  background: white;
-  margin: 1rem 0;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
-}
-
-.reveal {
-  margin-top: 0.5rem;
-  padding: 0.3rem 0.6rem;
-  background-color: #ddd;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
+/* Menú horizontal deslizante */
 #menu-numeros {
   overflow-x: auto;
   white-space: nowrap;
@@ -82,9 +40,44 @@ button:hover {
   border-radius: 6px;
   background-color: #ddd;
   cursor: pointer;
+  font-size: 0.9rem;
 }
 
 #menu-scroll button:hover {
   background-color: #bbb;
 }
 
+/* Área de contenido */
+main {
+  padding: 1rem;
+}
+
+/* Estilo para vista tipo guión */
+.guion {
+  white-space: pre-wrap;
+  font-family: 'Courier New', monospace;
+  background: white;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  line-height: 1.5;
+}
+
+/* Botones de vista (opcional si los mantienes) */
+#view-selector {
+  margin-top: 0.5rem;
+}
+
+#view-selector button {
+  margin: 0.2rem;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+#view-selector button:hover {
+  background-color: #aaa;
+}
