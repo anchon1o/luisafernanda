@@ -154,3 +154,44 @@ main {
   border-radius: 6px;
   cursor: pointer;
 }
+
+
+/* Estilos para acotaciones */
+
+
+/* Acotaciones en guion */
+.guion-acotacion {
+  font-style: italic;
+  color: #555;
+  background-color: #f4f4f4;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid #bbb;
+  margin: 1rem 0;
+  border-radius: 4px;
+  white-space: pre-wrap;
+}
+
+/* Acotaciones en chat */
+.chat-acotacion {
+  font-style: italic;
+  color: #555;
+  background-color: #f0f0f0;
+  padding: 0.6rem 1rem;
+  margin: 1rem auto;
+  max-width: 70%;
+  border-left: 4px solid #aaa;
+  border-radius: 8px;
+  white-space: pre-wrap;
+}
+
+/* Acotaciones en modo ensayo */
+.ensayo-acotacion {
+  font-style: italic;
+  color: #555;
+  background-color: #f9f9f9;
+  padding: 0.8rem 1.2rem;
+  border-left: 5px solid #999;
+  margin: 1rem 0;
+  border-radius: 6px;
+  white-space: pre-wrap;
+}
