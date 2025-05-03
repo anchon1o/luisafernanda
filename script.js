@@ -172,4 +172,33 @@ function normalizar(nombre) {
   return nombre.toLowerCase().replaceAll(' ', '-').replaceAll('ñ','n');
 }
 
+
+const videos = {
+  R: "Ol7eh5jkHKE",
+  Z: "aJ45UuPGRo4"
+};
+
+function reproducir(version) {
+  const tiempos = tiemposPorNumero[numeroSeleccionado];
+  if (!tiempos || !tiempos[version]) {
+    alert("No hay tiempo asignado para este número.");
+    return;
+  }
+
+  const start = tiempos[version];
+  const videoId = videos[version];
+
+  const iframe = document.createElement("iframe");
+  iframe.width = "100%";
+  iframe.height = "200";
+  iframe.src = `https://www.youtube.com/embed/${videoId}?start=${start}&autoplay=1`;
+  iframe.allow = "autoplay; encrypted-media";
+  iframe.frameBorder = "0";
+
+  const contenedor = document.getElementById("reproductor");
+  contenedor.innerHTML = ""; // limpiar anterior
+  contenedor.appendChild(iframe);
+}
+
+
 cargarTexto();
