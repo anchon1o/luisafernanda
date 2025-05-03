@@ -179,39 +179,44 @@ const videos = {
 };
 
 function reproducir(version) {
+  console.log("Número seleccionado:", numeroSeleccionado);
 
-console.log("Número seleccionado:", numeroSeleccionado);
-console.log("Claves disponibles:", Object.keys(tiemposPorNumero));
-const clave = Object.keys(tiemposPorNumero).find(
-  k => k.toLowerCase() === numeroSeleccionado.toLowerCase()
-);
-console.log("Clave encontrada:", clave);
+  // 🔧 3. Limpiar el prefijo 'nº' si existe
+  const claveLimpia = numeroSeleccionado.toLowerCase().replace(/^nº/, '');
+  console.log("Clave limpia:", claveLimpia);
 
+  // 🔍 4. Buscar una clave que coincida (ignorando mayúsculas)
+  const clave = Object.keys(tiemposPorNumero).find(
+    k => k.toLowerCase() === claveLimpia
+  );
+  console.log("Clave encontrada:", clave);
 
-  
-  const tiempos = tiemposPorNumero[numeroSeleccionado];
-  if (!tiempos || !tiempos[version]) {
+  if (!clave || !tiemposPorNumero[clave]) {
     alert("No hay tiempo asignado para este número.");
     return;
   }
 
-  const start = tiempos[version];
-  console.log("Versión:", version);
-  console.log("Tiempo:", tiempos[version]);
+  const tiempos = tiemposPorNumero[clave];
+  const tiempoInicio = tiempos[version];
+
+  if (tiempoInicio === undefined) {
+    alert("No hay tiempo asignado para esta versión.");
+    return;
+  }
 
   const videoId = videos[version];
-
   const iframe = document.createElement("iframe");
   iframe.width = "100%";
   iframe.height = "200";
-  iframe.src = `https://www.youtube.com/embed/${videoId}?start=${start}&autoplay=1`;
+  iframe.src = `https://www.youtube.com/embed/${videoId}?start=${tiempoInicio}&autoplay=1`;
   iframe.allow = "autoplay; encrypted-media";
   iframe.frameBorder = "0";
 
   const contenedor = document.getElementById("reproductor");
-  contenedor.innerHTML = ""; // limpiar anterior
+  contenedor.innerHTML = "";
   contenedor.appendChild(iframe);
 }
+
 
 
 cargarTexto();
