@@ -2,7 +2,7 @@ let bloquesPorNumero = {};
 let ordenNumeros = [];
 
 async function cargarTexto() {
-  const resp = await fetch('texto_convertido.txt');
+  const resp = await fetch('texto.txt');
   const texto = await resp.text();
   const lineas = texto.split('\n');
 
