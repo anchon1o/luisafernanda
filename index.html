@@ -57,15 +57,18 @@
     </div>
   </div>
 
-  <!-- Selector de vista -->
-  <div id="view-selector">
-    <label for="vista">Vista:</label>
-    <select id="vista" onchange="cambiarVista(this.value)">
-      <option value="guion">Guión</option>
-      <option value="chat">Chat</option>
-      <option value="fragmentos">Fragmentos</option>
-    </select>
-  </div>
+  <!-- Barra de controles -->
+<div id="barra-controles">
+  <select id="vista" onchange="cambiarVista(this.value)">
+    <option value="guion">Guion</option>
+    <option value="chat">Chat</option>
+    <option value="ensayo">Ensayo</option>
+  </select>
+  <button onclick="reproducir('R')">R 🔴</button>
+  <button onclick="reproducir('Z')">Z 🟣</button>
+</div>
+<div id="reproductor"></div>
+
 
   <!-- Contenedor para mostrar el texto -->
   <main id="main-content">
