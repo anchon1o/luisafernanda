@@ -32,17 +32,18 @@ button:hover {
 }
 
 .chat .bubble {
-  margin: 1rem 0;
+  margin: 1rem auto;
   padding: 0.8rem;
   border-radius: 12px;
-  width: fit-content;
   max-width: 70%;
   background-color: #e6e6e6;
 }
 
-.chat .luisa { background-color: #d8eafd; }
+.chat .luisa-fernanda { background-color: #d8eafd; }
 .chat .vidal { background-color: #ffe2e2; }
-.chat .carolina { background-color: #dfffe0; }
+.chat .mariana { background-color: #dfffe0; }
+.chat .carolina { background-color: #f9e3ff; }
+.chat .aníbal, .chat .anibal { background-color: #e0f7fa; }
 
 .fragmento {
   background: white;
@@ -54,5 +55,9 @@ button:hover {
 
 .reveal {
   margin-top: 0.5rem;
+  padding: 0.3rem 0.6rem;
+  background-color: #ddd;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }
-
