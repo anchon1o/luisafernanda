@@ -19,10 +19,10 @@ async function cargarTexto() {
       bloquesPorNumero[numeroActual] += textoBloque;
       textoBloque = '';
 
-      const matchMusical = linea.match(/^###\s+(Nº[\dA-Z]+)\s+🎵/i);
+      const matchMusical = linea.match(/^###\s+(Nº?[\dA-Z]+)\s+🎵/i);
       const matchHablado = linea.match(/^###\s+▪️(\d+)\)/);
       if (matchMusical) {
-        numeroActual = matchMusical[1].toLowerCase();
+        numeroActual = matchMusical[1].toLowerCase().replace(/^nº/, '');
         ordenNumeros.push({ id: numeroActual, label: `${matchMusical[1]} 🎵` });
       } else if (matchHablado) {
         numeroActual = `t${matchHablado[1]}`;
@@ -45,7 +45,7 @@ function construirMenu() {
 
   const botonTodo = document.createElement('button');
   botonTodo.textContent = 'LF';
-  botonTodo.onclick = () => { numeroSeleccionado = 'todo'; mostrarVista(); };
+  botonTodo.onclick = () => { filtrarPorNumero('todo'); };
   menu.appendChild(botonTodo);
 
   const separador = () => {
@@ -59,10 +59,15 @@ function construirMenu() {
   ordenNumeros.forEach((num, i) => {
     const btn = document.createElement('button');
     btn.textContent = num.label;
-    btn.onclick = () => { numeroSeleccionado = num.id; mostrarVista(); };
+    btn.onclick = () => { filtrarPorNumero(num.id); };
     menu.appendChild(btn);
     if ((i + 1) % 15 === 0) separador();
   });
+}
+
+function filtrarPorNumero(num) {
+  numeroSeleccionado = num;
+  mostrarVista();
 }
 
 function cambiarVista(vista) {
@@ -172,7 +177,6 @@ function normalizar(nombre) {
   return nombre.toLowerCase().replaceAll(' ', '-').replaceAll('ñ','n');
 }
 
-
 const videos = {
   R: "Ol7eh5jkHKE",
   Z: "aJ45UuPGRo4"
@@ -181,11 +185,9 @@ const videos = {
 function reproducir(version) {
   console.log("Número seleccionado:", numeroSeleccionado);
 
-  // 🔧 3. Limpiar el prefijo 'nº' si existe
   const claveLimpia = numeroSeleccionado.toLowerCase().replace(/^nº/, '');
   console.log("Clave limpia:", claveLimpia);
 
-  // 🔍 4. Buscar una clave que coincida (ignorando mayúsculas)
   const clave = Object.keys(tiemposPorNumero).find(
     k => k.toLowerCase() === claveLimpia
   );
@@ -216,7 +218,5 @@ function reproducir(version) {
   contenedor.innerHTML = "";
   contenedor.appendChild(iframe);
 }
-
-
 
 cargarTexto();
