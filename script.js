@@ -85,10 +85,17 @@ function mostrarVista() {
     const container = document.createElement("div");
     container.className = "guion";
     entradas.forEach(linea => {
-      const p = document.createElement("div");
-      p.className = `guion-linea ${normalizar(linea.personaje)}`;
-      p.innerHTML = `<strong>${linea.personaje}</strong>:<br>${linea.texto.replace(/\n/g, "<br>")}`;
-      container.appendChild(p);
+      if (linea.tipo === 'acotacion') {
+        const p = document.createElement("div");
+        p.className = "guion-acotacion";
+        p.innerHTML = linea.texto.replace(/\n/g, "<br>");
+        container.appendChild(p);
+      } else {
+        const p = document.createElement("div");
+        p.className = `guion-linea ${normalizar(linea.personaje)}`;
+        p.innerHTML = `<strong>${linea.personaje}</strong>:<br>${linea.texto.replace(/\n/g, "<br>")}`;
+        container.appendChild(p);
+      }
     });
     main.appendChild(container);
   }
@@ -97,10 +104,17 @@ function mostrarVista() {
     const div = document.createElement("div");
     div.className = "chat";
     entradas.forEach(linea => {
-      const bubble = document.createElement("div");
-      bubble.className = `bubble ${normalizar(linea.personaje)}`;
-      bubble.innerHTML = `<strong>${linea.personaje}:</strong><br>${linea.texto.replace(/\n/g, "<br>")}`;
-      div.appendChild(bubble);
+      if (linea.tipo === 'acotacion') {
+        const ac = document.createElement("div");
+        ac.className = "chat-acotacion";
+        ac.innerHTML = linea.texto.replace(/\n/g, "<br>");
+        div.appendChild(ac);
+      } else {
+        const bubble = document.createElement("div");
+        bubble.className = `bubble ${normalizar(linea.personaje)}`;
+        bubble.innerHTML = `<strong>${linea.personaje}:</strong><br>${linea.texto.replace(/\n/g, "<br>")}`;
+        div.appendChild(bubble);
+      }
     });
     main.appendChild(div);
   }
@@ -117,10 +131,17 @@ function mostrarVista() {
     main.appendChild(toggle);
 
     entradas.forEach(linea => {
-      const div = document.createElement("div");
-      div.className = `ensayo-linea ${normalizar(linea.personaje)}`;
-      div.innerHTML = `<strong>${linea.personaje}:</strong><br>${linea.texto.replace(/\n/g, "<br>")}`;
-      main.appendChild(div);
+      if (linea.tipo === 'acotacion') {
+        const div = document.createElement("div");
+        div.className = "ensayo-acotacion";
+        div.innerHTML = linea.texto.replace(/\n/g, "<br>");
+        main.appendChild(div);
+      } else {
+        const div = document.createElement("div");
+        div.className = `ensayo-linea ${normalizar(linea.personaje)}`;
+        div.innerHTML = `<strong>${linea.personaje}:</strong><br>${linea.texto.replace(/\n/g, "<br>")}`;
+        main.appendChild(div);
+      }
     });
   }
 }
@@ -129,17 +150,37 @@ function parsearBloques(bloque) {
   const lineas = bloque.split('\n');
   const resultado = [];
   let actual = null;
+  let enAcotacion = false;
+  let bufferAcotacion = [];
 
   for (let linea of lineas) {
     linea = linea.trim();
+
+    if (linea === '***') {
+      if (!enAcotacion) {
+        enAcotacion = true;
+        bufferAcotacion = [];
+      } else {
+        enAcotacion = false;
+        resultado.push({ tipo: 'acotacion', texto: bufferAcotacion.join('\n') });
+      }
+      continue;
+    }
+
+    if (enAcotacion) {
+      bufferAcotacion.push(linea);
+      continue;
+    }
+
     const match = linea.match(/^\[([A-ZÁÉÍÓÚÑÜ\s]+)\]$/);
     if (match) {
-      actual = { personaje: match[1].trim(), texto: '' };
+      actual = { tipo: 'dialogo', personaje: match[1].trim(), texto: '' };
       resultado.push(actual);
     } else if (actual) {
       actual.texto += (actual.texto ? '\n' : '') + linea;
     }
   }
+
   return resultado;
 }
 
