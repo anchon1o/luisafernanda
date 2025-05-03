@@ -3,13 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Luisa Fernanda - Guion</title>
+  <title>Luisa Fernanda – Texto</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <h1>Luisa Fernanda – Texto Hablado</h1>
-    <p>Este texto se carga automáticamente desde <code>texto.txt</code>.</p>
+    <h1>Luisa Fernanda – Texto hablado</h1>
+    <div id="view-selector">
+      <button onclick="cambiarVista('guion')">Guión</button>
+      <button onclick="cambiarVista('chat')">Chat</button>
+      <button onclick="cambiarVista('fragmentos')">Fragmentos</button>
+    </div>
   </header>
 
   <main id="main-content">
