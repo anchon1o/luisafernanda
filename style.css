@@ -6,17 +6,27 @@ body {
   color: #333;
 }
 
-/* Cabecera fija */
-header {
-  text-align: center;
-  padding: 0.3rem;
-  background-color: #ffffff;
-  border-bottom: 1px solid #ccc;
+/* CABECERA STICKY perfectamente alineada */
+
+header,
+#menu-numeros,
+#barra-controles,
+#reproductor {
   position: sticky;
-  top: 0;
+  margin: 0;
   z-index: 100;
+  background: #fff;
+}
+
+/* Alturas y top compensados */
+header {
+  top: 0;
   height: 2rem;
   line-height: 2rem;
+  padding: 0 1rem;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
 }
 
 h1 {
@@ -26,15 +36,14 @@ h1 {
 
 /* Menú horizontal deslizante fijo */
 #menu-numeros {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  white-space: nowrap;
-  background-color: #eee;
-  padding: 0.3rem 0.5rem;
-  border-bottom: 1px solid #ccc;
-  position: sticky;
   top: 2rem;
-  z-index: 99;
+  height: 2.4rem;
+  padding: 0.3rem 0.5rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  background-color: #eee;
+  border-bottom: 1px solid #ccc;
 }
 
 #menu-scroll {
@@ -58,16 +67,15 @@ h1 {
 
 /* Barra de controles fija */
 #barra-controles {
+  top: 4.4rem;
+  height: 2.4rem;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.4rem;
+  padding: 0 0.5rem;
   background-color: #f0f0f0;
   border-bottom: 1px solid #ccc;
-  position: sticky;
-  top: calc(2rem + 2.4rem);
-  z-index: 98;
 }
 
 #barra-controles select,
@@ -86,18 +94,16 @@ h1 {
 
 /* Reproductor fijo */
 #reproductor {
+  top: 6.8rem;
+  padding: 0.5rem 0;
   text-align: center;
-  margin: 0.5rem 0;
-  position: sticky;
-  top: calc(2rem + 2.4rem + 2.4rem);
-  background: #fff;
-  z-index: 97;
   border-bottom: 1px solid #ccc;
 }
 
-/* Área principal */
+/* Ajuste del contenido principal para que no quede oculto */
 main {
   padding: 1rem;
+  padding-top: 7.5rem;
 }
 
 /* Guion */
@@ -113,7 +119,6 @@ main {
   white-space: pre-wrap;
 }
 
-/* Subrayado con fondo */
 .guion-linea strong {
   display: inline-block;
   font-weight: bold;
