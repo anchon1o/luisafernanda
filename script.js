@@ -233,5 +233,10 @@ function reproducir(version) {
   reproductorVisible = true;
 }
 
+function toggleReproductor() {
+  const rep = document.getElementById("reproductor");
+  rep.classList.toggle("colapsado");
+}
+
 
 cargarTexto();
