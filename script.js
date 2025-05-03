@@ -2,6 +2,7 @@ let bloquesPorNumero = {};
 let ordenNumeros = [];
 let vistaActual = 'guion';
 let numeroSeleccionado = 'todo';
+let personajeOculto = 'luisa fernanda'; // puedes cambiar esto si deseas
 
 async function cargarTexto() {
   const resp = await fetch('texto.txt');
@@ -80,12 +81,15 @@ function mostrarVista() {
   const entradas = parsearBloques(bloques);
 
   if (vistaActual === 'guion') {
-    const pre = document.createElement("pre");
-    pre.className = "guion";
+    const container = document.createElement("div");
+    container.className = "guion";
     entradas.forEach(linea => {
-      pre.textContent += `${linea.personaje}:\n${linea.texto}\n\n`;
+      const p = document.createElement("p");
+      p.className = `guion-linea ${linea.personaje.toLowerCase().replaceAll(' ', '-').replaceAll('ñ','n')}`;
+      p.innerHTML = `<strong>${linea.personaje}:</strong> ${linea.texto}`;
+      container.appendChild(p);
     });
-    main.appendChild(pre);
+    main.appendChild(container);
   }
 
   if (vistaActual === 'chat') {
@@ -93,22 +97,31 @@ function mostrarVista() {
     div.className = "chat";
     entradas.forEach(linea => {
       const bubble = document.createElement("div");
-      bubble.className = `bubble ${linea.personaje.toLowerCase().replaceAll(' ', '-').replaceAll('ñ', 'n')}`;
+      bubble.className = `bubble ${linea.personaje.toLowerCase().replaceAll(' ', '-').replaceAll('ñ','n')}`;
       bubble.innerHTML = `<strong>${linea.personaje}:</strong> ${linea.texto}`;
       div.appendChild(bubble);
     });
     main.appendChild(div);
   }
 
-  if (vistaActual === 'fragmentos') {
-    entradas.forEach(linea => {
-      const frag = document.createElement("div");
-      frag.className = "fragmento";
-      frag.innerHTML = `<strong>${linea.personaje}</strong><br><button class="reveal">Mostrar texto</button><div style="display:none;" class="text">${linea.texto}</div>`;
-      frag.querySelector(".reveal").addEventListener("click", () => {
-        frag.querySelector(".text").style.display = "block";
+  if (vistaActual === 'ensayo') {
+    const container = document.createElement("div");
+    container.className = "ensayo";
+    const toggle = document.createElement("button");
+    toggle.textContent = `Mostrar/Ocultar ${personajeOculto.toUpperCase()}`;
+    toggle.className = "toggle-ensayo";
+    toggle.onclick = () => {
+      document.querySelectorAll(`.ensayo-linea.${personajeOculto.replaceAll(' ', '-').toLowerCase()}`).forEach(el => {
+        el.classList.toggle("oculto");
       });
-      main.appendChild(frag);
+    };
+    main.appendChild(toggle);
+
+    entradas.forEach(linea => {
+      const div = document.createElement("div");
+      div.className = `ensayo-linea ${linea.personaje.toLowerCase().replaceAll(' ', '-').replaceAll('ñ','n')}`;
+      div.innerHTML = `<strong>${linea.personaje}:</strong> ${linea.texto}`;
+      main.appendChild(div);
     });
   }
 }
