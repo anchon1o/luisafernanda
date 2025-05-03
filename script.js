@@ -196,6 +196,9 @@ console.log("Clave encontrada:", clave);
   }
 
   const start = tiempos[version];
+  console.log("Versión:", version);
+  console.log("Tiempo:", tiempos[version]);
+
   const videoId = videos[version];
 
   const iframe = document.createElement("iframe");
