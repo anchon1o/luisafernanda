@@ -1,8 +1,9 @@
+
 let bloquesPorNumero = {};
 let ordenNumeros = [];
 let vistaActual = 'guion';
 let numeroSeleccionado = 'todo';
-let personajeOculto = 'luisa fernanda'; // puedes cambiar esto si deseas
+let personajeOculto = 'luisa fernanda';
 
 async function cargarTexto() {
   const resp = await fetch('texto.txt');
@@ -84,9 +85,9 @@ function mostrarVista() {
     const container = document.createElement("div");
     container.className = "guion";
     entradas.forEach(linea => {
-      const p = document.createElement("p");
-      p.className = `guion-linea ${linea.personaje.toLowerCase().replaceAll(' ', '-').replaceAll('ñ','n')}`;
-      p.innerHTML = `<strong>${linea.personaje}:</strong> ${linea.texto}`;
+      const p = document.createElement("div");
+      p.className = `guion-linea ${normalizar(linea.personaje)}`;
+      p.innerHTML = `<strong>${linea.personaje}</strong>:<br>${linea.texto.replace(/\n/g, "<br>")}`;
       container.appendChild(p);
     });
     main.appendChild(container);
@@ -97,21 +98,19 @@ function mostrarVista() {
     div.className = "chat";
     entradas.forEach(linea => {
       const bubble = document.createElement("div");
-      bubble.className = `bubble ${linea.personaje.toLowerCase().replaceAll(' ', '-').replaceAll('ñ','n')}`;
-      bubble.innerHTML = `<strong>${linea.personaje}:</strong> ${linea.texto}`;
+      bubble.className = `bubble ${normalizar(linea.personaje)}`;
+      bubble.innerHTML = `<strong>${linea.personaje}:</strong><br>${linea.texto.replace(/\n/g, "<br>")}`;
       div.appendChild(bubble);
     });
     main.appendChild(div);
   }
 
   if (vistaActual === 'ensayo') {
-    const container = document.createElement("div");
-    container.className = "ensayo";
     const toggle = document.createElement("button");
     toggle.textContent = `Mostrar/Ocultar ${personajeOculto.toUpperCase()}`;
     toggle.className = "toggle-ensayo";
     toggle.onclick = () => {
-      document.querySelectorAll(`.ensayo-linea.${personajeOculto.replaceAll(' ', '-').toLowerCase()}`).forEach(el => {
+      document.querySelectorAll(`.ensayo-linea.${normalizar(personajeOculto)}`).forEach(el => {
         el.classList.toggle("oculto");
       });
     };
@@ -119,8 +118,8 @@ function mostrarVista() {
 
     entradas.forEach(linea => {
       const div = document.createElement("div");
-      div.className = `ensayo-linea ${linea.personaje.toLowerCase().replaceAll(' ', '-').replaceAll('ñ','n')}`;
-      div.innerHTML = `<strong>${linea.personaje}:</strong> ${linea.texto}`;
+      div.className = `ensayo-linea ${normalizar(linea.personaje)}`;
+      div.innerHTML = `<strong>${linea.personaje}:</strong><br>${linea.texto.replace(/\n/g, "<br>")}`;
       main.appendChild(div);
     });
   }
@@ -137,11 +136,15 @@ function parsearBloques(bloque) {
     if (match) {
       actual = { personaje: match[1].trim(), texto: '' };
       resultado.push(actual);
-    } else if (linea !== '' && actual) {
-      actual.texto += (actual.texto ? ' ' : '') + linea;
+    } else if (actual) {
+      actual.texto += (actual.texto ? '\n' : '') + linea;
     }
   }
   return resultado;
+}
+
+function normalizar(nombre) {
+  return nombre.toLowerCase().replaceAll(' ', '-').replaceAll('ñ','n');
 }
 
 cargarTexto();
