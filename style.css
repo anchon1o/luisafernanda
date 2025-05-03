@@ -86,21 +86,30 @@ main {
   padding-bottom: 0.2rem;
 }
 
-/* Colores subrayado por personaje */
-.guion-linea.luisa-fernanda strong { border-color: #e63946; }
-.guion-linea.vidal strong          { border-color: #ffcc00; }
-.guion-linea.javier strong         { border-color: #3cb371; }
-.guion-linea.carolina strong       { border-color: #8e44ad; }
-.guion-linea.mariana strong        { border-color: #20b2aa; }
-.guion-linea.anibal strong         { border-color: #007bff; }
-.guion-linea.nogales strong        { border-color: #ff9900; }
-.guion-linea.don-florito strong    { border-color: #c77dff; }
-.guion-linea.bizco strong          { border-color: #ffcc99; }
-.guion-linea.rosita strong         { border-color: #ffb6c1; }
-.guion-linea.saboyano strong       { border-color: #66ccff; }
-.guion-linea.coro strong           { border-color: #999; }
-.guion-linea.narrador strong       { border-color: #aaa; }
 
+/* Guion: subrayado con fondo en lugar de línea */
+.guion-linea strong {
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.1rem 0.3rem;
+  border-radius: 4px;
+  background-color: #ddd;
+}
+
+/* Colores de subrayado por personaje */
+.guion-linea.luisa-fernanda strong { background-color: #f8d7da; }
+.guion-linea.vidal strong          { background-color: #fff3cd; }
+.guion-linea.javier strong         { background-color: #d4edda; }
+.guion-linea.carolina strong       { background-color: #e2d4f5; }
+.guion-linea.mariana strong        { background-color: #d1f0f0; }
+.guion-linea.anibal strong         { background-color: #d0e7ff; }
+.guion-linea.nogales strong        { background-color: #ffe5b4; }
+.guion-linea.don-florito strong    { background-color: #f3e5ff; }
+.guion-linea.bizco strong          { background-color: #ffedcc; }
+.guion-linea.rosita strong         { background-color: #ffe5ec; }
+.guion-linea.saboyano strong       { background-color: #cce5ff; }
+.guion-linea.coro strong           { background-color: #ffffff; }
+.guion-linea.narrador strong       { background-color: #e0e0e0; }
 /* Chat */
 .chat .bubble {
   margin: 1rem auto;
