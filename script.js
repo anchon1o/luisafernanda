@@ -182,6 +182,8 @@ const videos = {
   Z: "aJ45UuPGRo4"
 };
 
+let reproductorVisible = true;
+
 function reproducir(version) {
   console.log("Número seleccionado:", numeroSeleccionado);
 
@@ -193,8 +195,10 @@ function reproducir(version) {
   );
   console.log("Clave encontrada:", clave);
 
+  // Ocultar si no hay clave válida
   if (!clave || !tiemposPorNumero[clave]) {
-    alert("No hay tiempo asignado para este número.");
+    document.getElementById("reproductor").innerHTML = "";
+    reproductorVisible = false;
     return;
   }
 
@@ -202,7 +206,15 @@ function reproducir(version) {
   const tiempoInicio = tiempos[version];
 
   if (tiempoInicio === undefined) {
-    alert("No hay tiempo asignado para esta versión.");
+    document.getElementById("reproductor").innerHTML = "";
+    reproductorVisible = false;
+    return;
+  }
+
+  // Si ya está visible y se pulsa otra vez → ocultar
+  if (reproductorVisible && document.getElementById("reproductor").dataset.clave === clave + version) {
+    document.getElementById("reproductor").innerHTML = "";
+    reproductorVisible = false;
     return;
   }
 
@@ -216,7 +228,10 @@ function reproducir(version) {
 
   const contenedor = document.getElementById("reproductor");
   contenedor.innerHTML = "";
+  contenedor.dataset.clave = clave + version; // guardar para comparar en la siguiente pulsación
   contenedor.appendChild(iframe);
+  reproductorVisible = true;
 }
+
 
 cargarTexto();
