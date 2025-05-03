@@ -22,30 +22,32 @@ h1 {
 /* Menú horizontal deslizante */
 #menu-numeros {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   white-space: nowrap;
   background-color: #eee;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   border-bottom: 1px solid #ccc;
 }
 
 #menu-scroll {
-  display: flex;
-  gap: 0.4rem;
+  display: inline-flex;
+  gap: 0.6rem;
 }
 
 #menu-scroll button {
-  white-space: nowrap;
-  padding: 0.3rem 0.6rem;
+  font-size: 1rem;
+  padding: 0.6rem 1rem;
   border: none;
   border-radius: 6px;
   background-color: #ddd;
   cursor: pointer;
-  font-size: 0.9rem;
+  flex-shrink: 0;
 }
 
 #menu-scroll button:hover {
   background-color: #bbb;
 }
+
 
 /* Área de contenido */
 main {
