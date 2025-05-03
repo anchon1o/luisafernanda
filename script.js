@@ -1,9 +1,8 @@
-
 let bloquesPorNumero = {};
 let ordenNumeros = [];
 let vistaActual = 'guion';
 let numeroSeleccionado = 'todo';
-let personajeOculto = 'luisa fernanda';
+let personajesOcultos = new Set();
 
 async function cargarTexto() {
   const resp = await fetch('texto.txt');
@@ -81,18 +80,43 @@ function mostrarVista() {
 
   const entradas = parsearBloques(bloques);
 
-  if (vistaActual === 'guion') {
+  if (vistaActual === 'ensayo') {
+    const personajesUnicos = Array.from(new Set(entradas.filter(e => e.tipo === 'dialogo').map(e => e.personaje)));
+
+    const filtro = document.createElement("div");
+    filtro.className = "filtro-ensayo";
+    filtro.innerHTML = "<strong>Ocultar personajes:</strong><br>";
+    personajesUnicos.forEach(p => {
+      const id = `chk-${normalizar(p)}`;
+      const label = document.createElement("label");
+      label.innerHTML = `<input type="checkbox" id="${id}" ${personajesOcultos.has(p) ? 'checked' : ''}/> ${p}`;
+      label.style.marginRight = "1rem";
+      filtro.appendChild(label);
+
+      label.querySelector("input").addEventListener("change", (e) => {
+        if (e.target.checked) personajesOcultos.add(p);
+        else personajesOcultos.delete(p);
+        mostrarVista();
+      });
+    });
+    main.appendChild(filtro);
+  }
+
+  if (vistaActual === 'guion' || vistaActual === 'ensayo') {
     const container = document.createElement("div");
-    container.className = "guion";
+    container.className = vistaActual;
     entradas.forEach(linea => {
       if (linea.tipo === 'acotacion') {
         const p = document.createElement("div");
-        p.className = "guion-acotacion";
+        p.className = vistaActual + "-acotacion";
         p.innerHTML = linea.texto.replace(/\n/g, "<br>");
         container.appendChild(p);
       } else {
         const p = document.createElement("div");
-        p.className = `guion-linea ${normalizar(linea.personaje)}`;
+        p.className = `${vistaActual}-linea ${normalizar(linea.personaje)}`;
+        if (vistaActual === 'ensayo' && personajesOcultos.has(linea.personaje)) {
+          p.classList.add("oculto");
+        }
         p.innerHTML = `<strong>${linea.personaje}</strong>:<br>${linea.texto.replace(/\n/g, "<br>")}`;
         container.appendChild(p);
       }
@@ -117,32 +141,6 @@ function mostrarVista() {
       }
     });
     main.appendChild(div);
-  }
-
-  if (vistaActual === 'ensayo') {
-    const toggle = document.createElement("button");
-    toggle.textContent = `Mostrar/Ocultar ${personajeOculto.toUpperCase()}`;
-    toggle.className = "toggle-ensayo";
-    toggle.onclick = () => {
-      document.querySelectorAll(`.ensayo-linea.${normalizar(personajeOculto)}`).forEach(el => {
-        el.classList.toggle("oculto");
-      });
-    };
-    main.appendChild(toggle);
-
-    entradas.forEach(linea => {
-      if (linea.tipo === 'acotacion') {
-        const div = document.createElement("div");
-        div.className = "ensayo-acotacion";
-        div.innerHTML = linea.texto.replace(/\n/g, "<br>");
-        main.appendChild(div);
-      } else {
-        const div = document.createElement("div");
-        div.className = `ensayo-linea ${normalizar(linea.personaje)}`;
-        div.innerHTML = `<strong>${linea.personaje}:</strong><br>${linea.texto.replace(/\n/g, "<br>")}`;
-        main.appendChild(div);
-      }
-    });
   }
 }
 
