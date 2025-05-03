@@ -64,7 +64,37 @@ main {
   line-height: 1.5;
 }
 
-/* Botones de vista (opcional si los mantienes) */
+/* Chat view bubbles */
+.chat .bubble {
+  margin: 1rem auto;
+  padding: 0.8rem;
+  border-radius: 12px;
+  max-width: 70%;
+  color: #000;
+}
+
+/* Colores por personaje */
+.chat .bubble.luisa-fernanda   { background-color: #f8d7da; } /* rojo suave */
+.chat .bubble.vidal            { background-color: #fff3cd; } /* amarillo */
+.chat .bubble.javier           { background-color: #d4edda; } /* verde claro */
+.chat .bubble.carolina         { background-color: #e2d4f5; } /* violeta */
+.chat .bubble.marianA          { background-color: #d1f0f0; } /* verde azulado */
+.chat .bubble.aníbal,
+.chat .bubble.anibal           { background-color: #d0e7ff; } /* azul */
+.chat .bubble.nogales          { background-color: #ffe5b4; } /* naranja */
+.chat .bubble.don-florito      { background-color: #f3e5ff; } /* lila */
+.chat .bubble.bizco            { background-color: #ffedcc; } /* naranja claro */
+.chat .bubble.rosita           { background-color: #ffe5ec; } /* rosa */
+.chat .bubble.saboyano         { background-color: #cce5ff; } /* azul ligero */
+.chat .bubble.coro             { background-color: #ffffff; } /* blanco */
+
+/* Resto de personajes */
+.chat .bubble {
+  /* si no coincide ninguna clase específica, utiliza este fondo neutro */
+  background-color: #e6e6e6;
+}
+
+/* Botones de vista (opcional, si aún los mantienes) */
 #view-selector {
   margin-top: 0.5rem;
 }
