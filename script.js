@@ -150,25 +150,11 @@ function parsearBloques(bloque) {
   const lineas = bloque.split('\n');
   const resultado = [];
   let actual = null;
-  let enAcotacion = false;
-  let bufferAcotacion = [];
 
   for (let linea of lineas) {
     linea = linea.trim();
-
-    if (linea === '***') {
-      if (!enAcotacion) {
-        enAcotacion = true;
-        bufferAcotacion = [];
-      } else {
-        enAcotacion = false;
-        resultado.push({ tipo: 'acotacion', texto: bufferAcotacion.join('\n') });
-      }
-      continue;
-    }
-
-    if (enAcotacion) {
-      bufferAcotacion.push(linea);
+    if (linea.startsWith('//')) {
+      resultado.push({ tipo: 'acotacion', texto: linea.substring(2).trim() });
       continue;
     }
 
