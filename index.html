@@ -42,8 +42,10 @@
   </div>
 </div>
 <div id="view-selector">
-  <button onclick="cambiarVista('guion')">Guión</button>
-  <button onclick="cambiarVista('chat')">Chat</button>
-  <button onclick="cambiarVista('fragmentos')">Fragmentos</button>
+  <label for="vista">Vista:</label>
+  <select id="vista" onchange="cambiarVista(this.value)">
+    <option value="guion">Guión</option>
+    <option value="chat">Chat</option>
+    <option value="fragmentos">Fragmentos</option>
+  </select>
 </div>
-
