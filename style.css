@@ -48,18 +48,36 @@ h1 {
   background-color: #bbb;
 }
 
-/* Selector de vista */
-#view-selector {
-  padding: 1rem;
+/* Barra de controles */
+#barra-controles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem;
   background-color: #f0f0f0;
-  text-align: center;
+  border-bottom: 1px solid #ccc;
 }
 
-#view-selector select {
-  padding: 0.5rem;
+#barra-controles select,
+#barra-controles button {
   font-size: 1rem;
+  padding: 0.4rem 0.8rem;
   border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
 }
+
+#barra-controles button:hover {
+  background: #e0e0e0;
+}
+
+#reproductor {
+  text-align: center;
+  margin: 1rem 0;
+}
+
 
 /* Área principal */
 main {
