@@ -1,10 +1,11 @@
-[ACTO PRIMERO]
+ACTO PRIMERO
 
 
 
 ## CUADRO PRIMERO
+***
 Plazuela de San Javier, en el riñón del viejo Madrid. A la derecha e izquierda del foro, los dos brazos de la calle del Conde que desembocan en la plazuela: el de la izquierda del actor, angosto; el de la derecha, poco más amplio. Ocupa todo el fondo la posada de San Javier, con una pequeña puerta en el centro, y a cada lado de ella, sendas portaladas para carruajes. Sobre la que queda a la derecha, el rótulo del albergue pintado. En el lateral izquierdo, casa dieciochesca con hermoso portal cerca de la esquina y una gran ventana con reja, en primer término. En el lateral derecho, muro de contención de un jardín colgado, cuya balaustrada se columbra en lo alto y desde la cual penden algunas plantas de enredadera a ambos lados de una escalera que, rasgando el muro por el centro, se supone que baja desde el elevado jardín a la plazuela de San Javier. Tapa la supuesta escalera la puerta-verja practicable, desde la cual sobresale a la escena un solo escalón. Es de día.
-
+***
 
 
 ### Nº1A 🎵 INTRODUCCIÓN Y ESCENA PRIMERA
@@ -19,7 +20,7 @@ Hay sus razones,
 y es que te gustan mucho
 los pantalones...
 
-(Risas de las costureras)
+*** (Risas de las costureras) ***
 
 [ROSITA]
 ¿Lo dice usté con segunda?
@@ -31,7 +32,7 @@ No te sientas pudibunda.
 [ROSITA]
 Señora, esto y en la edad.
 
-(Con chulapería)]
+***(Con chulapería)***
 
 ¿A usté no le hablaban antes
 unos calzones bien puestos?
@@ -41,11 +42,14 @@ Es que los hay... fascinantes.
 
 [ROSITA]
 No lo dirá usté por éstos
-.
+
+***
 (Sacando el brazo con unos pantalones viejos y acuchillados. Por el fondo derecha aparece el Pollo 1°, mira a uno y otro lado de la plazuela y se acerca a Mariana, preguntándole mímicamente por alguien, a quien busca. La posadera le indica la casa de la izquierda. Cuando él va a hacer mutis por el portal, Rosita y sus compañeras tosen; él se cree que le llaman, pero se equivoca, y se va al fin a la casa entre las risas de las muchachas)
+***
 
 [VENDEDOR]
-(Dentro, pregonando, durante la escena mímica anterior)
+***
+(Dentro, pregonando, durante la escena mímica anterior)***
 Van por el camino real
 los cacharreros de Andújar
 las tardecitas de sol
