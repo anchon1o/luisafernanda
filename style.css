@@ -96,20 +96,15 @@ main {
   background-color: #e6e6e6;
 }
 
-/* Botones de vista (opcional, si aún los mantienes) */
+/* Selector de vista */
 #view-selector {
-  margin-top: 0.5rem;
+  padding: 1rem;
+  background-color: #f0f0f0;
+  text-align: center;
 }
 
-#view-selector button {
-  margin: 0.2rem;
-  padding: 0.4rem 0.8rem;
-  border: none;
+#view-selector select {
+  padding: 0.5rem;
+  font-size: 1rem;
   border-radius: 6px;
-  background-color: #ccc;
-  cursor: pointer;
-}
-
-#view-selector button:hover {
-  background-color: #aaa;
 }
