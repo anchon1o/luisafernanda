@@ -61,3 +61,30 @@ button:hover {
   border-radius: 6px;
   cursor: pointer;
 }
+
+#menu-numeros {
+  overflow-x: auto;
+  white-space: nowrap;
+  background-color: #eee;
+  padding: 0.5rem;
+  border-bottom: 1px solid #ccc;
+}
+
+#menu-scroll {
+  display: flex;
+  gap: 0.4rem;
+}
+
+#menu-scroll button {
+  white-space: nowrap;
+  padding: 0.3rem 0.6rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+#menu-scroll button:hover {
+  background-color: #bbb;
+}
+
