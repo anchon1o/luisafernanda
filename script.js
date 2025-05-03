@@ -66,4 +66,34 @@ function mostrarVista(vista) {
   }
 }
 
+function filtrarPorNumero(numeroClave) {
+  const main = document.getElementById("main-content");
+  main.innerHTML = "";
+
+  if (numeroClave === 'todo') {
+    mostrarVista('guion');
+    return;
+  }
+
+  // Filtrado aproximado: puedes afinarlo con etiquetas exactas si usas JSON más detallado
+  const resultado = bloquesGlobales.filter(b => {
+    const matchTexto = b.texto.toLowerCase().includes(numeroClave.toLowerCase());
+    const matchPersonaje = b.personaje.toLowerCase().includes(numeroClave.toLowerCase());
+    return matchTexto || matchPersonaje;
+  });
+
+  if (resultado.length === 0) {
+    main.innerHTML = "<p>No se encontró contenido para esta sección.</p>";
+    return;
+  }
+
+  const pre = document.createElement("pre");
+  pre.className = "guion";
+  resultado.forEach(linea => {
+    pre.textContent += `${linea.personaje}:\n${linea.texto}\n\n`;
+  });
+  main.appendChild(pre);
+}
+
+
 cargarTexto();
