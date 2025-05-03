@@ -1,55 +1,41 @@
-const texto = [
-  {
-    personaje: "LUISA",
-    texto: "¡Qué hermoso día! Me alegra el alma salir a pasear por el parque..."
-  },
-  {
-    personaje: "VIDAL",
-    texto: "¡Por fin llego! Este lugar guarda tantos recuerdos..."
-  },
-  {
-    personaje: "CAROLINA",
-    texto: "No entiendo cómo Luisa puede enamorarse de alguien como él..."
-  }
-];
+async function cargarTexto() {
+  const respuesta = await fetch('texto.txt');
+  const textoPlano = await respuesta.text();
+  const lineas = textoPlano.split('\n');
 
-function changeView(mode) {
-  const main = document.getElementById("main-content");
-  main.innerHTML = "";
+  const bloques = [];
 
-  if (mode === "guion") {
-    const pre = document.createElement("pre");
-    pre.className = "guion";
-    texto.forEach(linea => {
-      pre.textContent += `${linea.personaje}:\n${linea.texto}\n\n`;
-    });
-    main.appendChild(pre);
-  }
-
-  if (mode === "chat") {
-    const div = document.createElement("div");
-    div.className = "chat";
-    texto.forEach(linea => {
-      const bubble = document.createElement("div");
-      bubble.className = `bubble ${linea.personaje.toLowerCase()}`;
-      bubble.innerHTML = `<strong>${linea.personaje}:</strong> ${linea.texto}`;
-      div.appendChild(bubble);
-    });
-    main.appendChild(div);
-  }
-
-  if (mode === "fragmentos") {
-    texto.forEach(linea => {
-      const frag = document.createElement("div");
-      frag.className = "fragmento";
-      frag.innerHTML = `<strong>${linea.personaje}</strong><br><button class="reveal">Mostrar texto</button><div style="display:none;" class="text">${linea.texto}</div>`;
-      frag.querySelector(".reveal").addEventListener("click", () => {
-        frag.querySelector(".text").style.display = "block";
+  for (let linea of lineas) {
+    linea = linea.trim();
+    if (linea.match(/^[A-ZÁÉÍÓÚÑÜ\s]+:/)) {
+      const [personaje, ...resto] = linea.split(':');
+      bloques.push({
+        personaje: personaje.trim(),
+        texto: resto.join(':').trim()
       });
-      main.appendChild(frag);
-    });
+    } else if (linea !== '' && bloques.length > 0) {
+      // Añadir líneas adicionales al texto del último personaje
+      bloques[bloques.length - 1].texto += ' ' + linea;
+    }
   }
+
+  return bloques;
 }
 
-changeView("guion");
+function mostrarGuion(bloques) {
+  const main = document.getElementById("main-content");
+  main.innerHTML = "";
+  const pre = document.createElement("pre");
+  pre.className = "guion";
+  bloques.forEach(linea => {
+    pre.textContent += `${linea.personaje}:\n${linea.texto}\n\n`;
+  });
+  main.appendChild(pre);
+}
 
+async function iniciar() {
+  const bloques = await cargarTexto();
+  mostrarGuion(bloques);
+}
+
+iniciar();
