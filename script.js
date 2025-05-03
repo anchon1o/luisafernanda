@@ -179,6 +179,16 @@ const videos = {
 };
 
 function reproducir(version) {
+
+console.log("Número seleccionado:", numeroSeleccionado);
+console.log("Claves disponibles:", Object.keys(tiemposPorNumero));
+const clave = Object.keys(tiemposPorNumero).find(
+  k => k.toLowerCase() === numeroSeleccionado.toLowerCase()
+);
+console.log("Clave encontrada:", clave);
+
+
+  
   const tiempos = tiemposPorNumero[numeroSeleccionado];
   if (!tiempos || !tiempos[version]) {
     alert("No hay tiempo asignado para este número.");
