@@ -201,6 +201,28 @@ main {
   padding: 0.8rem 1.2rem;
   border-left: 5px solid #999;
   margin: 1rem 0;
+
+/* Filtro en modo ensayo */
+  .filtro-ensayo {
+  background: #f0f0f0;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.filtro-ensayo label {
+  display: inline-block;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.filtro-ensayo input[type="checkbox"] {
+  margin-right: 0.3rem;
+}
+
   border-radius: 6px;
   white-space: pre-wrap;
 }
