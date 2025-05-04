@@ -49,6 +49,7 @@ function construirMenu() {
 
   const botonTodo = document.createElement('button');
   botonTodo.textContent = 'LF';
+  botonTodo.dataset.numero = 'todo'; // <- importante
   botonTodo.onclick = () => { filtrarPorNumero('todo'); };
   menu.appendChild(botonTodo);
 
@@ -63,6 +64,7 @@ function construirMenu() {
   ordenNumeros.forEach((num, i) => {
     const btn = document.createElement('button');
     btn.textContent = num.label;
+    btn.dataset.numero = num.id; // <- aquí
     btn.onclick = () => { filtrarPorNumero(num.id); };
     menu.appendChild(btn);
     if ((i + 1) % 15 === 0) separador();
