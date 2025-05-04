@@ -315,7 +315,10 @@ function mostrarVista() {
     const siguienteBtn = document.createElement("button");
     siguienteBtn.textContent = "🎲 Otra";
     siguienteBtn.className = "btn-siguiente";
-    siguienteBtn.onclick = () => mostrarVista(); // Recarga
+    siguienteBtn.onclick = () => {
+      actualizarContadorRacha(racha);
+      mostrarVista(); // Recarga
+    } 
     container.appendChild(siguienteBtn);
     crearContadorRacha(container, racha);
 
