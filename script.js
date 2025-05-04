@@ -238,6 +238,68 @@ function mostrarVista() {
   }
 }
 
+if (vistaActual === 'sigue') {
+  const container = document.createElement("div");
+  container.className = "sigue";
+
+  // Extraer solo los diálogos sin acotaciones
+  const soloDialogos = [];
+  ordenNumeros.forEach(num => {
+    const texto = bloquesPorNumero[num.id];
+    const entradas = parsearBloques(texto);
+    entradas.forEach(e => {
+      if (e.tipo === 'dialogo') soloDialogos.push(e);
+    });
+  });
+
+  if (soloDialogos.length < 2) {
+    container.textContent = "No hay suficientes datos.";
+    main.appendChild(container);
+    return;
+  }
+
+  // Elegir una intervención aleatoria y su continuación
+  const idx = Math.floor(Math.random() * (soloDialogos.length - 1));
+  const actual = soloDialogos[idx];
+  const siguiente = soloDialogos[idx + 1];
+
+  // Elegir 3 distracciones aleatorias
+  const distracciones = soloDialogos
+    .filter((_, i) => i !== idx + 1)
+    .sort(() => Math.random() - 0.5)
+    .slice(0, 3);
+
+  const opciones = [...distracciones, siguiente].sort(() => Math.random() - 0.5);
+
+  // Mostrar frase actual
+  const frase = document.createElement("div");
+  frase.className = `sigue-linea ${normalizar(actual.personaje)}`;
+  frase.innerHTML = `<strong>${actual.personaje}</strong>:<br>${actual.texto}`;
+  container.appendChild(frase);
+
+  // Mostrar opciones
+  const opcionesGrid = document.createElement("div");
+  opcionesGrid.className = "sigue-opciones";
+
+  opciones.forEach(op => {
+    const opDiv = document.createElement("div");
+    opDiv.className = `sigue-linea opcion ${normalizar(op.personaje)}`;
+    opDiv.innerHTML = `<strong>${op.personaje}</strong>:<br>${op.texto.length > 180 ? op.texto.slice(0, 180) + '…' : op.texto}`;
+    opDiv.addEventListener("click", () => {
+      if (op === siguiente) {
+        opDiv.style.border = "4px solid green";
+      } else {
+        opDiv.style.border = "4px solid red";
+      }
+    });
+    opcionesGrid.appendChild(opDiv);
+  });
+
+  container.appendChild(opcionesGrid);
+  main.appendChild(container);
+}
+
+
 
 function parsearBloques(bloque) {
   const lineas = bloque.split('\n');
