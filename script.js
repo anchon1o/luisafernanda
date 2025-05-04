@@ -125,7 +125,7 @@ function mostrarVista() {
     panel.style.display = "none";
 
     const toggleBtn = document.createElement("button");
-    toggleBtn.textContent = "👥 Mostrar/Ocultar personajes";
+    toggleBtn.textContent = "👥 Ocultar personajes";
     toggleBtn.className = "toggle-ensayo";
     toggleBtn.onclick = () => {
       panel.style.display = panel.style.display === "none" ? "flex" : "none";
