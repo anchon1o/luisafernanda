@@ -8,21 +8,18 @@
 </head>
 <body>
 
-  <!-- BLOQUE FIJO -->
   <div id="fijo">
     <header>
       <h1>Luisa Fernanda</h1>
     </header>
 
-    <!-- Menú superior de navegación por números -->
     <div id="menu-numeros">
       <div id="menu-scroll">
         <button onclick="filtrarPorNumero('todo')">LF</button>
-        <!-- Añade aquí tus botones de números como ya los tienes -->
+        <!-- Aquí irían los demás botones -->
       </div>
     </div>
 
-    <!-- Barra de controles con navegación -->
     <div id="barra-controles">
       <div class="controles-izquierda">
         <select id="vista" onchange="cambiarVista(this.value)">
@@ -40,16 +37,13 @@
       </div>
     </div>
 
-    <!-- Reproductor -->
     <div id="reproductor"></div>
   </div>
 
-  <!-- Contenido desplazable -->
   <main id="main-content">
     <p>Cargando texto...</p>
   </main>
 
-  <!-- Scripts -->
   <script src="tiemposPorNumero.js"></script>
   <script src="script.js"></script>
 </body>
