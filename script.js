@@ -295,7 +295,15 @@ if (vistaActual === 'sigue') {
     opcionesGrid.appendChild(opDiv);
   });
 
-  container.appendChild(opcionesGrid);
+ container.appendChild(opcionesGrid);
+
+  // Botón para nueva pregunta
+  const siguienteBtn = document.createElement("button");
+  siguienteBtn.textContent = "🔁 Siguiente";
+  siguienteBtn.className = "btn-siguiente";
+  siguienteBtn.onclick = () => mostrarVista(); // Recarga misma vista
+  container.appendChild(siguienteBtn);
+
   main.appendChild(container);
 }
 
