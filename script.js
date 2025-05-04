@@ -293,6 +293,8 @@ function mostrarVista() {
     const opcionesGrid = document.createElement("div");
     opcionesGrid.className = "sigue-opciones";
     let racha = parseInt(localStorage.getItem("racha") || "0");
+
+    let bloqueado = false;
     
     opciones.forEach(op => {
       const opDiv = document.createElement("div");
@@ -300,6 +302,10 @@ function mostrarVista() {
       opDiv.innerHTML = `<strong>${op.personaje}</strong>:<br>${op.texto.length > 180 ? op.texto.slice(0, 180) + '…' : op.texto}`;
 
       opDiv.addEventListener("click", () => {
+
+        if (bloqueado) return;  // 🔒 Si ya se respondió, no hacer nada
+        bloqueado = true;
+        
         if (op === siguiente) {
           rachaGlobal++;
           
