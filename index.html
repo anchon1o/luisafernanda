@@ -48,6 +48,12 @@
   </main>
 
   <script src="tiemposPorNumero.js"></script>
+  <script type="module">
+  import { crearContadorRacha, actualizarContadorRacha } from './racha.js';
+  window.crearContadorRacha = crearContadorRacha;
+  window.actualizarContadorRacha = actualizarContadorRacha;
+</script>
+
   <script src="script.js"></script>
 </body>
 </html>
