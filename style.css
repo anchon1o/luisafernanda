@@ -273,8 +273,7 @@ main {
   margin-bottom: 1rem;         /* Espacio hacia abajo */
   border-radius: 6px;
   font-size: 0.95rem;
-  line-height: 1.5;
-  box-shadow: 0 0 4px rgba(0,0,0,0.05);
+  line-height: 1;
 }
 
 /* Botón para mostrar/ocultar el panel */
