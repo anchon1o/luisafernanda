@@ -1,19 +1,30 @@
+/* RESET Y FUENTE */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f8f8f8;
   color: #333;
+  height: 100vh;
+  overflow: hidden;
 }
 
+/* CONTENEDOR FIJO */
+#fijo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* HEADER */
 header {
   text-align: center;
   padding: 0.6rem;
-  background-color: #ffffff;
   border-bottom: 1px solid #ccc;
-  position: sticky;
-  top: 0;
-  z-index: 100;
 }
 
 h1 {
@@ -21,17 +32,13 @@ h1 {
   font-size: 1.4rem;
 }
 
-/* Menú horizontal deslizante */
+/* MENÚ DE NÚMEROS */
 #menu-numeros {
   overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
   white-space: nowrap;
   background-color: #eee;
   padding: 0.4rem 1rem;
   border-bottom: 1px solid #ccc;
-  position: sticky;
-  top: 2.4rem;
-  z-index: 99;
 }
 
 #menu-scroll {
@@ -53,7 +60,7 @@ h1 {
   background-color: #bbb;
 }
 
-/* Barra de controles */
+/* BARRA DE CONTROLES */
 #barra-controles {
   display: flex;
   justify-content: center;
@@ -62,9 +69,6 @@ h1 {
   padding: 0.5rem;
   background-color: #f0f0f0;
   border-bottom: 1px solid #ccc;
-  position: sticky;
-  top: 4.8rem;
-  z-index: 98;
 }
 
 #barra-controles select,
@@ -81,29 +85,34 @@ h1 {
   background: #e0e0e0;
 }
 
-/* Reproductor de YouTube */
+/* REPRODUCTOR YOUTUBE */
 #reproductor {
   text-align: center;
-  margin: 0;
+  height: auto;
   transition: height 0.3s ease;
+}
+
+#reproductor iframe {
+  width: 100%;
+  height: 200px;
+  border: none;
 }
 
 #reproductor.colapsado iframe {
   display: none;
 }
 
-/* Área principal */
+/* ÁREA PRINCIPAL DE TEXTO */
 main {
+  margin-top: 13.8rem; /* altura del bloque fijo */
+  height: calc(100vh - 13.8rem);
+  overflow-y: auto;
   padding: 1rem;
-  padding-top: 6.6rem;
-  transition: padding-top 0.3s ease;
+  box-sizing: border-box;
+  background-color: #f8f8f8;
 }
 
-.reproductor-activo main {
-  padding-top: 9.3rem;
-}
-
-/* Guion */
+/* GUION */
 .guion {
   font-family: 'Courier New', monospace;
 }
@@ -124,7 +133,7 @@ main {
   background-color: #ddd;
 }
 
-/* Colores de subrayado por personaje */
+/* COLORES DE PERSONAJES */
 .guion-linea.luisa-fernanda strong { background-color: #f8d7da; }
 .guion-linea.vidal strong          { background-color: #fff3cd; }
 .guion-linea.javier strong         { background-color: #d4edda; }
@@ -139,7 +148,7 @@ main {
 .guion-linea.coro strong           { background-color: #ffffff; }
 .guion-linea.narrador strong       { background-color: #e0e0e0; }
 
-/* Chat */
+/* CHAT */
 .chat .bubble {
   margin: 1rem auto;
   padding: 0.8rem;
@@ -164,7 +173,7 @@ main {
 .chat .bubble.coro             { background-color: #ffffff; }
 .chat .bubble.narrador         { background-color: #f0f0f0; }
 
-/* Ensayo */
+/* ENSAYO */
 .ensayo {
   font-size: 1.2rem;
   padding: 1rem;
@@ -184,7 +193,7 @@ main {
   display: none;
 }
 
-/* Filtro de personajes */
+/* FILTRO DE PERSONAJES */
 .filtro-ensayo {
   background: #f0f0f0;
   padding: 1rem;
@@ -205,7 +214,7 @@ main {
   margin-right: 0.3rem;
 }
 
-/* Acotaciones */
+/* ACOTACIONES */
 .guion-acotacion,
 .chat-acotacion,
 .ensayo-acotacion {
