@@ -224,17 +224,27 @@ const videos = {
 cargarTexto();
 
 function navegarADireccion(direccion) {
-  const indexActual = ordenNumeros.findIndex(n => n.id === numeroSeleccionado);
+  let indexActual = ordenNumeros.findIndex(n => n.id === numeroSeleccionado);
+
+  if (numeroSeleccionado === 'todo') {
+    // Si estamos en "todo", definimos el salto manualmente
+    numeroSeleccionado = direccion === 'anterior'
+      ? ordenNumeros[ordenNumeros.length - 1].id   // Ir al último
+      : ordenNumeros[0].id;                         // Ir al primero
+    mostrarVista();
+    return;
+  }
+
   if (indexActual === -1) return;
 
   let nuevoIndex = direccion === 'anterior' ? indexActual - 1 : indexActual + 1;
 
   if (nuevoIndex < 0 || nuevoIndex >= ordenNumeros.length) return;
 
-  const nuevoNumero = ordenNumeros[nuevoIndex].id;
-  numeroSeleccionado = nuevoNumero;
+  numeroSeleccionado = ordenNumeros[nuevoIndex].id;
   mostrarVista();
 }
+
 
 let reproductorVisible = true;
 
