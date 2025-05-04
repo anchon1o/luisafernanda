@@ -77,3 +77,70 @@ main {
   background: #fff;
   cursor: pointer;
 }
+
+/* === Vistas === */
+
+/* ====== VISTA GUION ====== */
+.guion {
+  font-family: 'Courier New', monospace;
+}
+
+.guion-linea {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  background-color: #fff;
+  border-radius: 6px;
+  white-space: pre-wrap;
+}
+
+.guion-linea strong {
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.1rem 0.3rem;
+  border-radius: 4px;
+  background-color: #ddd;
+}
+
+/* Colores de subrayado por personaje (ejemplos) */
+.guion-linea.luisa-fernanda strong { background-color: #f8d7da; }
+.guion-linea.vidal strong          { background-color: #fff3cd; }
+.guion-linea.javier strong         { background-color: #d4edda; }
+/* (añadir más personajes si hace falta) */
+
+/* ====== VISTA CHAT ====== */
+.chat .bubble {
+  margin: 1rem auto;
+  padding: 0.8rem;
+  border-radius: 12px;
+  max-width: 70%;
+  white-space: pre-wrap;
+  color: #000;
+  background-color: #e6e6e6;
+}
+
+.chat .bubble.luisa-fernanda { background-color: #f8d7da; }
+.chat .bubble.vidal          { background-color: #fff3cd; }
+.chat .bubble.javier         { background-color: #d4edda; }
+
+/* ====== VISTA ENSAYO ====== */
+.ensayo-linea {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #fff;
+  border: 2px solid #ccc;
+  white-space: pre-wrap;
+  font-size: 1.1rem;
+}
+
+/* Colores de borde para ensayo */
+.ensayo-linea.luisa-fernanda { border-color: #c88; }
+.ensayo-linea.vidal          { border-color: #cc9; }
+.ensayo-linea.javier         { border-color: #9c9; }
+
+/* Intervención oculta */
+.ensayo-linea.oculto {
+  background: #f9f9f9;
+  color: #777;
+  font-style: italic;
+  cursor: pointer;
+}
