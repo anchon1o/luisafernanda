@@ -284,7 +284,8 @@ function mostrarVista() {
     // Mostrar opciones
     const opcionesGrid = document.createElement("div");
     opcionesGrid.className = "sigue-opciones";
-
+    let racha = parseInt(localStorage.getItem("racha") || "0");
+    
     opciones.forEach(op => {
       const opDiv = document.createElement("div");
       opDiv.className = `sigue-linea opcion ${normalizar(op.personaje)}`;
@@ -292,9 +293,13 @@ function mostrarVista() {
 
       opDiv.addEventListener("click", () => {
         if (op === siguiente) {
+          racha++;
+          actualizarContadorRacha(racha);
           opDiv.style.border = "4px solid green";
           alert("✅ ¡Correcto!");
         } else {
+          racha = 0;
+          actualizarContadorRacha(racha);
           opDiv.style.border = "4px solid red";
           alert(`❌ Incorrecto. La respuesta correcta era:\n${siguiente.personaje}: ${siguiente.texto}`);
         }
@@ -312,6 +317,8 @@ function mostrarVista() {
     siguienteBtn.className = "btn-siguiente";
     siguienteBtn.onclick = () => mostrarVista(); // Recarga
     container.appendChild(siguienteBtn);
+    crearContadorRacha(container, racha);
+
 
     main.appendChild(container);
   }
