@@ -3,7 +3,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #e0e0e0;
+  background-color: #f0f0f0;
   color: #333;
 }
 
@@ -268,9 +268,9 @@ main {
 
 /* Contenedor general del panel de selección */
 .filtro-ensayo {
-  background: #f0f0f0;
-  padding: 1rem;
-  margin-bottom: 1rem;
+  background: none;            /* Elimina el color de fondo */
+  padding: 0.5rem 0;           /* Reduce el espacio interior */
+  margin-bottom: 1rem;         /* Espacio hacia abajo */
   border-radius: 6px;
   font-size: 0.95rem;
   line-height: 1.5;
