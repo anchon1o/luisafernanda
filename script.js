@@ -294,10 +294,14 @@ function mostrarVista() {
         if (op === siguiente) {
           opDiv.style.border = "4px solid green";
           alert("✅ ¡Correcto!");
+          racha++;
         } else {
           opDiv.style.border = "4px solid red";
           alert(`❌ Incorrecto. La respuesta correcta era:\n${siguiente.personaje}: ${siguiente.texto}`);
+          racha = 0;
         }
+        localStorage.setItem("racha", racha);
+        document.getElementById("racha-simple").textContent = `🔥 Racha: ${racha}`;
       });
 
       opcionesGrid.appendChild(opDiv);
@@ -313,6 +317,16 @@ function mostrarVista() {
     siguienteBtn.onclick = () => mostrarVista(); // Recarga
     container.appendChild(siguienteBtn);
 
+// Mostrar racha actual debajo del botón
+const rachaTexto = document.createElement("div");
+rachaTexto.id = "racha-simple";
+rachaTexto.textContent = `🔥 Racha: ${racha}`;
+rachaTexto.style.textAlign = "center";
+rachaTexto.style.marginTop = "0.5rem";
+rachaTexto.style.fontWeight = "bold";
+container.appendChild(rachaTexto);
+
+    
     main.appendChild(container);
   }
 }
