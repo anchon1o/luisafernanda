@@ -71,8 +71,26 @@ function construirMenu() {
 
 function filtrarPorNumero(num) {
   numeroSeleccionado = num;
+  actualizarBotonesMenu(); // NUEVO
   mostrarVista();
 }
+
+function actualizarBotonesMenu() {
+  const botones = document.querySelectorAll('#menu-scroll button');
+  botones.forEach(btn => {
+    const texto = btn.textContent.trim();
+    if (
+      texto === 'LF' && numeroSeleccionado === 'todo' ||
+      texto.toLowerCase().startsWith('nº') && texto.toLowerCase().includes(numeroSeleccionado) ||
+      texto === '▪️' && numeroSeleccionado.startsWith('t')
+    ) {
+      btn.classList.add('activo');
+    } else {
+      btn.classList.remove('activo');
+    }
+  });
+}
+
 
 function cambiarVista(vista) {
   vistaActual = vista;
@@ -227,10 +245,10 @@ function navegarADireccion(direccion) {
   let indexActual = ordenNumeros.findIndex(n => n.id === numeroSeleccionado);
 
   if (numeroSeleccionado === 'todo') {
-    // Si estamos en "todo", definimos el salto manualmente
     numeroSeleccionado = direccion === 'anterior'
-      ? ordenNumeros[ordenNumeros.length - 1].id   // Ir al último
-      : ordenNumeros[0].id;                         // Ir al primero
+      ? ordenNumeros[ordenNumeros.length - 1].id
+      : ordenNumeros[0].id;
+    actualizarBotonesMenu();
     mostrarVista();
     return;
   }
@@ -238,12 +256,13 @@ function navegarADireccion(direccion) {
   if (indexActual === -1) return;
 
   let nuevoIndex = direccion === 'anterior' ? indexActual - 1 : indexActual + 1;
-
   if (nuevoIndex < 0 || nuevoIndex >= ordenNumeros.length) return;
 
   numeroSeleccionado = ordenNumeros[nuevoIndex].id;
+  actualizarBotonesMenu();
   mostrarVista();
 }
+
 
 
 let reproductorVisible = true;
