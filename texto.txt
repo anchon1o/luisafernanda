@@ -17,7 +17,7 @@ Hay sus razones,
 y es que te gustan mucho
 los pantalones...
 
-*** (Risas de las costureras) ***
+// (Risas de las costureras)
 
 [ROSITA]
 ¿Lo dice usté con segunda?
