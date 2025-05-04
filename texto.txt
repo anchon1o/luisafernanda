@@ -1,13 +1,8 @@
 #ACTO PRIMERO
+
 ## CUADRO PRIMERO
 
 ### Nº1A 🎵 INTRODUCCIÓN Y ESCENA PRIMERA
-
-== ACTO PRIMERO ==
-
-== CUADRO PRIMERO ==
-
-== 1A. INTRODUCCIÓN Y ESCENA PRIMERA ==
 
 [ROSITA]
 Mi madre me criaba
@@ -139,7 +134,6 @@ con que se peina.
 (Mi madre me criaba pa chalequera)
 
 ### Nº1B 🎵 HABANERA
-== 1B. HABANERA ==
 
 [SABOYANO]
 Marchaba a ser soldado
