@@ -274,18 +274,62 @@ function navegarADireccion(direccion) {
 
 let reproductorVisible = true;
 
-function reproducir(version) {
+
+  function reproducir(version) {
   const claveLimpia = numeroSeleccionado.toLowerCase().replace(/^nº/, '');
   const clave = Object.keys(tiemposPorNumero).find(
     k => k.toLowerCase() === claveLimpia
   );
 
+  const contenedor = document.getElementById("reproductor");
+
+  // Si no hay clave o no hay tiempo definido, limpiar
   if (!clave || !tiemposPorNumero[clave]) {
-    document.getElementById("reproductor").innerHTML = "";
+    contenedor.innerHTML = "";
+    contenedor.removeAttribute("data-clave");
     reproductorVisible = false;
     ajustarAlturaMain();
     return;
   }
+
+  const tiempos = tiemposPorNumero[clave];
+  const tiempoInicio = tiempos[version];
+  if (tiempoInicio === undefined) {
+    contenedor.innerHTML = "";
+    contenedor.removeAttribute("data-clave");
+    reproductorVisible = false;
+    ajustarAlturaMain();
+    return;
+  }
+
+  // Si ya está activo con el mismo video y clave, lo cerramos
+  const claveActual = contenedor.dataset.clave;
+  const nuevaClave = clave + version;
+
+  if (claveActual === nuevaClave) {
+    contenedor.innerHTML = "";
+    contenedor.removeAttribute("data-clave");
+    reproductorVisible = false;
+    ajustarAlturaMain();
+    return;
+  }
+
+  // Si es un nuevo video, reemplazamos el reproductor
+  const videoId = videos[version];
+  const iframe = document.createElement("iframe");
+  iframe.src = `https://www.youtube.com/embed/${videoId}?start=${tiempoInicio}&autoplay=1`;
+  iframe.allow = "autoplay; encrypted-media";
+  iframe.frameBorder = "0";
+  iframe.width = "100%";
+  iframe.height = "360"; // Más grande, pero ajustable
+
+  contenedor.innerHTML = "";
+  contenedor.dataset.clave = nuevaClave;
+  contenedor.appendChild(iframe);
+  reproductorVisible = true;
+  ajustarAlturaMain();
+}
+
 
   const tiempos = tiemposPorNumero[clave];
   const tiempoInicio = tiempos[version];
