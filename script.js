@@ -20,7 +20,8 @@ async function cargarTexto() {
       textoBloque = '';
 
       const matchMusical = linea.match(/^###\s+(Nº?[\dA-Z]+)\s+🎵/i);
-      const matchHablado = linea.match(/^###\s+▪️(\d+)\)/);
+      const matchHablado = linea.match(/^###\s+▪️?(\d+)/i); // acepta ▪️1 o ▪️ 1 o ▪️1)
+
       if (matchMusical) {
         numeroActual = matchMusical[1].toLowerCase().replace(/^nº/, '');
         ordenNumeros.push({ id: numeroActual, label: `${matchMusical[1]} 🎵` });
@@ -28,11 +29,14 @@ async function cargarTexto() {
         numeroActual = `t${matchHablado[1]}`;
         ordenNumeros.push({ id: numeroActual, label: '▪️' });
       }
+
       bloquesPorNumero[numeroActual] = '';
-    } else {
-      textoBloque += linea + '\n';
+      continue;
     }
+
+    textoBloque += linea + '\n';
   }
+
   bloquesPorNumero[numeroActual] += textoBloque;
 
   construirMenu();
@@ -80,7 +84,7 @@ function mostrarVista() {
   main.innerHTML = "";
 
   const bloques = numeroSeleccionado === 'todo'
-    ? Object.values(bloquesPorNumero).join('\n\n')
+    ? ordenNumeros.map(n => bloquesPorNumero[n.id] || '').join('\n\n')
     : bloquesPorNumero[numeroSeleccionado] || 'Contenido no encontrado.';
 
   const entradas = parsearBloques(bloques);
@@ -195,7 +199,6 @@ function reproducir(version) {
   );
   console.log("Clave encontrada:", clave);
 
-  // Ocultar si no hay clave válida
   if (!clave || !tiemposPorNumero[clave]) {
     document.getElementById("reproductor").innerHTML = "";
     reproductorVisible = false;
@@ -211,7 +214,6 @@ function reproducir(version) {
     return;
   }
 
-  // Si ya está visible y se pulsa otra vez → ocultar
   if (reproductorVisible && document.getElementById("reproductor").dataset.clave === clave + version) {
     document.getElementById("reproductor").innerHTML = "";
     reproductorVisible = false;
@@ -228,7 +230,7 @@ function reproducir(version) {
 
   const contenedor = document.getElementById("reproductor");
   contenedor.innerHTML = "";
-  contenedor.dataset.clave = clave + version; // guardar para comparar en la siguiente pulsación
+  contenedor.dataset.clave = clave + version;
   contenedor.appendChild(iframe);
   reproductorVisible = true;
 }
@@ -237,6 +239,5 @@ function toggleReproductor() {
   const rep = document.getElementById("reproductor");
   rep.classList.toggle("colapsado");
 }
-
 
 cargarTexto();
