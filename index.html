@@ -18,57 +18,26 @@
     <div id="menu-numeros">
       <div id="menu-scroll">
         <button onclick="filtrarPorNumero('todo')">LF</button>
-        <span>|</span>
-        <button onclick="filtrarPorNumero('1a')">Nº1A 🎵</button>
-        <button onclick="filtrarPorNumero('1b')">Nº1B 🎵</button>
-        <button onclick="filtrarPorNumero('t1')">▪️</button>
-        <button onclick="filtrarPorNumero('2')">Nº2 🎵</button>
-        <button onclick="filtrarPorNumero('t2')">▪️</button>
-        <button onclick="filtrarPorNumero('t3')">▪️</button>
-        <button onclick="filtrarPorNumero('t4')">▪️</button>
-        <button onclick="filtrarPorNumero('3')">Nº3 🎵</button>
-        <button onclick="filtrarPorNumero('t5')">▪️</button>
-        <button onclick="filtrarPorNumero('4')">Nº4 🎵</button>
-        <button onclick="filtrarPorNumero('t6')">▪️</button>
-        <button onclick="filtrarPorNumero('5')">Nº5 🎵</button>
-        <span>|</span>
-        <button onclick="filtrarPorNumero('6a')">Nº6A 🎵</button>
-        <button onclick="filtrarPorNumero('6b')">Nº6B 🎵</button>
-        <button onclick="filtrarPorNumero('t7')">▪️</button>
-        <button onclick="filtrarPorNumero('t8')">▪️</button>
-        <button onclick="filtrarPorNumero('t9')">▪️</button>
-        <button onclick="filtrarPorNumero('t10')">▪️</button>
-        <button onclick="filtrarPorNumero('7')">Nº7 🎵</button>
-        <button onclick="filtrarPorNumero('t11')">▪️</button>
-        <button onclick="filtrarPorNumero('8')">Nº8 🎵</button>
-        <button onclick="filtrarPorNumero('t12')">▪️</button>
-        <button onclick="filtrarPorNumero('t13')">▪️</button>
-        <button onclick="filtrarPorNumero('10')">Nº10 🎵</button>
-        <button onclick="filtrarPorNumero('t14')">▪️</button>
-        <button onclick="filtrarPorNumero('t15')">▪️</button>
-        <button onclick="filtrarPorNumero('t16')">▪️</button>
-        <button onclick="filtrarPorNumero('t17')">▪️</button>
-        <button onclick="filtrarPorNumero('11')">Nº11 🎵</button>
-        <span>|</span>
-        <button onclick="filtrarPorNumero('12')">Nº12 🎵</button>
-        <button onclick="filtrarPorNumero('t18')">▪️</button>
-        <button onclick="filtrarPorNumero('t19')">▪️</button>
-        <button onclick="filtrarPorNumero('13')">Nº13 🎵</button>
-        <button onclick="filtrarPorNumero('t20')">▪️</button>
-        <button onclick="filtrarPorNumero('14')">Nº14 🎵</button>
+        <!-- Añade aquí tus botones de números como ya los tienes -->
       </div>
     </div>
 
-    <!-- Barra de controles -->
+    <!-- Barra de controles con navegación -->
     <div id="barra-controles">
-      <select id="vista" onchange="cambiarVista(this.value)">
-        <option value="guion">Guion</option>
-        <option value="chat">Chat</option>
-        <option value="ensayo">Ensayo</option>
-      </select>
-      <button onclick="reproducir('R')">R 🔴</button>
-      <button onclick="reproducir('Z')">Z 🟣</button>
-      <button onclick="toggleReproductor()">⇵</button>
+      <div class="controles-izquierda">
+        <select id="vista" onchange="cambiarVista(this.value)">
+          <option value="guion">Guion</option>
+          <option value="chat">Chat</option>
+          <option value="ensayo">Ensayo</option>
+        </select>
+        <button onclick="reproducir('R')">R 🔴</button>
+        <button onclick="reproducir('Z')">Z 🟣</button>
+        <button onclick="toggleReproductor()">⇵</button>
+      </div>
+      <div class="controles-derecha">
+        <button onclick="navegarADireccion('anterior')">⬅️</button>
+        <button onclick="navegarADireccion('siguiente')">➡️</button>
+      </div>
     </div>
 
     <!-- Reproductor -->
