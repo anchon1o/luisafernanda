@@ -1,9 +1,6 @@
-ACTO PRIMERO
-
-
+#ACTO PRIMERO
 
 ## CUADRO PRIMERO
-
 
 ### Nº1A 🎵 INTRODUCCIÓN Y ESCENA PRIMERA
 
@@ -16,7 +13,6 @@ pero yo le he salido pantalonera.
 Hay sus razones,
 y es que te gustan mucho
 los pantalones...
-
 // (Risas de las costureras)
 
 [ROSITA]
@@ -30,7 +26,6 @@ No te sientas pudibunda.
 Señora, estoy en la edad.
 
 (Con chulapería)
-
 ¿A usté no le hablaban antes
 unos calzones bien puestos?
 
@@ -85,7 +80,6 @@ Dos reales.
 
 [MARIANA]
 Dos reales.
-
 (Dándole la levita a Nogales)
 
 [NOGALES]
@@ -102,8 +96,7 @@ Conforme.
 
 [NOGALES]
 Adiós.
-
-(Mutis)
+// Mutis de Nogales
 
 [MARIANA]
 Hasta luego.
@@ -116,7 +109,6 @@ poco le cobra.
 Y es que el bolsillo
 también necesitaba
 buen zurcidillo...
-
 
 [CAROLINA]
 Buenos días, Mariana.
@@ -141,7 +133,6 @@ con que se peina.
 [ROSITA]
 (Mi madre me criaba pa chalequera)
 
-
 ### Nº1B 🎵 HABANERA
 
 [SABOYANO]
@@ -155,6 +146,7 @@ con él partir.
 que a las banderas te vas.
 Yo te prometo y te anuncio
 que vas a ser general”.
+
 Y el soldadito le contestaba:
 “Paloma mía, yo he de volver
 y, en nuestra boda,
@@ -167,6 +159,7 @@ diciendo adiós,
 la prometida del soldadito,
 hasta que apenas
 se ven los dos.
+
 No vuelve el soldadito;
 ya diez años del pueblo salió.
 No cumple a la mocita
@@ -175,13 +168,12 @@ Y ella le aguarda pensando
 que si no ha vuelto es quizá
 para venir con la faja
 de capitán general.
+
 El soldadito no la contesta
 Cuando le escribe
 cartas de amor,
 y ella está triste, la pobrecita,
 porque sospecha que se murió.
-
-(El músico, mirando a la parte alta de ambos laterales, pide, gorro en mano, y, en efecto, de los invisibles balcones de la izquierda caen algunos ochavos, que recoge trabajosamente)
 
 ¡Quién le dijera
 que el soldadito
@@ -191,79 +183,50 @@ y que en su boda
 fueron las arras
 los entorchados
 de brigadier!
-
-(El saboyano, tocando su aristón, vase por el fondo izquierda)
+//(El saboyano, tocando su aristón, vase por el fondo izquierda)
 
 ### ▪️1) TEXTO HABLADO
-
-
-
-
 
 [MARIANA]
 ¿Qué te parece, Rosita?
 ¡Rosita!...
 
-
 (Levantándose a mirar)
-
 
 Si ya no están.
 ¿Las espantó el saboyano
 o se fueron a almorzar?
 
-
-
 [MARIANA]
 Luisa Fernanda.
-
-
 
 [LUISA FERNANDA]
 ¿Qué hay, vecina?
 
-
-
 [MARIANA]
 ¿Volverás tempranito?
 
-
-
-
-
 [MARIANA]
 ¿Tú sabes quién ha venido?
-
-
 
 [LUISA FERNANDA]
 (Ilusionada)
 ¡Javier!
 
-
-
 [MARIANA]
 No, mujer.
-
-
 
 [LUISA FERNANDA]
 (Desencantada)
 Vidal.
 
-
-
 [MARIANA]
 Javier es un tarambana.
-
-
 
 [MARIANA]
 Mas tú, ¿cuándo llegarás
 a coronela, mi vida?
 ¿No te cansas de esperar?
-
-
 
 [LUISA FERNANDA]
 Ya sabe que no
@@ -274,23 +237,15 @@ Y, además, porque
 me da la real gana.
 ¿Se dice así? Pues ya está.
 
-
-
 [MARIANA]
 Vete a misa, porque veo
 que vamos a salir mal.
 
-
-
 [LUISA FERNANDA]
 Adiós, Mariana.
 
-
-
 [MARIANA]
 Hasta luego.
-
-
 
 ### Nº2 🎵 DÚO Y ROMANZA
 
@@ -337,6 +292,8 @@ que te vas a escapar.
 [JAVIER]
 Usté ya sabe que para mí
 las ilusiones están aquí.
+
+[JAVIER]
 De este apacible rincón de Madrid,
 donde mis años de mozo pasé,
 una mañana radiante partí
@@ -373,28 +330,18 @@ vuelos de águila caudal!
 
 ### ▪️2) TEXTO HABLADO
 
-
-
 [MARIANA]
 Conque... ¿por un alto amor?
 
-
-
 [JAVIER]
 Por el de Luisa Fernanda.
-
-
 
 [MARIANA]
 Y tú, por ahí de parranda,
 y ella, perdiendo el color.
 
-
-
 [JAVIER]
 ¿Por qué?
-
-
 
 [MARIANA]
 Porque es una flor
@@ -404,223 +351,141 @@ en su tiesto balconero,
 sin que vuelva el jardinero
 que allí la dejó escondida.
 
-
-
 [JAVIER]
 Ya estoy aquí.
 
-
-
 [MARIANA]
 Y, ¿hasta cuándo?
-
-
 
 [JAVIER]
 Las campañas,
 los deberes militares…
 
-
-
 [MARIANA]
 ¡Las mujeres!...
-
-
 
 [JAVIER]
 Lo dice usté...
 
-
-
 [MARIANA]
 Adivinando.
 
-
 Me voy a misa.
-
-
 
 [JAVIER]
 Adiós.
-
-
 
 [MARIANA]
 Volveré al momento.
 ¿Quieres algo para Luisa?
 
-
-
 [JAVIER]
 Por favor, que venga aprisa.
-
-
 
 [MARIANA]
 ¿De prisa vienes ahora?
 
-
-
-
-
-
-
 ### ▪️3) TEXTO HABLADO
-
-
 
 [ANÍBAL]
 (Avanzando hacia Javier)
 ¡Mi coronel!
 
-
-
 [JAVIER]
 ¿Tú, muchacho?
-
-
 
 [ANÍBAL]
 Sí, señor: aquí hay un cacho.
 ¡Qué! ¿A ver a la coronela?
 
-
-
 [JAVIER]
 ¡Hombre, sí!
-
-
 
 [ANÍBAL]
 ¡Buena mujer!
 
-
-
 [JAVIER]
 ¡Aníbal!
-
-
 
 [ANÍBAL]
 (A Nogales)
 Acérquese para aquí.
 ¡Ya tenemos espadón!
 
-
-
 [JAVIER]
 ¿Qué dices?
-
-
 
 [ANÍBAL]
 (Presentando)
 Don Luis Nogales.
 Don Javier Moreno.
 
-
-
 [NOGALES]
 (quiere estrecharle la mano pero Javier se muestra desconfiado)
 Ya nos conocimos.
 
-
-
 [JAVIER]
 Quizá; ¿dónde?
-
-
 
 [NOGALES]
 En la plaza mayor.
 Usté mandaba la tropa…
 
-
-
 [ANÍBAL]
 Y usté sacudía estopa…
 Liberal que era un primor.
 
-
 (le estrecha la mano)
-
-
 
 [JAVIER]
 Entonces gané un ascenso.
-
-
 
 [ANÍBAL]
 Bueno, bueno, Don Javier,
 tocante a lo de ascender,
 ahora es cuando está propenso.
 
-
-
 [JAVIER]
 ¿Quién me protege?
-
-
 
 [NOGALES]
 Su estrella.
 
-
-
 [JAVIER]
 No es poco.
-
-
 
 [NOGALES]
 Y la libertad,
 que le da oportunidad
 para que luche por ella.
 
-
-
 [JAVIER]
 ¡Pruebas de que ustedes dos
 me proponen algo serio!
-
-
 
 [NOGALES]
 Aquí están: no es un misterio.
 (Echando mano al bolsillo interior para sacar un documento)
 
-
-
 [ANÍBAL]
 (Cortándole la acción)
 Lo debe ser, ¡vive Dios!
 
-
 (Mirando a lo alto del jardín de la derecha)
+
 Nos espían desde allí.
-
-
 
 [JAVIER]
 ¿Quién?
 
-
-
 [NOGALES]
 ¿Dónde?
-
-
 
 [ANÍBAL]
 La duquesa Carolina.
 
-
-
 [NOGALES]
 No se la ve.
-
-
 
 [ANÍBAL]
 Yo la vi.
@@ -629,47 +494,30 @@ pues la duquesa ya ha olido
 que aquí hay pájaro escondido
 y no se la escapa nada.
 
-
-
 [JAVIER]
 Vamos, pues.
 
-
-(Los tres hacen mutis a la posada, por la puertecilla del centro, sin dejar de mirar al jardín vecino)
-
-
+//(Los tres hacen mutis a la posada, por la puertecilla del centro, sin dejar de mirar al jardín vecino)
 
 ### ▪️4) TEXTO HABLADO
-
-
 
 [LUISA FERNANDA]
 (Saliendo por el foro izquierda, seguida por Mariana)
 ¡Javier!
 
-
-
 [MARIANA]
 ¿Lo ves? Ya se ha ido.
-
-
 
 [LUISA FERNANDA]
 ¡Ingrato!
 
-
-
 [MARIANA]
 ¿Te convences?
-
-
 
 [LUISA FERNANDA]
 Ya usté ve.
 Le peso, le estorbo.
 Pero... ¡le quiero!
-
-
 
 [MARIANA]
 Lo que quisiera, alma mía,
@@ -680,91 +528,57 @@ un amo que no tenga más
 que el nombre de tal,
 que sea un buen hombre?
 ¡Mírale! ¡Ni con reclamo!
-
-
-(Sale por el foro derecha Vidal Hernando, joven aún, pero maduro; vestido como los labradores ricos de la alta Extremadura)
-
-
+//(Sale por el foro derecha Vidal Hernando, joven aún, pero maduro; vestido como los labradores ricos de la alta Extremadura)
 
 [VIDAL]
 Mariana…
 
-
-
 [LUISA FERNANDA]
 ¡Adiós!
 
-
 (Medio mutis)
-
-
 
 [VIDAL]
 ¡Señorita!
 ¿Mi presencia la importuna?
 
-
-
 [LUISA FERNANDA]
 (Cohibida)
 No, señor.
 
-
-
 [VIDAL]
 Pero hábleme usté...
-
-
 
 [MARIANA]
 Ya le dije que la hora de decidirse ha sonado.
 La señora lleva el reloj retrasado.
 
-
-
 [LUISA FERNANDA]
 No es eso, Vidal. Comprenda…
 
-
-
 [VIDAL]
 Compréndame usted a mí.
-
-
 
 [MARIANA]
 Si no se te cae la venda,
 ¿qué hacemos los tres aquí?
 
-
-
 [VIDAL]
 Usted... Callar.
-
-
 
 [MARIANA]
 Hasta luego.
 Me ha echado.
-
-
-(Mutis a la posada)
-
-
+//(Mutis a la posada)
 
 [LUISA FERNANDA]
 Y yo... ¿qué he de hacer?
-
-
 
 [VIDAL]
 Usted... oír a un labriego
 que adora en una mujer.
 
-
-
 ### Nº3 🎵 DÚO VIDAL Y LUISA FERNANDA
-
 
 [VIDAL]
 En mi tierra extremeña
@@ -867,57 +681,36 @@ del desdén con que los tratas.
 ¡Para un río de desdenes,
 tengo un puente de esperanzas!
 
-
 ### ▪️5) TEXTO HABLADO
-
-
-
-
 
 [ANÍBAL]
 (Sale de la posada por la puertecita)
 El coronel... ¡pan comido!
 ¡Tiembla en tu trono, Isabel!
 
-
-
 [VIDAL]
 ¿Qué dices?
-
-
 
 [ANÍBAL]
 Que el coronel
 se agrega a nuestro partido.
 
-
-
 [VIDAL]
 ¿Cuál es tu partido?
-
-
 
 [ANÍBAL]
 Creo que es muy claro, Don Vidal.
 ¡Un partido liberal!
 
-
-
 [VIDAL]
 Pero ¿cuál?
-
-
 
 [ANÍBAL]
 ¡El del jaleo!
 ¿Y usté no se anima?
 
-
-
 [VIDAL]
 Yo no soy político.
-
-
 
 [ANÍBAL]
 ¡Bueno!
@@ -926,62 +719,40 @@ dijo al principio que no;
 pero cuando un ideal
 anida dentro de un ser...
 
-
-
 [VIDAL]
 (Interesado)
 ¿Cuál es el suyo?
-
-
 
 [ANÍBAL]
 Ascender
 cuanto antes a general.
 
-
-
 [VIDAL]
 ¿Está adentro el coronel?
-
-
 
 [ANÍBAL]
 Sí señor. Y convencido.
 
-
-
 [VIDAL]
 Pues, entonces, me decido.
-
-
 
 [ANÍBAL]
 ¿Con nosotros?
 
-
-
 [VIDAL]
 ¡Contra él!
-
-
 
 [ANÍBAL]
 ¡Don Vidal!
 ¿Usté realista?
 
-
-
 [VIDAL]
 Lo contrario que él.
-
-
 
 [ANÍBAL]
 Me entero.
 ¿Qué él se hace carabinero?
 Pues usté... ¡contrabandista!
-
-
 
 [VIDAL]
 ¿El, soldado de fortuna?
@@ -989,15 +760,10 @@ Yo, labriego infortunado.
 Alguien nos ha colocado
 frente a frente.
 
-
-
 [ANÍBAL]
 ¿Alguien o “alguna”?
 
-
 (Después de decir esto, enfáticamente mirando al foro izquierda, entra en la posada por donde Vidal)
-
-
 
 ### Nº4 🎵 DÚO “DE LA FLOR”
 
@@ -1071,111 +837,71 @@ para el juego del amor.
 [JAVIER]
 ¡Digna es la flor
 de aquel rosal!
-
-(Mutis por la verja)
+//(Mutis por la verja)
 
 ### ▪️6) TEXTO HABLADO
 
-
-Salen nerviosos e intrigados Vidal y Aníbal. Este último saca en la mano un cabezón de madroños de vivo color.
-
-
+//Salen nerviosos e intrigados Vidal y Aníbal. Este último saca en la mano un cabezón de madroños de vivo color.
 
 [ANÍBAL]
 ¡Ya lo cazó la duquesa!
 
-
-
 [VIDAL]
 ¿Es posible?
-
-
 
 [ANÍBAL]
 Esa señora
 es la mejor cazadora
 del Jarama y su dehesa.
 
-
-
 [MARIANA]
 (Saliendo con Nogales)
 Este Javier...
 
-
-
 [NOGALES]
 ¡Traición!
 
-
-
 [VIDAL]
 ¿Traición por qué?
-
-
 
 [ANÍBAL]
 El espadón
 se nos ha vuelto serrucho.
 
-
-
 [VIDAL]
 Y ¿qué importa?
 
-
-
 [NOGALES]
 Pero ¿qué tiene esa dama?
-
-
 
 [ANÍBAL]
 A la vista salta, Don Luis.
 Que es realista...
 ¡y que es más guapa que usté!
 
-
-
 [NOGALES]
 ¿Nos venderá ese bribón?
-
-
 
 [VIDAL]
 ¡Animo, que yo me alisto
 contra su causa!
-
-
-(Sale Luisa Fernanda, trémula, celosa... Mariana acude junto a ella)
-
-
+//(Sale Luisa Fernanda, trémula, celosa... Mariana acude junto a ella)
 
 [MARIANA]
 ¿Lo has visto?
 
-
-
 [LUISA FERNANDA]
 ¡Lo vi desde mi balcón!
-
-
 
 [MARIANA]
 ¿Te convences?
 
-
-
 [LUISA FERNANDA]
 Es verdad.
-
-
 
 [NOGALES]
 A un tiempo le hace traición
 a usté y a la libertad.
-
-
 
 [VIDAL]
 (A Nogales)
@@ -1183,17 +909,11 @@ La libertad... que me pida.
 Sangre y dinero.
 ¡Usté manda!
 
-
 (Le estrecha la mano)
 Y en cuanto a Luisa Fernanda,
 lo que ella quiera... ¡la vida!
 
-
-
-
-
 ### Nº5 🎵 FINAL DEL ACTO I
-
 
 [LUISA FERNANDA]
 Abrasado en la llama
@@ -1251,7 +971,7 @@ Lo importante es decidir.
 ¡La de palos que va a haber!
 ¡Ahora sí que soy feliz!
 
-(Mariana se ha entrado en la posada por la puertecita. Vidal y Nogales entran por la puerta grande. Vidal queda a la derecha, contemplando a Luisa Fernanda, la cual enjugándose una lágrima va a hacer mutis por el portal, cuando se oye la voz de Carolina, por la derecha en alto y, luego, la de Javier. Luisa Fernanda, como aturdida, vuelve sobre sus pasos hacia la derecha, escuchando. Vidal se aparta de ese lado y, por el fondo, viene a colocarse a la izquierda)
+//(Mariana se ha entrado en la posada por la puertecita. Vidal y Nogales entran por la puerta grande. Vidal queda a la derecha, contemplando a Luisa Fernanda, la cual enjugándose una lágrima va a hacer mutis por el portal, cuando se oye la voz de Carolina, por la derecha en alto y, luego, la de Javier. Luisa Fernanda, como aturdida, vuelve sobre sus pasos hacia la derecha, escuchando. Vidal se aparta de ese lado y, por el fondo, viene a colocarse a la izquierda)
 
 [CAROLINA]
 (Dentro)
@@ -1272,22 +992,16 @@ del rosal del corazón”.
 Una flor se me ha caído...
 del rosal del corazón.
 
-(Cae desmayada en brazos de Vidal, que ya estaba a su lado)
+//(Cae desmayada en brazos de Vidal, que ya estaba a su lado)
 
 [VIDAL]
 (Suavemente)
 En el rosal del corazón,
 hay un lugar para otra flor...
 
-
-
-
 # ACTO SEGUNDO
 
-
-
 ## CUADRO PRIMERO
-
 
 En el Paseo de La Florida, que se pierde hacia el fondo izquierda hasta el Portillo de San Vicente, que se ve lejano. En el lateral derecho, la ermita de San Antonio, formándose un rincón entre el pórtico que sobresale y el cuerpo principal del templo. En primer término de éste, la puerta de la rectoral. En la rinconada, frente al espectador, una mesa petitoria, revestida con unas faldas y un paño bordado. Sobrepuesta en las faldas, la siguiente inscripción:“Pan de San Antonio”.A la izquierda, un aguaducho, en primer término, con dos veladores y sillas delante. En segundo término, la fuente, que, a la sazón, existía en aquel paraje. Son practicables para los actores: a la derecha, la puerta de la rectoral, la del templo y el último término; a la izquierda, los términos primero y último. Es por la tarde.
 
