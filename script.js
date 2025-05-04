@@ -186,6 +186,23 @@ const videos = {
   Z: "aJ45UuPGRo4"
 };
 
+
+
+cargarTexto();
+
+function navegarADireccion(direccion) {
+  const indexActual = ordenNumeros.findIndex(n => n.id === numeroSeleccionado);
+  if (indexActual === -1) return;
+
+  let nuevoIndex = direccion === 'anterior' ? indexActual - 1 : indexActual + 1;
+
+  if (nuevoIndex < 0 || nuevoIndex >= ordenNumeros.length) return;
+
+  const nuevoNumero = ordenNumeros[nuevoIndex].id;
+  numeroSeleccionado = nuevoNumero;
+  mostrarVista();
+}
+
 let reproductorVisible = true;
 
 function reproducir(version) {
@@ -211,32 +228,24 @@ function reproducir(version) {
     return;
   }
 
-  if (reproductorVisible && document.getElementById("reproductor").dataset.clave === clave + version) {
-    document.getElementById("reproductor").innerHTML = "";
-    reproductorVisible = false;
-    ajustarAlturaMain();
-    return;
-  }
-
   const videoId = videos[version];
   const iframe = document.createElement("iframe");
-  iframe.width = "100%";
-  iframe.height = "200";
   iframe.src = `https://www.youtube.com/embed/${videoId}?start=${tiempoInicio}&autoplay=1`;
   iframe.allow = "autoplay; encrypted-media";
   iframe.frameBorder = "0";
 
   const contenedor = document.getElementById("reproductor");
   contenedor.innerHTML = "";
-  contenedor.dataset.clave = clave + version;
   contenedor.appendChild(iframe);
+  contenedor.dataset.clave = clave + version;
+  contenedor.classList.remove("colapsado");
   reproductorVisible = true;
   ajustarAlturaMain();
 }
 
 function toggleReproductor() {
-  const rep = document.getElementById("reproductor");
-  rep.classList.toggle("colapsado");
+  const contenedor = document.getElementById("reproductor");
+  contenedor.classList.toggle("colapsado");
   ajustarAlturaMain();
 }
 
@@ -249,18 +258,3 @@ function ajustarAlturaMain() {
 
 window.addEventListener("load", ajustarAlturaMain);
 window.addEventListener("resize", ajustarAlturaMain);
-
-cargarTexto();
-
-function navegarADireccion(direccion) {
-  const indexActual = ordenNumeros.findIndex(n => n.id === numeroSeleccionado);
-  if (indexActual === -1) return;
-
-  let nuevoIndex = direccion === 'anterior' ? indexActual - 1 : indexActual + 1;
-
-  if (nuevoIndex < 0 || nuevoIndex >= ordenNumeros.length) return;
-
-  const nuevoNumero = ordenNumeros[nuevoIndex].id;
-  numeroSeleccionado = nuevoNumero;
-  mostrarVista();
-}
