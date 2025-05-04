@@ -1,9 +1,11 @@
-let bloquesPorNumero = {};
-let ordenNumeros = [];
-let vistaActual = 'guion';
-let numeroSeleccionado = 'todo';
-let personajesOcultos = new Set();
+// Estructuras principales para almacenamiento y estado
+let bloquesPorNumero = {};                // Contendrá el texto agrupado por número o sección
+let ordenNumeros = [];                    // Orden de aparición de los números (para navegación)
+let vistaActual = 'guion';                // Vista activa: guion, ensayo, chat o sigue
+let numeroSeleccionado = 'todo';          // Número actualmente mostrado
+let personajesOcultos = new Set();        // En modo ensayo: personajes ocultos
 
+// Carga el archivo de texto principal, lo divide por secciones y guarda los bloques
 async function cargarTexto() {
   const resp = await fetch('texto.txt');
   const texto = await resp.text();
@@ -15,10 +17,12 @@ async function cargarTexto() {
 
   for (let linea of lineas) {
     if (linea.startsWith('###')) {
+      // Guardamos lo anterior
       if (!bloquesPorNumero[numeroActual]) bloquesPorNumero[numeroActual] = '';
       bloquesPorNumero[numeroActual] += textoBloque;
       textoBloque = '';
 
+      // Detectamos cabecera de número musical o hablado
       const matchMusical = linea.match(/^###\s+(Nº?[\dA-Z]+)\s*🎵/i);
       const matchHablado = linea.match(/^###\s+▪️\s*(\d+)[\)]?/i);
 
@@ -34,48 +38,51 @@ async function cargarTexto() {
       continue;
     }
 
+    // Agregar línea al bloque actual
     textoBloque += linea + '\n';
   }
 
+  // Agregamos el último bloque que quedó pendiente
   bloquesPorNumero[numeroActual] += textoBloque;
 
   construirMenu();
   mostrarVista();
 }
 
+// Construye el menú horizontal de navegación por números
 function construirMenu() {
   const menu = document.getElementById('menu-scroll');
   menu.innerHTML = '';
 
-  // Crear botón "LF" para mostrar todo
+  // Botón "LF" (todo el texto)
   const botonTodo = document.createElement('button');
   botonTodo.textContent = 'LF';
-  botonTodo.dataset.numero = 'todo'; // Asignar data-numero
+  botonTodo.dataset.numero = 'todo';
   botonTodo.onclick = () => { filtrarPorNumero('todo'); };
   menu.appendChild(botonTodo);
 
-  // Función para agregar separadores
+  // Separador entre botones (dos espacios)
   const separador = () => {
     const span = document.createElement('span');
-    span.textContent = '  '; // Dos espacios como separador
+    span.textContent = '  ';
     menu.appendChild(span);
   };
 
   separador();
 
-  // Crear botones para cada número en ordenNumeros
+  // Botones para cada número (musical o hablado)
   ordenNumeros.forEach((num, i) => {
     const btn = document.createElement('button');
     btn.textContent = num.label;
-    btn.dataset.numero = num.id; // Asignar data-numero
+    btn.dataset.numero = num.id;
     btn.onclick = () => { filtrarPorNumero(num.id); };
     menu.appendChild(btn);
     if ((i + 1) % 15 === 0) separador();
   });
 
-  // Actualizar la clase 'activo' en los botones
-  actualizarBotonesMenu();
+  actualizarBotonesMenu(); // Marca el botón activo
 }
+
 
 function filtrarPorNumero(num) {
   numeroSeleccionado = num;
