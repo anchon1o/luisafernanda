@@ -54,7 +54,7 @@ function construirMenu() {
 
   const separador = () => {
     const span = document.createElement('span');
-    span.textContent = '|';
+    span.textContent = '  ';
     menu.appendChild(span);
   };
 
