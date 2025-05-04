@@ -3,6 +3,8 @@ let ordenNumeros = [];
 let vistaActual = 'guion';
 let numeroSeleccionado = 'todo';
 let personajesOcultos = new Set();
+let rachaActual = 0;
+
 
 async function cargarTexto() {
   const resp = await fetch('texto.txt');
@@ -235,11 +237,7 @@ function mostrarVista() {
   const container = document.createElement("div");
   container.className = "sigue";
 
-  // 🔥 Barra de racha
-  const barraRacha = document.createElement("div");
-  barraRacha.className = "racha-barra";
-  barraRacha.innerHTML = '🔥 Racha: <span id="racha-valor">0</span>';
-  container.appendChild(barraRacha);
+ 
 
   // Preparar datos
   const soloDialogos = [];
@@ -299,17 +297,18 @@ function mostrarVista() {
       bloqueado = true;
 
       if (op === siguiente) {
-        opDiv.style.border = "4px solid green";
-        racha++;
-        alert("✅ ¡Correcto!");
+        opDiv.style.border = "4px solid limegreen";
+        feedback.textContent = "✅ ¡Correcto!";
+        feedback.style.color = "limegreen";
+        rachaActual += 1;
       } else {
         opDiv.style.border = "4px solid red";
-        racha = 0;
-        alert(`❌ Incorrecto.\n✔️ Era: ${siguiente.personaje}: ${siguiente.texto}`);
+        feedback.innerHTML = `❌ Incorrecto. La correcta era:<br><strong>${siguiente.personaje}</strong>: ${siguiente.texto}`;
+        feedback.style.color = "crimson";
+        rachaActual = 0;
       }
+      racha.textContent = `🔥 Racha: ${rachaActual}`;
 
-      localStorage.setItem("racha", racha);
-      document.getElementById("racha-valor").textContent = racha;
     });
 
     opcionesGrid.appendChild(opDiv);
@@ -317,11 +316,29 @@ function mostrarVista() {
 
   container.appendChild(opcionesGrid);
 
-  const siguienteBtn = document.createElement("button");
-  siguienteBtn.textContent = "🎲 Otra";
-  siguienteBtn.className = "btn-siguiente";
-  siguienteBtn.onclick = () => mostrarVista();
-  container.appendChild(siguienteBtn);
+
+// Contenedor con botón y barra de racha
+const barraInferior = document.createElement("div");
+barraInferior.className = "sigue-barra-inferior";
+barraInferior.style.display = "flex";
+barraInferior.style.justifyContent = "space-between";
+barraInferior.style.alignItems = "center";
+barraInferior.style.marginTop = "1rem";
+
+// Racha
+const racha = document.createElement("div");
+racha.className = "sigue-racha";
+racha.textContent = `🔥 Racha: ${rachaActual}`;
+barraInferior.appendChild(racha);
+
+// Botón otra
+const siguienteBtn = document.createElement("button");
+siguienteBtn.textContent = "🎲 Otra";
+siguienteBtn.className = "btn-siguiente";
+siguienteBtn.onclick = () => mostrarVista(); // Recarga
+barraInferior.appendChild(siguienteBtn);
+
+container.appendChild(barraInferior);
 
   main.appendChild(container);
 
