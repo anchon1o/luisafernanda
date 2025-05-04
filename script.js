@@ -139,29 +139,25 @@ function mostrarVista() {
       panel.appendChild(label);
 
       label.querySelector("input").addEventListener("change", (e) => {
-          if (e.target.checked) {
-            personajesOcultos.add(p);
-          } else {
-            personajesOcultos.delete(p);
-          }
-        
-          // Solo actualiza la clase 'oculto' sin reconstruir todo
-          document.querySelectorAll(`.${normalizar(p)}`).forEach(el => {
-            if (vistaActual === 'ensayo') {
-              if (personajesOcultos.has(p)) {
-                el.classList.add("oculto");
-                el.innerHTML = `<strong>${p}</strong>:<br><em>— intervención oculta —</em>`;
-                el.dataset.textoOriginal = el.dataset.textoOriginal || el.innerHTML;
-              } else {
-                el.classList.remove("oculto");
-                el.innerHTML = `<strong>${p}</strong>:<br>${(el.dataset.textoOriginal || '').replace(/\n/g, "<br>")}`;
-              }
+        if (e.target.checked) {
+          personajesOcultos.add(p);
+        } else {
+          personajesOcultos.delete(p);
+        }
+
+        document.querySelectorAll(`.${normalizar(p)}`).forEach(el => {
+          if (vistaActual === 'ensayo') {
+            if (personajesOcultos.has(p)) {
+              el.classList.add("oculto");
+              el.innerHTML = `<strong>${p}</strong>:<br><em>— intervención oculta —</em>`;
+              el.dataset.textoOriginal = el.dataset.textoOriginal || el.innerHTML;
+            } else {
+              el.classList.remove("oculto");
+              el.innerHTML = `<strong>${p}</strong>:<br>${(el.dataset.textoOriginal || '').replace(/\n/g, "<br>")}`;
             }
-          });
+          }
         });
-
-
-
+      });
     });
 
     filtro.appendChild(panel);
@@ -169,54 +165,52 @@ function mostrarVista() {
   }
 
   if (vistaActual === 'guion' || vistaActual === 'ensayo') {
-  const container = document.createElement("div");
-  container.className = vistaActual;
+    const container = document.createElement("div");
+    container.className = vistaActual;
 
-  entradas.forEach(linea => {
-    const p = document.createElement("div");
+    entradas.forEach(linea => {
+      const p = document.createElement("div");
 
-    if (linea.tipo === 'acotacion') {
-      p.className = vistaActual + "-acotacion";
-      p.innerHTML = linea.texto.replace(/\n/g, "<br>");
-    } else {
-      p.className = `${vistaActual}-linea ${normalizar(linea.personaje)}`;
-
-      // Guardamos el contenido original como referencia
-      p.dataset.personaje = linea.personaje;
-      p.dataset.textoOriginal = linea.texto;
-
-      const renderContenido = (visible) => {
-        if (visible) {
-          p.innerHTML = `<strong>${linea.personaje}</strong>:<br>${linea.texto.replace(/\n/g, "<br>")}`;
-          p.classList.remove("oculto");
-          p.classList.remove("revelado");
-        } else {
-          p.innerHTML = `<strong>${linea.personaje}</strong>:<br><em>— intervención oculta —</em>`;
-          p.classList.add("oculto");
-          p.classList.remove("revelado");
-        }
-      };
-
-      if (vistaActual === 'ensayo' && personajesOcultos.has(linea.personaje)) {
-        renderContenido(false);
+      if (linea.tipo === 'acotacion') {
+        p.className = vistaActual + "-acotacion";
+        p.innerHTML = linea.texto.replace(/\n/g, "<br>");
       } else {
-        renderContenido(true);
+        p.className = `${vistaActual}-linea ${normalizar(linea.personaje)}`;
+        p.dataset.personaje = linea.personaje;
+        p.dataset.textoOriginal = linea.texto;
+
+        const renderContenido = (visible) => {
+          if (visible) {
+            p.innerHTML = `<strong>${linea.personaje}</strong>:<br>${linea.texto.replace(/\n/g, "<br>")}`;
+            p.classList.remove("oculto");
+            p.classList.remove("revelado");
+          } else {
+            p.innerHTML = `<strong>${linea.personaje}</strong>:<br><em>— intervención oculta —</em>`;
+            p.classList.add("oculto");
+            p.classList.remove("revelado");
+          }
+        };
+
+        if (vistaActual === 'ensayo' && personajesOcultos.has(linea.personaje)) {
+          renderContenido(false);
+        } else {
+          renderContenido(true);
+        }
+
+        if (vistaActual === 'ensayo') {
+          p.addEventListener("click", () => {
+            const visible = p.classList.contains("revelado") || !p.classList.contains("oculto");
+            renderContenido(!visible);
+            if (!visible) p.classList.add("revelado");
+          });
+        }
       }
 
-      if (vistaActual === 'ensayo') {
-        p.addEventListener("click", () => {
-          const visible = p.classList.contains("revelado") || !p.classList.contains("oculto");
-          renderContenido(!visible);
-          if (!visible) p.classList.add("revelado");
-        });
-      }
-    }
+      container.appendChild(p);
+    });
 
-    container.appendChild(p);
-  });
-
-  main.appendChild(container);
-}
+    main.appendChild(container);
+  }
 
   if (vistaActual === 'chat') {
     const div = document.createElement("div");
@@ -236,76 +230,71 @@ function mostrarVista() {
     });
     main.appendChild(div);
   }
-}
 
-if (vistaActual === 'sigue') {
-  const container = document.createElement("div");
-  container.className = "sigue";
+  if (vistaActual === 'sigue') {
+    const container = document.createElement("div");
+    container.className = "sigue";
 
-  // Extraer solo los diálogos sin acotaciones
-  const soloDialogos = [];
-  ordenNumeros.forEach(num => {
-    const texto = bloquesPorNumero[num.id];
-    const entradas = parsearBloques(texto);
-    entradas.forEach(e => {
-      if (e.tipo === 'dialogo') soloDialogos.push(e);
+    const soloDialogos = [];
+    ordenNumeros.forEach(num => {
+      const texto = bloquesPorNumero[num.id];
+      const entradas = parsearBloques(texto);
+      entradas.forEach(e => {
+        if (e.tipo === 'dialogo') soloDialogos.push(e);
+      });
     });
-  });
 
-  if (soloDialogos.length < 2) {
-    container.textContent = "No hay suficientes datos.";
+    if (soloDialogos.length < 2) {
+      container.textContent = "No hay suficientes datos.";
+      main.appendChild(container);
+      return;
+    }
+
+    const idx = Math.floor(Math.random() * (soloDialogos.length - 1));
+    const actual = soloDialogos[idx];
+    const siguiente = soloDialogos[idx + 1];
+
+    const distracciones = soloDialogos
+      .filter((_, i) => i !== idx + 1)
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 3);
+
+    const opciones = [...distracciones, siguiente].sort(() => Math.random() - 0.5);
+
+    const frase = document.createElement("div");
+    frase.className = `sigue-linea ${normalizar(actual.personaje)}`;
+    frase.innerHTML = `<strong>${actual.personaje}</strong>:<br>${actual.texto}`;
+    container.appendChild(frase);
+
+    const opcionesGrid = document.createElement("div");
+    opcionesGrid.className = "sigue-opciones";
+
+    opciones.forEach(op => {
+      const opDiv = document.createElement("div");
+      opDiv.className = `sigue-linea opcion ${normalizar(op.personaje)}`;
+      opDiv.innerHTML = `<strong>${op.personaje}</strong>:<br>${op.texto.length > 180 ? op.texto.slice(0, 180) + '…' : op.texto}`;
+      opDiv.addEventListener("click", () => {
+        if (op === siguiente) {
+          opDiv.style.border = "4px solid green";
+        } else {
+          opDiv.style.border = "4px solid red";
+        }
+      });
+      opcionesGrid.appendChild(opDiv);
+    });
+
+    container.appendChild(opcionesGrid);
+
+    const siguienteBtn = document.createElement("button");
+    siguienteBtn.textContent = "🔁 Siguiente";
+    siguienteBtn.className = "btn-siguiente";
+    siguienteBtn.onclick = () => mostrarVista(); // Recarga
+    container.appendChild(siguienteBtn);
+
     main.appendChild(container);
-    return;
   }
-
-  // Elegir una intervención aleatoria y su continuación
-  const idx = Math.floor(Math.random() * (soloDialogos.length - 1));
-  const actual = soloDialogos[idx];
-  const siguiente = soloDialogos[idx + 1];
-
-  // Elegir 3 distracciones aleatorias
-  const distracciones = soloDialogos
-    .filter((_, i) => i !== idx + 1)
-    .sort(() => Math.random() - 0.5)
-    .slice(0, 3);
-
-  const opciones = [...distracciones, siguiente].sort(() => Math.random() - 0.5);
-
-  // Mostrar frase actual
-  const frase = document.createElement("div");
-  frase.className = `sigue-linea ${normalizar(actual.personaje)}`;
-  frase.innerHTML = `<strong>${actual.personaje}</strong>:<br>${actual.texto}`;
-  container.appendChild(frase);
-
-  // Mostrar opciones
-  const opcionesGrid = document.createElement("div");
-  opcionesGrid.className = "sigue-opciones";
-
-  opciones.forEach(op => {
-    const opDiv = document.createElement("div");
-    opDiv.className = `sigue-linea opcion ${normalizar(op.personaje)}`;
-    opDiv.innerHTML = `<strong>${op.personaje}</strong>:<br>${op.texto.length > 180 ? op.texto.slice(0, 180) + '…' : op.texto}`;
-    opDiv.addEventListener("click", () => {
-      if (op === siguiente) {
-        opDiv.style.border = "4px solid green";
-      } else {
-        opDiv.style.border = "4px solid red";
-      }
-    });
-    opcionesGrid.appendChild(opDiv);
-  });
-
- container.appendChild(opcionesGrid);
-
-  // Botón para nueva pregunta
-  const siguienteBtn = document.createElement("button");
-  siguienteBtn.textContent = "🔁 Siguiente";
-  siguienteBtn.className = "btn-siguiente";
-  siguienteBtn.onclick = () => mostrarVista(); // Recarga misma vista
-  container.appendChild(siguienteBtn);
-
-  main.appendChild(container);
 }
+
 
 
 
