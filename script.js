@@ -1,4 +1,3 @@
-
 let bloquesPorNumero = {};
 let ordenNumeros = [];
 let vistaActual = 'guion';
@@ -93,22 +92,15 @@ function mostrarVista() {
   if (vistaActual === 'ensayo') {
     const personajesUnicos = Array.from(new Set(entradas.filter(e => e.tipo === 'dialogo').map(e => e.personaje)));
 
-    const toggleBtn = document.createElement("button");
-    toggleBtn.textContent = "👥 Personajes";
-    toggleBtn.className = "boton-personajes";
-    toggleBtn.onclick = () => {
-      document.getElementById("menu-personajes").classList.toggle("visible");
-    };
-
-    const menu = document.createElement("div");
-    menu.id = "menu-personajes";
-    menu.className = "menu-personajes";
-
+    const filtro = document.createElement("div");
+    filtro.className = "filtro-ensayo";
+    filtro.innerHTML = "<strong>Ocultar personajes:</strong><br>";
     personajesUnicos.forEach(p => {
       const id = `chk-${normalizar(p)}`;
       const label = document.createElement("label");
       label.innerHTML = `<input type="checkbox" id="${id}" ${personajesOcultos.has(p) ? 'checked' : ''}/> ${p}`;
-      menu.appendChild(label);
+      label.style.marginRight = "1rem";
+      filtro.appendChild(label);
 
       label.querySelector("input").addEventListener("change", (e) => {
         if (e.target.checked) personajesOcultos.add(p);
@@ -116,9 +108,7 @@ function mostrarVista() {
         mostrarVista();
       });
     });
-
-    main.appendChild(toggleBtn);
-    main.appendChild(menu);
+    main.appendChild(filtro);
   }
 
   if (vistaActual === 'guion' || vistaActual === 'ensayo') {
@@ -135,20 +125,8 @@ function mostrarVista() {
         p.className = `${vistaActual}-linea ${normalizar(linea.personaje)}`;
         if (vistaActual === 'ensayo' && personajesOcultos.has(linea.personaje)) {
           p.classList.add("oculto");
-          p.innerHTML = `<strong>${linea.personaje}:</strong> <em>— intervención oculta —</em>`;
-          p.dataset.textoOriginal = linea.texto;
-          p.addEventListener("click", () => {
-            if (p.classList.contains("revelado")) {
-              p.innerHTML = `<strong>${linea.personaje}:</strong> <em>— intervención oculta —</em>`;
-              p.classList.remove("revelado");
-            } else {
-              p.innerHTML = `<strong>${linea.personaje}:</strong> ${p.dataset.textoOriginal.replace(/\n/g, "<br>")}`;
-              p.classList.add("revelado");
-            }
-          });
-        } else {
-          p.innerHTML = `<strong>${linea.personaje}:</strong> ${linea.texto.replace(/\n/g, "<br>")}`;
         }
+        p.innerHTML = `<strong>${linea.personaje}</strong>:<br>${linea.texto.replace(/\n/g, "<br>")}`;
         container.appendChild(p);
       }
     });
@@ -273,3 +251,16 @@ window.addEventListener("load", ajustarAlturaMain);
 window.addEventListener("resize", ajustarAlturaMain);
 
 cargarTexto();
+
+function navegarADireccion(direccion) {
+  const indexActual = ordenNumeros.findIndex(n => n.id === numeroSeleccionado);
+  if (indexActual === -1) return;
+
+  let nuevoIndex = direccion === 'anterior' ? indexActual - 1 : indexActual + 1;
+
+  if (nuevoIndex < 0 || nuevoIndex >= ordenNumeros.length) return;
+
+  const nuevoNumero = ordenNumeros[nuevoIndex].id;
+  numeroSeleccionado = nuevoNumero;
+  mostrarVista();
+}
