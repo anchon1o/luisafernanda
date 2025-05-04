@@ -126,39 +126,19 @@ function mostrarVista() {
         if (vistaActual === 'ensayo' && personajesOcultos.has(linea.personaje)) {
           p.classList.add("oculto");
           p.innerHTML = `<strong>${linea.personaje}</strong>:<br><em>— intervención oculta —</em>`;
-  p.dataset.textoOriginal = linea.texto;
-  p.addEventListener("click", () => {
-    if (p.classList.contains("revelado")) {
-      p.innerHTML = `<strong>${linea.personaje}</strong>:<br><em>— intervención oculta —</em>`;
-      p.classList.remove("revelado");
-    } else {
-      p.innerHTML = `<strong>${linea.personaje}</strong>:<br>${p.dataset.textoOriginal.replace(/\n/g, "<br>")}`;
-      p.classList.add("revelado");
-    }
-  });
+          p.dataset.textoOriginal = linea.texto;
+          p.addEventListener("click", () => {
+            if (p.classList.contains("revelado")) {
+              p.innerHTML = `<strong>${linea.personaje}</strong>:<br><em>— intervención oculta —</em>`;
+              p.classList.remove("revelado");
+            } else {
+              p.innerHTML = `<strong>${linea.personaje}</strong>:<br>${p.dataset.textoOriginal.replace(/\n/g, "<br>")}`;
+              p.classList.add("revelado");
+            }
+          });
         } else {
           p.innerHTML = `<strong>${linea.personaje}</strong>:<br>${linea.texto.replace(/\n/g, "<br>")}`;
         }
-        container.appendChild(p);
-      }
-    });
-    main.appendChild(container);
-  }
-    const container = document.createElement("div");
-    container.className = vistaActual;
-    entradas.forEach(linea => {
-      if (linea.tipo === 'acotacion') {
-        const p = document.createElement("div");
-        p.className = vistaActual + "-acotacion";
-        p.innerHTML = linea.texto.replace(/\n/g, "<br>");
-        container.appendChild(p);
-      } else {
-        const p = document.createElement("div");
-        p.className = `${vistaActual}-linea ${normalizar(linea.personaje)}`;
-        if (vistaActual === 'ensayo' && personajesOcultos.has(linea.personaje)) {
-          p.classList.add("oculto");
-        }
-        p.innerHTML = `<strong>${linea.personaje}</strong>:<br>${linea.texto.replace(/\n/g, "<br>")}`;
         container.appendChild(p);
       }
     });
