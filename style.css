@@ -1,54 +1,42 @@
-/* RESET Y FUENTE */
+/* Estilos base */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f8f8f8;
   color: #333;
-  height: 100vh;
-  overflow: hidden;
 }
 
-/* CONTENEDOR FIJO */
-#fijo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;
-  background-color: white;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-/* HEADER */
 header {
   text-align: center;
-  padding: 0.6rem;
+  padding: 1rem;
+  background-color: #ffffff;
   border-bottom: 1px solid #ccc;
 }
 
 h1 {
   margin: 0;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
 }
 
-/* MENÚ DE NÚMEROS */
+/* Menú horizontal deslizante */
 #menu-numeros {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   white-space: nowrap;
   background-color: #eee;
-  padding: 0.4rem 1rem;
+  padding: 0.5rem 1rem;
   border-bottom: 1px solid #ccc;
 }
 
 #menu-scroll {
   display: inline-flex;
-  gap: 0.5rem;
+  gap: 0.6rem;
 }
 
 #menu-scroll button {
-  font-size: 0.95rem;
-  padding: 0.4rem 0.8rem;
+  font-size: 1rem;
+  padding: 0.6rem 1rem;
   border: none;
   border-radius: 6px;
   background-color: #ddd;
@@ -60,21 +48,21 @@ h1 {
   background-color: #bbb;
 }
 
-/* BARRA DE CONTROLES */
+/* Barra de controles */
 #barra-controles {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem;
+  padding: 0.8rem;
   background-color: #f0f0f0;
   border-bottom: 1px solid #ccc;
 }
 
 #barra-controles select,
 #barra-controles button {
-  font-size: 0.95rem;
-  padding: 0.3rem 0.6rem;
+  font-size: 1rem;
+  padding: 0.4rem 0.8rem;
   border-radius: 6px;
   border: 1px solid #ccc;
   background: #fff;
@@ -85,33 +73,18 @@ h1 {
   background: #e0e0e0;
 }
 
-/* REPRODUCTOR YOUTUBE */
 #reproductor {
   text-align: center;
-  height: auto;
-  transition: height 0.3s ease;
+  margin: 1rem 0;
 }
 
-#reproductor iframe {
-  width: 100%;
-  height: 200px;
-  border: none;
-}
-
-#reproductor.colapsado iframe {
-  display: none;
-}
-
-/* ÁREA PRINCIPAL DE TEXTO */
+/* Área principal */
 main {
-  padding: calc(var(--fijo-altura, 0px) + 1rem) 1rem 1rem 1rem;
-  overflow-y: auto;
-  height: 100vh;
-  box-sizing: border-box;
-  background-color: #f8f8f8;
+  padding: 1rem;
+  padding-top: var(--fijo-altura, 0px);
 }
 
-/* GUION */
+/* Guion */
 .guion {
   font-family: 'Courier New', monospace;
 }
@@ -132,35 +105,22 @@ main {
   background-color: #ddd;
 }
 
-/* COLORES DE PERSONAJES EN GUION Y CHAT */
-.guion-linea.luisa-fernanda strong,
-.chat .bubble.luisa-fernanda        { background-color: #f8d7da; }
-.guion-linea.vidal strong,
-.chat .bubble.vidal                 { background-color: #fff3cd; }
-.guion-linea.javier strong,
-.chat .bubble.javier                { background-color: #d4edda; }
-.guion-linea.carolina strong,
-.chat .bubble.carolina              { background-color: #e2d4f5; }
-.guion-linea.mariana strong,
-.chat .bubble.mariana              { background-color: #d1f0f0; }
-.guion-linea.anibal strong,
-.chat .bubble.anibal                { background-color: #d0e7ff; }
-.guion-linea.nogales strong,
-.chat .bubble.nogales               { background-color: #ffe5b4; }
-.guion-linea.don-florito strong,
-.chat .bubble.don-florito           { background-color: #f3e5ff; }
-.guion-linea.bizco strong,
-.chat .bubble.bizco                 { background-color: #ffedcc; }
-.guion-linea.rosita strong,
-.chat .bubble.rosita                { background-color: #ffe5ec; }
-.guion-linea.saboyano strong,
-.chat .bubble.saboyano              { background-color: #cce5ff; }
-.guion-linea.coro strong,
-.chat .bubble.coro                  { background-color: #ffffff; }
-.guion-linea.narrador strong,
-.chat .bubble.narrador              { background-color: #e0e0e0; }
+/* Colores de subrayado por personaje */
+.guion-linea.luisa-fernanda strong { background-color: #f8d7da; }
+.guion-linea.vidal strong          { background-color: #fff3cd; }
+.guion-linea.javier strong         { background-color: #d4edda; }
+.guion-linea.carolina strong       { background-color: #e2d4f5; }
+.guion-linea.mariana strong        { background-color: #d1f0f0; }
+.guion-linea.anibal strong         { background-color: #d0e7ff; }
+.guion-linea.nogales strong        { background-color: #ffe5b4; }
+.guion-linea.don-florito strong    { background-color: #f3e5ff; }
+.guion-linea.bizco strong          { background-color: #ffedcc; }
+.guion-linea.rosita strong         { background-color: #ffe5ec; }
+.guion-linea.saboyano strong       { background-color: #cce5ff; }
+.guion-linea.coro strong           { background-color: #ffffff; }
+.guion-linea.narrador strong       { background-color: #e0e0e0; }
 
-/* CHAT */
+/* Chat */
 .chat .bubble {
   margin: 1rem auto;
   padding: 0.8rem;
@@ -171,84 +131,100 @@ main {
   background-color: #e6e6e6;
 }
 
-/* ENSAYO */
+.chat .bubble.luisa-fernanda   { background-color: #f8d7da; }
+.chat .bubble.vidal            { background-color: #fff3cd; }
+.chat .bubble.javier           { background-color: #d4edda; }
+.chat .bubble.carolina         { background-color: #e2d4f5; }
+.chat .bubble.mariana          { background-color: #d1f0f0; }
+.chat .bubble.anibal           { background-color: #d0e7ff; }
+.chat .bubble.nogales          { background-color: #ffe5b4; }
+.chat .bubble.don-florito      { background-color: #f3e5ff; }
+.chat .bubble.bizco            { background-color: #ffedcc; }
+.chat .bubble.rosita           { background-color: #ffe5ec; }
+.chat .bubble.saboyano         { background-color: #cce5ff; }
+.chat .bubble.coro             { background-color: #ffffff; }
+.chat .bubble.narrador         { background-color: #f0f0f0; }
+
+/* Ensayo */
 .ensayo-linea {
   margin: 1rem 0;
-  padding: 1.2rem;
-  border-radius: 0;
-  white-space: pre-wrap;
-  background-color: #f9f9f9;
+  padding: 1rem;
+  background-color: #fff;
   border: 2px solid #ccc;
-  color: #000;
+  white-space: pre-wrap;
+  font-size: 1rem;
+  border-radius: 0;
 }
 
-.ensayo-linea strong {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 0.4rem;
-}
+.ensayo-linea.luisa-fernanda { border-color: #c97b7b; }
+.ensayo-linea.vidal          { border-color: #d1b94a; }
+.ensayo-linea.javier         { border-color: #5aa96e; }
+.ensayo-linea.carolina       { border-color: #a982cc; }
+.ensayo-linea.mariana        { border-color: #4dbdbd; }
+.ensayo-linea.anibal         { border-color: #579bd7; }
+.ensayo-linea.nogales        { border-color: #d89c3c; }
+.ensayo-linea.don-florito    { border-color: #d9a7f0; }
+.ensayo-linea.bizco          { border-color: #ffd699; }
+.ensayo-linea.rosita         { border-color: #f5b5c6; }
+.ensayo-linea.saboyano       { border-color: #6fa8dc; }
+.ensayo-linea.coro           { border-color: #aaaaaa; }
 
 .ensayo-linea.oculto {
+  color: #999;
   font-style: italic;
-  opacity: 0.6;
-  background: #eee;
-  border: 2px dashed #aaa;
+  background-color: #f0f0f0;
   cursor: pointer;
 }
 
-.ensayo-linea.oculto.revelado {
-  font-style: normal;
-  opacity: 1;
-  background: #fff;
-  border: 2px solid #aaa;
-}
-
-/* Colores + bordes por personaje */
-.ensayo-linea.luisa-fernanda { background-color: #f8d7da; border-color: #c48a91; }
-.ensayo-linea.vidal          { background-color: #fff3cd; border-color: #d4ba6c; }
-.ensayo-linea.javier         { background-color: #d4edda; border-color: #81b494; }
-.ensayo-linea.carolina       { background-color: #e2d4f5; border-color: #aa8ed3; }
-.ensayo-linea.mariana        { background-color: #d1f0f0; border-color: #77c1c1; }
-.ensayo-linea.anibal         { background-color: #d0e7ff; border-color: #6ca6d4; }
-.ensayo-linea.nogales        { background-color: #ffe5b4; border-color: #e0b469; }
-.ensayo-linea.don-florito    { background-color: #f3e5ff; border-color: #c79edb; }
-.ensayo-linea.bizco          { background-color: #ffedcc; border-color: #e2b77c; }
-.ensayo-linea.rosita         { background-color: #ffe5ec; border-color: #d9a3b3; }
-.ensayo-linea.saboyano       { background-color: #cce5ff; border-color: #8bb3d6; }
-.ensayo-linea.coro           { background-color: #ffffff; border-color: #ccc; }
-.ensayo-linea.narrador       { background-color: #f0f0f0; border-color: #999; }
-
-/* FILTRO DE PERSONAJES */
-.filtro-ensayo {
-  background: #f0f0f0;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 6px;
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-.filtro-ensayo label {
-  display: inline-block;
-  margin-right: 1rem;
-  margin-bottom: 0.5rem;
-  cursor: pointer;
-}
-
-.filtro-ensayo input[type="checkbox"] {
-  margin-right: 0.3rem;
-}
-
-/* ACOTACIONES */
+/* Acotaciones */
 .guion-acotacion,
 .chat-acotacion,
 .ensayo-acotacion {
   font-style: italic;
   color: #555;
-  background-color: #f4f4f4;
-  padding: 0.5rem 1rem;
-  margin: 1rem 0;
+  padding: 0.6rem 1rem;
+  margin: 1rem auto;
+  border-left: 4px solid #aaa;
   border-radius: 4px;
+  background-color: #f4f4f4;
   white-space: pre-wrap;
-  border-left: 4px solid #bbb;
+}
+
+.chat-acotacion { max-width: 70%; }
+.ensayo-acotacion { background: #f9f9f9; }
+
+/* Filtro desplegable en modo ensayo */
+.boton-personajes {
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  background: #ddd;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.menu-personajes {
+  display: none;
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.menu-personajes.visible {
+  display: block;
+}
+
+.menu-personajes label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.menu-personajes input[type="checkbox"] {
+  margin-right: 0.5rem;
 }
