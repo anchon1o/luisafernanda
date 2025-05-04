@@ -1,62 +1,21 @@
-/* Estilos base */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f8f8f8;
-  color: #333;
-}
-
-header {
-  text-align: center;
-  padding: 1rem;
-  background-color: #ffffff;
-  border-bottom: 1px solid #ccc;
-}
-
-h1 {
-  margin: 0;
-  font-size: 1.5rem;
-}
-
-/* Menú horizontal deslizante */
-#menu-numeros {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  white-space: nowrap;
-  background-color: #eee;
-  padding: 0.5rem 1rem;
-  border-bottom: 1px solid #ccc;
-}
-
-#menu-scroll {
-  display: inline-flex;
-  gap: 0.6rem;
-}
-
-#menu-scroll button {
-  font-size: 1rem;
-  padding: 0.6rem 1rem;
-  border: none;
-  border-radius: 6px;
-  background-color: #ddd;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-
-#menu-scroll button:hover {
-  background-color: #bbb;
-}
-
-/* Barra de controles */
 #barra-controles {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 0.5rem;
   padding: 0.8rem;
   background-color: #f0f0f0;
   border-bottom: 1px solid #ccc;
+}
+
+.controles-izquierda {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.controles-derecha {
+  display: flex;
+  gap: 0.4rem;
 }
 
 #barra-controles select,
@@ -71,160 +30,4 @@ h1 {
 
 #barra-controles button:hover {
   background: #e0e0e0;
-}
-
-#reproductor {
-  text-align: center;
-  margin: 1rem 0;
-}
-
-/* Área principal */
-main {
-  padding: 1rem;
-  padding-top: var(--fijo-altura, 0px);
-}
-
-/* Guion */
-.guion {
-  font-family: 'Courier New', monospace;
-}
-
-.guion-linea {
-  margin: 1rem 0;
-  padding: 0.5rem 1rem;
-  background-color: #fff;
-  border-radius: 6px;
-  white-space: pre-wrap;
-}
-
-.guion-linea strong {
-  display: inline-block;
-  font-weight: bold;
-  padding: 0.1rem 0.3rem;
-  border-radius: 4px;
-  background-color: #ddd;
-}
-
-/* Colores de subrayado por personaje */
-.guion-linea.luisa-fernanda strong { background-color: #f8d7da; }
-.guion-linea.vidal strong          { background-color: #fff3cd; }
-.guion-linea.javier strong         { background-color: #d4edda; }
-.guion-linea.carolina strong       { background-color: #e2d4f5; }
-.guion-linea.mariana strong        { background-color: #d1f0f0; }
-.guion-linea.anibal strong         { background-color: #d0e7ff; }
-.guion-linea.nogales strong        { background-color: #ffe5b4; }
-.guion-linea.don-florito strong    { background-color: #f3e5ff; }
-.guion-linea.bizco strong          { background-color: #ffedcc; }
-.guion-linea.rosita strong         { background-color: #ffe5ec; }
-.guion-linea.saboyano strong       { background-color: #cce5ff; }
-.guion-linea.coro strong           { background-color: #ffffff; }
-.guion-linea.narrador strong       { background-color: #e0e0e0; }
-
-/* Chat */
-.chat .bubble {
-  margin: 1rem auto;
-  padding: 0.8rem;
-  border-radius: 12px;
-  max-width: 70%;
-  white-space: pre-wrap;
-  color: #000;
-  background-color: #e6e6e6;
-}
-
-.chat .bubble.luisa-fernanda   { background-color: #f8d7da; }
-.chat .bubble.vidal            { background-color: #fff3cd; }
-.chat .bubble.javier           { background-color: #d4edda; }
-.chat .bubble.carolina         { background-color: #e2d4f5; }
-.chat .bubble.mariana          { background-color: #d1f0f0; }
-.chat .bubble.anibal           { background-color: #d0e7ff; }
-.chat .bubble.nogales          { background-color: #ffe5b4; }
-.chat .bubble.don-florito      { background-color: #f3e5ff; }
-.chat .bubble.bizco            { background-color: #ffedcc; }
-.chat .bubble.rosita           { background-color: #ffe5ec; }
-.chat .bubble.saboyano         { background-color: #cce5ff; }
-.chat .bubble.coro             { background-color: #ffffff; }
-.chat .bubble.narrador         { background-color: #f0f0f0; }
-
-/* Ensayo */
-.ensayo-linea {
-  margin: 1rem 0;
-  padding: 1rem;
-  background-color: #fff;
-  border: 2px solid #ccc;
-  white-space: pre-wrap;
-  font-size: 1rem;
-  border-radius: 0;
-}
-
-.ensayo-linea.luisa-fernanda { border-color: #c97b7b; }
-.ensayo-linea.vidal          { border-color: #d1b94a; }
-.ensayo-linea.javier         { border-color: #5aa96e; }
-.ensayo-linea.carolina       { border-color: #a982cc; }
-.ensayo-linea.mariana        { border-color: #4dbdbd; }
-.ensayo-linea.anibal         { border-color: #579bd7; }
-.ensayo-linea.nogales        { border-color: #d89c3c; }
-.ensayo-linea.don-florito    { border-color: #d9a7f0; }
-.ensayo-linea.bizco          { border-color: #ffd699; }
-.ensayo-linea.rosita         { border-color: #f5b5c6; }
-.ensayo-linea.saboyano       { border-color: #6fa8dc; }
-.ensayo-linea.coro           { border-color: #aaaaaa; }
-
-.ensayo-linea.oculto {
-  color: #999;
-  font-style: italic;
-  background-color: #f0f0f0;
-  cursor: pointer;
-}
-
-/* Acotaciones */
-.guion-acotacion,
-.chat-acotacion,
-.ensayo-acotacion {
-  font-style: italic;
-  color: #555;
-  padding: 0.6rem 1rem;
-  margin: 1rem auto;
-  border-left: 4px solid #aaa;
-  border-radius: 4px;
-  background-color: #f4f4f4;
-  white-space: pre-wrap;
-}
-
-.chat-acotacion { max-width: 70%; }
-.ensayo-acotacion { background: #f9f9f9; }
-
-/* Filtro desplegable en modo ensayo */
-.boton-personajes {
-  margin-bottom: 1rem;
-  padding: 0.5rem 1rem;
-  background: #ddd;
-  border: 1px solid #aaa;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.95rem;
-}
-
-.menu-personajes {
-  display: none;
-  background: #f9f9f9;
-  border: 1px solid #ccc;
-  padding: 1rem;
-  border-radius: 6px;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.menu-personajes.visible {
-  display: block;
-}
-
-.menu-personajes label {
-  display: block;
-  margin-bottom: 0.4rem;
-  font-size: 0.95rem;
-  cursor: pointer;
-}
-
-.menu-personajes input[type="checkbox"] {
-  margin-right: 0.5rem;
 }
