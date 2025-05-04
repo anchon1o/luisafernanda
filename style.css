@@ -261,44 +261,9 @@ main {
 .chat-acotacion { max-width: 70%; }
 .ensayo-acotacion { background: #f9f9f9; }
 
-/* Filtro desplegable en modo ensayo */
-.boton-personajes {
-  margin-bottom: 1rem;
-  padding: 0.5rem 1rem;
-  background: #ddd;
-  border: 1px solid #aaa;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.95rem;
-}
-
-.menu-personajes {
-  display: none;
-  background: #f9f9f9;
-  border: 1px solid #ccc;
-  padding: 1rem;
-  border-radius: 6px;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.menu-personajes.visible {
-  display: block;
-}
-
-.menu-personajes label {
-  display: block;
-  margin-bottom: 0.4rem;
-  font-size: 0.95rem;
-  cursor: pointer;
-}
-
-.menu-personajes input[type="checkbox"] {
-  margin-right: 0.5rem;
-}
-
 /* === MODO ENSAYO === */
 
+/* Contenedor general del panel de selección */
 .filtro-ensayo {
   background: #f0f0f0;
   padding: 1rem;
@@ -309,16 +274,7 @@ main {
   box-shadow: 0 0 4px rgba(0,0,0,0.05);
 }
 
-.filtro-ensayo label {
-  display: inline-block;
-  margin: 0.2rem 1rem 0.4rem 0;
-  cursor: pointer;
-}
-
-.filtro-ensayo input[type="checkbox"] {
-  margin-right: 0.4rem;
-}
-
+/* Botón para mostrar/ocultar el panel */
 .toggle-ensayo {
   margin-bottom: 0.6rem;
   padding: 0.4rem 0.8rem;
@@ -327,9 +283,28 @@ main {
   border-radius: 6px;
   cursor: pointer;
 }
-
 .toggle-ensayo:hover {
   background-color: #ccc;
+}
+
+/* Panel desplegable con los personajes */
+#panel-personajes {
+  display: none;
+  margin-top: 0.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
+}
+
+/* Etiqueta + checkbox de cada personaje */
+#panel-personajes label {
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+#panel-personajes input[type="checkbox"] {
+  margin-right: 0.4rem;
 }
 
 /* Intervención oculta */
@@ -339,7 +314,6 @@ main {
   font-style: italic;
   cursor: pointer;
 }
-
 .ensayo-linea.revelado {
   font-style: normal;
   color: inherit;
