@@ -327,14 +327,21 @@ function parsearBloques(bloque) {
 
   for (let linea of lineas) {
     linea = linea.trim();
+
     if (linea.startsWith('//')) {
       resultado.push({ tipo: 'acotacion', texto: linea.substring(2).trim() });
       continue;
     }
 
-    const match = linea.match(/^\[([\wÁÉÍÓÚÑÜáéíóúñü\sº°.,'-]+)\]$/);
-    if (match) {
-      actual = { tipo: 'dialogo', personaje: match[1].trim(), texto: '' };
+    const matchTitulo = linea.match(/^==\s*(.+?)\s*==$/);
+    if (matchTitulo) {
+      resultado.push({ tipo: 'titulo', texto: matchTitulo[1].trim() });
+      continue;
+    }
+
+    const matchDialogo = linea.match(/^\[([\wÁÉÍÓÚÑÜáéíóúñü\sº°.,'-]+)\]$/);
+    if (matchDialogo) {
+      actual = { tipo: 'dialogo', personaje: matchDialogo[1].trim(), texto: '' };
       resultado.push(actual);
     } else if (actual) {
       actual.texto += (actual.texto ? '\n' : '') + linea;
@@ -343,6 +350,7 @@ function parsearBloques(bloque) {
 
   return resultado;
 }
+
 
 function normalizar(nombre) {
   return nombre.toLowerCase().replaceAll(' ', '-').replaceAll('ñ','n');
