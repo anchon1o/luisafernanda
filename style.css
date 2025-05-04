@@ -407,5 +407,11 @@ main {
   box-shadow: 0 0 10px rgba(255,215,0,0.2);
 }
 
+.sigue-racha {
+  font-weight: bold;
+  font-size: 1rem;
+  color: orange;
+  font-family: 'Orbitron', sans-serif;
+}
 
 
