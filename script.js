@@ -20,7 +20,7 @@ async function cargarTexto() {
       textoBloque = '';
 
       const matchMusical = linea.match(/^###\s+(Nº?[\dA-Z]+)\s*🎵/i);
-      const matchHablado = linea.match(/^###\s+▪️?(\d+)/i);
+      const matchHablado = linea.match(/^###\s+▪️\s*(\d+)[\)]?/i);
 
       if (matchMusical) {
         numeroActual = matchMusical[1].toLowerCase().replace(/^nº/, '');
