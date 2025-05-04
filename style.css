@@ -249,3 +249,52 @@ main {
 .menu-personajes input[type="checkbox"] {
   margin-right: 0.5rem;
 }
+
+/* === MODO ENSAYO === */
+
+.filtro-ensayo {
+  background: #f0f0f0;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  box-shadow: 0 0 4px rgba(0,0,0,0.05);
+}
+
+.filtro-ensayo label {
+  display: inline-block;
+  margin: 0.2rem 1rem 0.4rem 0;
+  cursor: pointer;
+}
+
+.filtro-ensayo input[type="checkbox"] {
+  margin-right: 0.4rem;
+}
+
+.toggle-ensayo {
+  margin-bottom: 0.6rem;
+  padding: 0.4rem 0.8rem;
+  background-color: #ddd;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.toggle-ensayo:hover {
+  background-color: #ccc;
+}
+
+/* Intervención oculta */
+.ensayo-linea.oculto {
+  background: #f9f9f9;
+  color: #777;
+  font-style: italic;
+  cursor: pointer;
+}
+
+.ensayo-linea.revelado {
+  font-style: normal;
+  color: inherit;
+}
+
