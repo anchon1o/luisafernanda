@@ -252,22 +252,22 @@ function navegarADireccion(direccion) {
   let indexActual = ordenNumeros.findIndex(n => n.id === numeroSeleccionado);
 
   if (numeroSeleccionado === 'todo') {
+    // Desde "todo", ir a 1a (inicio) o 14 (final)
     numeroSeleccionado = direccion === 'anterior'
       ? ordenNumeros[ordenNumeros.length - 1].id
       : ordenNumeros[0].id;
-    actualizarBotonesMenu();
-    mostrarVista();
-    return;
+  } else if (indexActual !== -1) {
+    let nuevoIndex = direccion === 'anterior' ? indexActual - 1 : indexActual + 1;
+
+    if (nuevoIndex < 0 || nuevoIndex >= ordenNumeros.length) {
+      numeroSeleccionado = 'todo';
+    } else {
+      numeroSeleccionado = ordenNumeros[nuevoIndex].id;
+    }
   }
 
-  if (indexActual === -1) return;
-
-  let nuevoIndex = direccion === 'anterior' ? indexActual - 1 : indexActual + 1;
-  if (nuevoIndex < 0 || nuevoIndex >= ordenNumeros.length) return;
-
-  numeroSeleccionado = ordenNumeros[nuevoIndex].id;
-  actualizarBotonesMenu();
   mostrarVista();
+  actualizarBotonesMenu();
 }
 
 
