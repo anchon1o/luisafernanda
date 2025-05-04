@@ -104,11 +104,12 @@ h1 {
 
 /* ÁREA PRINCIPAL DE TEXTO */
 main {
-  padding: 1rem;
+  padding: calc(var(--fijo-altura, 0px) + 1rem) 1rem 1rem 1rem;
   overflow-y: auto;
-  height: calc(100vh - var(--fijo-altura, 0px));
+  height: 100vh;
   box-sizing: border-box;
 }
+
 
 
 /* GUION */
