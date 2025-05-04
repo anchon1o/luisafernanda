@@ -113,41 +113,35 @@ function mostrarVista() {
   const entradas = parsearBloques(bloques);
 
   if (vistaActual === 'ensayo') {
-    const personajesUnicos = Array.from(new Set(
-      entradas.filter(e => e.tipo === 'dialogo').map(e => e.personaje)
-    ));
-
-    const filtro = document.createElement("div");
-    filtro.className = "filtro-ensayo";
-
-    const toggleBtn = document.createElement("button");
-    toggleBtn.textContent = "👥 Mostrar/Ocultar personajes";
-    toggleBtn.className = "toggle-ensayo";
-    toggleBtn.onclick = () => {
-      const panel = document.getElementById("panel-personajes");
-      panel.style.display = panel.style.display === "none" ? "block" : "none";
-    };
-    filtro.appendChild(toggleBtn);
-
     const panel = document.createElement("div");
-    panel.id = "panel-personajes";
-    panel.style.display = "none";
+panel.id = "panel-personajes";
+panel.className = "panel-personajes"; // Añadido para estilo
+panel.style.display = "none";
 
-    personajesUnicos.forEach(p => {
-      const id = `chk-${normalizar(p)}`;
-      const label = document.createElement("label");
-      label.innerHTML = `<input type="checkbox" id="${id}" ${personajesOcultos.has(p) ? 'checked' : ''}/> ${p}`;
-      panel.appendChild(label);
+personajesUnicos.forEach(p => {
+  const id = `chk-${normalizar(p)}`;
 
-      label.querySelector("input").addEventListener("change", (e) => {
-        if (e.target.checked) personajesOcultos.add(p);
-        else personajesOcultos.delete(p);
-        mostrarVista();
-      });
-    });
+  const item = document.createElement("div");
+  item.className = "item-personaje";
 
-    filtro.appendChild(panel);
-    main.appendChild(filtro);
+  const checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.id = id;
+  checkbox.checked = personajesOcultos.has(p);
+  checkbox.addEventListener("change", (e) => {
+    if (e.target.checked) personajesOcultos.add(p);
+    else personajesOcultos.delete(p);
+    mostrarVista();
+  });
+
+  const label = document.createElement("label");
+  label.setAttribute("for", id);
+  label.textContent = p;
+
+  item.appendChild(checkbox);
+  item.appendChild(label);
+  panel.appendChild(item);
+});
   }
 
   if (vistaActual === 'guion' || vistaActual === 'ensayo') {
