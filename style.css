@@ -108,9 +108,8 @@ main {
   overflow-y: auto;
   height: 100vh;
   box-sizing: border-box;
+  background-color: #f8f8f8;
 }
-
-
 
 /* GUION */
 .guion {
@@ -134,19 +133,57 @@ main {
 }
 
 /* COLORES DE PERSONAJES */
-.guion-linea.luisa-fernanda strong { background-color: #f8d7da; }
-.guion-linea.vidal strong          { background-color: #fff3cd; }
-.guion-linea.javier strong         { background-color: #d4edda; }
-.guion-linea.carolina strong       { background-color: #e2d4f5; }
-.guion-linea.mariana strong        { background-color: #d1f0f0; }
-.guion-linea.anibal strong         { background-color: #d0e7ff; }
-.guion-linea.nogales strong        { background-color: #ffe5b4; }
-.guion-linea.don-florito strong    { background-color: #f3e5ff; }
-.guion-linea.bizco strong          { background-color: #ffedcc; }
-.guion-linea.rosita strong         { background-color: #ffe5ec; }
-.guion-linea.saboyano strong       { background-color: #cce5ff; }
-.guion-linea.coro strong           { background-color: #ffffff; }
-.guion-linea.narrador strong       { background-color: #e0e0e0; }
+.guion-linea.luisa-fernanda strong,
+.ensayo-linea.luisa-fernanda strong,
+.chat .bubble.luisa-fernanda        { background-color: #f8d7da; }
+
+.guion-linea.vidal strong,
+.ensayo-linea.vidal strong,
+.chat .bubble.vidal                 { background-color: #fff3cd; }
+
+.guion-linea.javier strong,
+.ensayo-linea.javier strong,
+.chat .bubble.javier                { background-color: #d4edda; }
+
+.guion-linea.carolina strong,
+.ensayo-linea.carolina strong,
+.chat .bubble.carolina              { background-color: #e2d4f5; }
+
+.guion-linea.mariana strong,
+.ensayo-linea.mariana strong,
+.chat .bubble.mariana              { background-color: #d1f0f0; }
+
+.guion-linea.anibal strong,
+.ensayo-linea.anibal strong,
+.chat .bubble.anibal                { background-color: #d0e7ff; }
+
+.guion-linea.nogales strong,
+.ensayo-linea.nogales strong,
+.chat .bubble.nogales               { background-color: #ffe5b4; }
+
+.guion-linea.don-florito strong,
+.ensayo-linea.don-florito strong,
+.chat .bubble.don-florito           { background-color: #f3e5ff; }
+
+.guion-linea.bizco strong,
+.ensayo-linea.bizco strong,
+.chat .bubble.bizco                 { background-color: #ffedcc; }
+
+.guion-linea.rosita strong,
+.ensayo-linea.rosita strong,
+.chat .bubble.rosita                { background-color: #ffe5ec; }
+
+.guion-linea.saboyano strong,
+.ensayo-linea.saboyano strong,
+.chat .bubble.saboyano              { background-color: #cce5ff; }
+
+.guion-linea.coro strong,
+.ensayo-linea.coro strong,
+.chat .bubble.coro                  { background-color: #ffffff; }
+
+.guion-linea.narrador strong,
+.ensayo-linea.narrador strong,
+.chat .bubble.narrador              { background-color: #e0e0e0; }
 
 /* CHAT */
 .chat .bubble {
@@ -158,20 +195,6 @@ main {
   color: #000;
   background-color: #e6e6e6;
 }
-
-.chat .bubble.luisa-fernanda   { background-color: #f8d7da; }
-.chat .bubble.vidal            { background-color: #fff3cd; }
-.chat .bubble.javier           { background-color: #d4edda; }
-.chat .bubble.carolina         { background-color: #e2d4f5; }
-.chat .bubble.mariana          { background-color: #d1f0f0; }
-.chat .bubble.anibal           { background-color: #d0e7ff; }
-.chat .bubble.nogales          { background-color: #ffe5b4; }
-.chat .bubble.don-florito      { background-color: #f3e5ff; }
-.chat .bubble.bizco            { background-color: #ffedcc; }
-.chat .bubble.rosita           { background-color: #ffe5ec; }
-.chat .bubble.saboyano         { background-color: #cce5ff; }
-.chat .bubble.coro             { background-color: #ffffff; }
-.chat .bubble.narrador         { background-color: #f0f0f0; }
 
 /* ENSAYO */
 .ensayo {
@@ -190,7 +213,18 @@ main {
 }
 
 .ensayo-linea.oculto {
-  display: none;
+  font-style: italic;
+  opacity: 0.6;
+  background: #f4f4f4;
+  border-left: 6px dashed #bbb;
+  cursor: pointer;
+}
+
+.ensayo-linea.oculto.revelado {
+  font-style: normal;
+  opacity: 1;
+  background: #fff;
+  border-left: 6px solid #999;
 }
 
 /* FILTRO DE PERSONAJES */
