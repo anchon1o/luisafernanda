@@ -347,6 +347,13 @@ main {
   gap: 1rem;
 }
 
+@media (max-width: 600px) {
+  .sigue-opciones .opcion {
+    font-size: 0.5rem;
+  }
+}
+
+
 .sigue-linea.opcion {
   cursor: pointer;
   transition: border 0.3s;
@@ -372,3 +379,12 @@ main {
   padding: 0.5rem;
   font-size: 1rem;
 }
+
+.sigue-etiqueta {
+  text-align: center;
+  font-style: italic;
+  font-size: 1rem;
+  margin: 0.5em 0;
+  color: #555;
+}
+
