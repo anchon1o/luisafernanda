@@ -6,8 +6,7 @@ body {
   color: #333;
 }
 
-/* CABECERA STICKY perfectamente alineada */
-
+/* Sticky headers */
 header,
 #menu-numeros,
 #barra-controles,
@@ -18,7 +17,6 @@ header,
   background: #fff;
 }
 
-/* Alturas y top compensados */
 header {
   top: 0;
   height: 2rem;
@@ -34,7 +32,7 @@ h1 {
   font-size: 1.2rem;
 }
 
-/* Menú horizontal deslizante fijo */
+/* Menú horizontal */
 #menu-numeros {
   top: 2rem;
   height: 2.4rem;
@@ -65,7 +63,7 @@ h1 {
   background-color: #bbb;
 }
 
-/* Barra de controles fija */
+/* Barra de controles */
 #barra-controles {
   top: 4.4rem;
   height: 2.4rem;
@@ -92,23 +90,20 @@ h1 {
   background: #e0e0e0;
 }
 
-/* Reproductor fijo */
+/* Reproductor */
 #reproductor {
   top: 6.8rem;
   padding: 0.5rem 0;
   text-align: center;
   border-bottom: 1px solid #ccc;
-  transition: max-height 0.4s ease, padding 0.4s ease;
   overflow: hidden;
   max-height: 240px;
+  transition: max-height 0.4s ease, padding 0.4s ease;
 }
 
 #reproductor.colapsado {
-  height: 0 !important;
-  overflow: hidden;
-  padding: 0;
-  border-bottom: none;
   max-height: 0;
+  padding: 0;
   border: none;
 }
 
@@ -118,9 +113,7 @@ h1 {
   pointer-events: none;
 }
 
-
-
-/* Ajuste del contenido principal para que no quede oculto */
+/* Área de contenido principal */
 main {
   padding: 1rem;
   padding-top: 7.5rem;
@@ -147,10 +140,10 @@ main {
   background-color: #ddd;
 }
 
-/* Colores de subrayado por personaje */
+/* Colores por personaje */
 .guion-linea.luisa-fernanda strong { background-color: #f8d7da; }
 .guion-linea.vidal strong          { background-color: #fff3cd; }
-.guion-linea.javier strong         { background-color: #d4edda; }
+guion-linea.javier strong         { background-color: #d4edda; }
 .guion-linea.carolina strong       { background-color: #e2d4f5; }
 .guion-linea.mariana strong        { background-color: #d1f0f0; }
 .guion-linea.anibal strong         { background-color: #d0e7ff; }
@@ -247,7 +240,7 @@ main {
   padding: 0.8rem 1.2rem;
 }
 
-/* Filtro en modo ensayo */
+/* Filtro ensayo */
 .filtro-ensayo {
   background: #f0f0f0;
   padding: 1rem;
