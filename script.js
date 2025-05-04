@@ -1,11 +1,9 @@
-// Estructuras principales para almacenamiento y estado
-let bloquesPorNumero = {};                // Contendrá el texto agrupado por número o sección
-let ordenNumeros = [];                    // Orden de aparición de los números (para navegación)
-let vistaActual = 'guion';                // Vista activa: guion, ensayo, chat o sigue
-let numeroSeleccionado = 'todo';          // Número actualmente mostrado
-let personajesOcultos = new Set();        // En modo ensayo: personajes ocultos
+let bloquesPorNumero = {};
+let ordenNumeros = [];
+let vistaActual = 'guion';
+let numeroSeleccionado = 'todo';
+let personajesOcultos = new Set();
 
-// Carga el archivo de texto principal, lo divide por secciones y guarda los bloques
 async function cargarTexto() {
   const resp = await fetch('texto.txt');
   const texto = await resp.text();
@@ -17,12 +15,10 @@ async function cargarTexto() {
 
   for (let linea of lineas) {
     if (linea.startsWith('###')) {
-      // Guardamos lo anterior
       if (!bloquesPorNumero[numeroActual]) bloquesPorNumero[numeroActual] = '';
       bloquesPorNumero[numeroActual] += textoBloque;
       textoBloque = '';
 
-      // Detectamos cabecera de número musical o hablado
       const matchMusical = linea.match(/^###\s+(Nº?[\dA-Z]+)\s*🎵/i);
       const matchHablado = linea.match(/^###\s+▪️\s*(\d+)[\)]?/i);
 
@@ -38,51 +34,48 @@ async function cargarTexto() {
       continue;
     }
 
-    // Agregar línea al bloque actual
     textoBloque += linea + '\n';
   }
 
-  // Agregamos el último bloque que quedó pendiente
   bloquesPorNumero[numeroActual] += textoBloque;
 
   construirMenu();
   mostrarVista();
 }
 
-// Construye el menú horizontal de navegación por números
 function construirMenu() {
   const menu = document.getElementById('menu-scroll');
   menu.innerHTML = '';
 
-  // Botón "LF" (todo el texto)
+  // Crear botón "LF" para mostrar todo
   const botonTodo = document.createElement('button');
   botonTodo.textContent = 'LF';
-  botonTodo.dataset.numero = 'todo';
+  botonTodo.dataset.numero = 'todo'; // Asignar data-numero
   botonTodo.onclick = () => { filtrarPorNumero('todo'); };
   menu.appendChild(botonTodo);
 
-  // Separador entre botones (dos espacios)
+  // Función para agregar separadores
   const separador = () => {
     const span = document.createElement('span');
-    span.textContent = '  ';
+    span.textContent = '  '; // Dos espacios como separador
     menu.appendChild(span);
   };
 
   separador();
 
-  // Botones para cada número (musical o hablado)
+  // Crear botones para cada número en ordenNumeros
   ordenNumeros.forEach((num, i) => {
     const btn = document.createElement('button');
     btn.textContent = num.label;
-    btn.dataset.numero = num.id;
+    btn.dataset.numero = num.id; // Asignar data-numero
     btn.onclick = () => { filtrarPorNumero(num.id); };
     menu.appendChild(btn);
     if ((i + 1) % 15 === 0) separador();
   });
 
-  actualizarBotonesMenu(); // Marca el botón activo
+  // Actualizar la clase 'activo' en los botones
+  actualizarBotonesMenu();
 }
-
 
 function filtrarPorNumero(num) {
   numeroSeleccionado = num;
@@ -109,34 +102,7 @@ function cambiarVista(vista) {
   mostrarVista();
 }
 
-function mostrarVista() {
-  const main = document.getElementById("main-content");
-  main.innerHTML = "";
-
-  const bloques = numeroSeleccionado === 'todo'
-    ? ordenNumeros.map(n => bloquesPorNumero[n.id] || '').join('\n\n')
-    : bloquesPorNumero[numeroSeleccionado] || 'Contenido no encontrado.';
-
-  const entradas = parsearBloques(bloques);
-
-  if (vistaActual === 'ensayo') {
-    const personajesUnicos = Array.from(new Set(
-      entradas.filter(e => e.tipo === 'dialogo').map(e => e.personaje)
-    ));
-
-    const filtro = document.createElement("div");
-    filtro.className = "filtro-ensayo";
-
-    const panel = document.createElement("div");
-    panel.id = "panel-personajes";
-    panel.style.display = "none";
-
-    const toggleBtn = document.createElement("button");
-    toggleBtn.textContent = "👥 Ocultar personajes";
-    toggleBtn.className = "toggle-ensayo";
-    toggleBtn.onclick = () => {
-      panel.style.display = panel.style.display === "none" ? "flex" : "none";
-    };
+// mostrarVista se reemplaza más abajo
     filtro.appendChild(toggleBtn);
 
     personajesUnicos.forEach(p => {
@@ -327,18 +293,7 @@ function mostrarVista() {
 
 
 
-function parsearBloques(bloque) {
-  const lineas = bloque.split('\n');
-  const resultado = [];
-  let actual = null;
-
-  for (let linea of lineas) {
-    linea = linea.trim();
-
-    if (linea.startsWith('//')) {
-      resultado.push({ tipo: 'acotacion', texto: linea.substring(2).trim() });
-      continue;
-    }
+// parsearBloques se reemplaza más abajo
 
     const matchTitulo = linea.match(/^==\s*(.+?)\s*==$/);
     if (matchTitulo) {
@@ -467,3 +422,170 @@ function ajustarAlturaMain() {
 
 window.addEventListener("load", ajustarAlturaMain);
 window.addEventListener("resize", ajustarAlturaMain);
+function mostrarVista() {
+  const main = document.getElementById("main-content");
+  main.innerHTML = "";
+
+  const bloques = numeroSeleccionado === 'todo'
+    ? ordenNumeros.map(n => bloquesPorNumero[n.id] || '').join('\n\n')
+    : bloquesPorNumero[numeroSeleccionado] || 'Contenido no encontrado.';
+
+  const entradas = parsearBloques(bloques);
+
+  if (vistaActual === 'ensayo') {
+    const personajesUnicos = Array.from(new Set(
+      entradas.filter(e => e.tipo === 'dialogo').map(e => e.personaje)
+    ));
+
+    const filtro = document.createElement("div");
+    filtro.className = "filtro-ensayo";
+
+    const panel = document.createElement("div");
+    panel.id = "panel-personajes";
+    panel.style.display = "none";
+
+    const toggleBtn = document.createElement("button");
+    toggleBtn.textContent = "👥 Ocultar personajes";
+    toggleBtn.className = "toggle-ensayo";
+    toggleBtn.onclick = () => {
+      panel.style.display = panel.style.display === "none" ? "flex" : "none";
+    };
+    filtro.appendChild(toggleBtn);
+
+    personajesUnicos.forEach(p => {
+      const id = `chk-${normalizar(p)}`;
+      const label = document.createElement("label");
+      label.innerHTML = `<input type="checkbox" id="${id}" ${personajesOcultos.has(p) ? 'checked' : ''}/> ${p}`;
+      panel.appendChild(label);
+
+      label.querySelector("input").addEventListener("change", (e) => {
+        if (e.target.checked) {
+          personajesOcultos.add(p);
+        } else {
+          personajesOcultos.delete(p);
+        }
+
+        document.querySelectorAll(`.${normalizar(p)}`).forEach(el => {
+          if (vistaActual === 'ensayo') {
+            if (personajesOcultos.has(p)) {
+              el.classList.add("oculto");
+              el.innerHTML = `<strong>${p}</strong>:<br><em>— intervención oculta —</em>`;
+              el.dataset.textoOriginal = el.dataset.textoOriginal || el.innerHTML;
+            } else {
+              el.classList.remove("oculto");
+              el.innerHTML = `<strong>${p}</strong>:<br>${(el.dataset.textoOriginal || '').replace(/\n/g, "<br>")}`;
+            }
+          }
+        });
+      });
+    });
+
+    filtro.appendChild(panel);
+    main.appendChild(filtro);
+  }
+
+  if (vistaActual === 'guion' || vistaActual === 'ensayo') {
+    const container = document.createElement("div");
+    container.className = vistaActual;
+
+    entradas.forEach(linea => {
+      const p = document.createElement("div");
+
+      if (linea.tipo === 'acotacion') {
+        p.className = vistaActual + "-acotacion";
+        p.innerHTML = linea.texto.replace(/\n/g, "<br>");
+      } else if (linea.tipo === 'titulo') {
+        p.className = "bloque-titulo";
+        p.innerHTML = linea.texto;
+      } else {
+        p.className = `${vistaActual}-linea ${normalizar(linea.personaje)}`;
+        p.dataset.personaje = linea.personaje;
+        p.dataset.textoOriginal = linea.texto;
+
+        const renderContenido = (visible) => {
+          if (visible) {
+            p.innerHTML = `<strong>${linea.personaje}</strong>:<br>${linea.texto.replace(/\n/g, "<br>")}`;
+            p.classList.remove("oculto");
+            p.classList.remove("revelado");
+          } else {
+            p.innerHTML = `<strong>${linea.personaje}</strong>:<br><em>— intervención oculta —</em>`;
+            p.classList.add("oculto");
+            p.classList.remove("revelado");
+          }
+        };
+
+        if (vistaActual === 'ensayo' && personajesOcultos.has(linea.personaje)) {
+          renderContenido(false);
+        } else {
+          renderContenido(true);
+        }
+
+        if (vistaActual === 'ensayo') {
+          p.addEventListener("click", () => {
+            const visible = p.classList.contains("revelado") || !p.classList.contains("oculto");
+            renderContenido(!visible);
+            if (!visible) p.classList.add("revelado");
+          });
+        }
+      }
+
+      container.appendChild(p);
+    });
+
+    main.appendChild(container);
+  }
+
+  if (vistaActual === 'chat') {
+    const div = document.createElement("div");
+    div.className = "chat";
+    entradas.forEach(linea => {
+      if (linea.tipo === 'acotacion') {
+        const ac = document.createElement("div");
+        ac.className = "chat-acotacion";
+        ac.innerHTML = linea.texto.replace(/\n/g, "<br>");
+        div.appendChild(ac);
+      } else if (linea.tipo === 'titulo') {
+        const t = document.createElement("div");
+        t.className = "bloque-titulo";
+        t.innerHTML = linea.texto;
+        div.appendChild(t);
+      } else {
+        const bubble = document.createElement("div");
+        bubble.className = `bubble ${normalizar(linea.personaje)}`;
+        bubble.innerHTML = `<strong>${linea.personaje}:</strong><br>${linea.texto.replace(/\n/g, "<br>")}`;
+        div.appendChild(bubble);
+      }
+    });
+    main.appendChild(div);
+  }
+}
+
+function parsearBloques(bloque) {
+  const lineas = bloque.split('\n');
+  const resultado = [];
+  let actual = null;
+
+  for (let linea of lineas) {
+    linea = linea.trim();
+    if (linea.startsWith('//')) {
+      resultado.push({ tipo: 'acotacion', texto: linea.substring(2).trim() });
+      continue;
+    }
+
+    const matchTitulo = linea.match(/^==\s*(.+?)\s*==$/);
+    if (matchTitulo) {
+      resultado.push({ tipo: 'titulo', texto: matchTitulo[1].trim() });
+      continue;
+    }
+
+    const matchDialogo = linea.match(/^\[([\wÁÉÍÓÚÑÜáéíóúñü\sº°.,'-]+)\]$/);
+    if (matchDialogo) {
+      actual = { tipo: 'dialogo', personaje: matchDialogo[1].trim(), texto: '' };
+      resultado.push(actual);
+    } else if (actual) {
+      actual.texto += (actual.texto ? '\n' : '') + linea;
+    }
+  }
+
+  return resultado;
+}
