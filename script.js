@@ -3,6 +3,8 @@ let ordenNumeros = [];
 let vistaActual = 'guion';
 let numeroSeleccionado = 'todo';
 let personajesOcultos = new Set();
+let rachaGlobal = 0;
+
 
 async function cargarTexto() {
   const resp = await fetch('texto.txt');
@@ -235,6 +237,12 @@ function mostrarVista() {
     const container = document.createElement("div");
     container.className = "sigue";
 
+    const barraRacha = document.createElement("div");
+    barraRacha.className = "racha-barra";
+    barraRacha.innerHTML = '🔥 Racha: <span id="racha-valor">' + rachaGlobal + '</span>';
+    container.appendChild(barraRacha);
+
+    
     const soloDialogos = [];
     ordenNumeros.forEach(num => {
       const texto = bloquesPorNumero[num.id];
@@ -293,16 +301,17 @@ function mostrarVista() {
 
       opDiv.addEventListener("click", () => {
         if (op === siguiente) {
-          racha++;
-          actualizarContadorRacha(racha);
+          rachaGlobal++;
+          
           opDiv.style.border = "4px solid green";
           alert("✅ ¡Correcto!");
         } else {
-          racha = 0;
-          actualizarContadorRacha(racha);
+          rachaGlobal = 0;
+          
           opDiv.style.border = "4px solid red";
           alert(`❌ Incorrecto. La respuesta correcta era:\n${siguiente.personaje}: ${siguiente.texto}`);
         }
+        document.getElementById("racha-valor").textContent = rachaGlobal;
       });
 
       opcionesGrid.appendChild(opDiv);
@@ -315,10 +324,8 @@ function mostrarVista() {
     const siguienteBtn = document.createElement("button");
     siguienteBtn.textContent = "🎲 Otra";
     siguienteBtn.className = "btn-siguiente";
-    siguienteBtn.onclick = () => {
-      actualizarContadorRacha(racha);
-      mostrarVista(); // Recarga
-    } 
+    siguienteBtn.onclick = () => mostrarVista(); // Recarga
+  
     container.appendChild(siguienteBtn);
     crearContadorRacha(container, racha);
 
