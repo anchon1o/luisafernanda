@@ -139,12 +139,27 @@ function mostrarVista() {
       panel.appendChild(label);
 
       label.querySelector("input").addEventListener("change", (e) => {
-        if (e.target.checked) {
-          personajesOcultos.add(p);
-        } else {
-          personajesOcultos.delete(p);
-        }
-      });
+          if (e.target.checked) {
+            personajesOcultos.add(p);
+          } else {
+            personajesOcultos.delete(p);
+          }
+        
+          // Solo actualiza la clase 'oculto' sin reconstruir todo
+          document.querySelectorAll(`.${normalizar(p)}`).forEach(el => {
+            if (vistaActual === 'ensayo') {
+              if (personajesOcultos.has(p)) {
+                el.classList.add("oculto");
+                el.innerHTML = `<strong>${p}</strong>:<br><em>— intervención oculta —</em>`;
+                el.dataset.textoOriginal = el.dataset.textoOriginal || el.innerHTML;
+              } else {
+                el.classList.remove("oculto");
+                el.innerHTML = `<strong>${p}</strong>:<br>${(el.dataset.textoOriginal || '').replace(/\n/g, "<br>")}`;
+              }
+            }
+          });
+        });
+
 
 
     });
