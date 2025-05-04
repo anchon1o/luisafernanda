@@ -294,13 +294,10 @@ function mostrarVista() {
         if (op === siguiente) {
           opDiv.style.border = "4px solid green";
           alert("✅ ¡Correcto!");
-     
         } else {
           opDiv.style.border = "4px solid red";
           alert(`❌ Incorrecto. La respuesta correcta era:\n${siguiente.personaje}: ${siguiente.texto}`);
-      
         }
-
       });
 
       opcionesGrid.appendChild(opDiv);
@@ -316,9 +313,6 @@ function mostrarVista() {
     siguienteBtn.onclick = () => mostrarVista(); // Recarga
     container.appendChild(siguienteBtn);
 
-
-
-    
     main.appendChild(container);
   }
 }
