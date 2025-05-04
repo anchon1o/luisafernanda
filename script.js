@@ -250,10 +250,12 @@ function mostrarVista() {
       return;
     }
 
+     // Elegir una intervención aleatoria y su continuación
     const idx = Math.floor(Math.random() * (soloDialogos.length - 1));
     const actual = soloDialogos[idx];
     const siguiente = soloDialogos[idx + 1];
 
+    // Elegir 3 distracciones aleatorias
     const distracciones = soloDialogos
       .filter((_, i) => i !== idx + 1)
       .sort(() => Math.random() - 0.5)
@@ -261,11 +263,25 @@ function mostrarVista() {
 
     const opciones = [...distracciones, siguiente].sort(() => Math.random() - 0.5);
 
+    // 👉 Texto: "Después de la frase:"
+    const etiquetaAnterior = document.createElement("div");
+    etiquetaAnterior.className = "sigue-etiqueta";
+    etiquetaAnterior.textContent = "Después de la frase:";
+    container.appendChild(etiquetaAnterior);
+
+    // Mostrar frase actual
     const frase = document.createElement("div");
     frase.className = `sigue-linea ${normalizar(actual.personaje)}`;
     frase.innerHTML = `<strong>${actual.personaje}</strong>:<br>${actual.texto}`;
     container.appendChild(frase);
 
+    // 👉 Texto: "Sigue la frase:"
+    const etiquetaOpciones = document.createElement("div");
+    etiquetaOpciones.className = "sigue-etiqueta";
+    etiquetaOpciones.textContent = "Sigue la frase:";
+    container.appendChild(etiquetaOpciones);
+
+    // Mostrar opciones
     const opcionesGrid = document.createElement("div");
     opcionesGrid.className = "sigue-opciones";
 
@@ -273,17 +289,23 @@ function mostrarVista() {
       const opDiv = document.createElement("div");
       opDiv.className = `sigue-linea opcion ${normalizar(op.personaje)}`;
       opDiv.innerHTML = `<strong>${op.personaje}</strong>:<br>${op.texto.length > 180 ? op.texto.slice(0, 180) + '…' : op.texto}`;
+
       opDiv.addEventListener("click", () => {
         if (op === siguiente) {
           opDiv.style.border = "4px solid green";
+          alert("✅ ¡Correcto!");
         } else {
           opDiv.style.border = "4px solid red";
+          alert(`❌ Incorrecto. La respuesta correcta era:\n${siguiente.personaje}: ${siguiente.texto}`);
         }
       });
+
       opcionesGrid.appendChild(opDiv);
     });
 
     container.appendChild(opcionesGrid);
+
+    // Botón para nueva pregunta
 
     const siguienteBtn = document.createElement("button");
     siguienteBtn.textContent = "🔁 Siguiente";
