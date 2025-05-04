@@ -252,84 +252,40 @@ function navegarADireccion(direccion) {
   let indexActual = ordenNumeros.findIndex(n => n.id === numeroSeleccionado);
 
   if (numeroSeleccionado === 'todo') {
-    // Desde "todo", ir a 1a (inicio) o 14 (final)
     numeroSeleccionado = direccion === 'anterior'
       ? ordenNumeros[ordenNumeros.length - 1].id
       : ordenNumeros[0].id;
-  } else if (indexActual !== -1) {
-    let nuevoIndex = direccion === 'anterior' ? indexActual - 1 : indexActual + 1;
-
-    if (nuevoIndex < 0 || nuevoIndex >= ordenNumeros.length) {
-      numeroSeleccionado = 'todo';
-    } else {
-      numeroSeleccionado = ordenNumeros[nuevoIndex].id;
-    }
+    actualizarBotonesMenu();
+    mostrarVista();
+    return;
   }
 
-  mostrarVista();
+  if (indexActual === -1) return;
+
+  let nuevoIndex = direccion === 'anterior' ? indexActual - 1 : indexActual + 1;
+  if (nuevoIndex < 0 || nuevoIndex >= ordenNumeros.length) return;
+
+  numeroSeleccionado = ordenNumeros[nuevoIndex].id;
   actualizarBotonesMenu();
+  mostrarVista();
 }
 
 
 
 let reproductorVisible = true;
 
-
-  function reproducir(version) {
+function reproducir(version) {
   const claveLimpia = numeroSeleccionado.toLowerCase().replace(/^nº/, '');
   const clave = Object.keys(tiemposPorNumero).find(
     k => k.toLowerCase() === claveLimpia
   );
 
-  const contenedor = document.getElementById("reproductor");
-
-  // Si no hay clave o no hay tiempo definido, limpiar
   if (!clave || !tiemposPorNumero[clave]) {
-    contenedor.innerHTML = "";
-    contenedor.removeAttribute("data-clave");
+    document.getElementById("reproductor").innerHTML = "";
     reproductorVisible = false;
     ajustarAlturaMain();
     return;
   }
-
-  const tiempos = tiemposPorNumero[clave];
-  const tiempoInicio = tiempos[version];
-  if (tiempoInicio === undefined) {
-    contenedor.innerHTML = "";
-    contenedor.removeAttribute("data-clave");
-    reproductorVisible = false;
-    ajustarAlturaMain();
-    return;
-  }
-
-  // Si ya está activo con el mismo video y clave, lo cerramos
-  const claveActual = contenedor.dataset.clave;
-  const nuevaClave = clave + version;
-
-  if (claveActual === nuevaClave) {
-    contenedor.innerHTML = "";
-    contenedor.removeAttribute("data-clave");
-    reproductorVisible = false;
-    ajustarAlturaMain();
-    return;
-  }
-
-  // Si es un nuevo video, reemplazamos el reproductor
-  const videoId = videos[version];
-  const iframe = document.createElement("iframe");
-  iframe.src = `https://www.youtube.com/embed/${videoId}?start=${tiempoInicio}&autoplay=1`;
-  iframe.allow = "autoplay; encrypted-media";
-  iframe.frameBorder = "0";
-  iframe.width = "100%";
-  iframe.height = "360"; // Más grande, pero ajustable
-
-  contenedor.innerHTML = "";
-  contenedor.dataset.clave = nuevaClave;
-  contenedor.appendChild(iframe);
-  reproductorVisible = true;
-  ajustarAlturaMain();
-}
-
 
   const tiempos = tiemposPorNumero[clave];
   const tiempoInicio = tiempos[version];
