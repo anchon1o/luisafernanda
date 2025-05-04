@@ -169,42 +169,54 @@ function mostrarVista() {
   }
 
   if (vistaActual === 'guion' || vistaActual === 'ensayo') {
-    const container = document.createElement("div");
-    container.className = vistaActual;
+  const container = document.createElement("div");
+  container.className = vistaActual;
 
-    entradas.forEach(linea => {
-      const p = document.createElement("div");
+  entradas.forEach(linea => {
+    const p = document.createElement("div");
 
-      if (linea.tipo === 'acotacion') {
-        p.className = vistaActual + "-acotacion";
-        p.innerHTML = linea.texto.replace(/\n/g, "<br>");
-      } else {
-        p.className = `${vistaActual}-linea ${normalizar(linea.personaje)}`;
+    if (linea.tipo === 'acotacion') {
+      p.className = vistaActual + "-acotacion";
+      p.innerHTML = linea.texto.replace(/\n/g, "<br>");
+    } else {
+      p.className = `${vistaActual}-linea ${normalizar(linea.personaje)}`;
 
-        if (vistaActual === 'ensayo' && personajesOcultos.has(linea.personaje)) {
-          p.classList.add("oculto");
-          p.innerHTML = `<strong>${linea.personaje}</strong>:<br><em>— intervención oculta —</em>`;
-          p.dataset.textoOriginal = linea.texto;
+      // Guardamos el contenido original como referencia
+      p.dataset.personaje = linea.personaje;
+      p.dataset.textoOriginal = linea.texto;
 
-          p.addEventListener("click", () => {
-            if (p.classList.contains("revelado")) {
-              p.innerHTML = `<strong>${linea.personaje}</strong>:<br><em>— intervención oculta —</em>`;
-              p.classList.remove("revelado");
-            } else {
-              p.innerHTML = `<strong>${linea.personaje}</strong>:<br>${p.dataset.textoOriginal.replace(/\n/g, "<br>")}`;
-              p.classList.add("revelado");
-            }
-          });
-        } else {
+      const renderContenido = (visible) => {
+        if (visible) {
           p.innerHTML = `<strong>${linea.personaje}</strong>:<br>${linea.texto.replace(/\n/g, "<br>")}`;
+          p.classList.remove("oculto");
+          p.classList.remove("revelado");
+        } else {
+          p.innerHTML = `<strong>${linea.personaje}</strong>:<br><em>— intervención oculta —</em>`;
+          p.classList.add("oculto");
+          p.classList.remove("revelado");
         }
+      };
+
+      if (vistaActual === 'ensayo' && personajesOcultos.has(linea.personaje)) {
+        renderContenido(false);
+      } else {
+        renderContenido(true);
       }
 
-      container.appendChild(p);
-    });
+      if (vistaActual === 'ensayo') {
+        p.addEventListener("click", () => {
+          const visible = p.classList.contains("revelado") || !p.classList.contains("oculto");
+          renderContenido(!visible);
+          if (!visible) p.classList.add("revelado");
+        });
+      }
+    }
 
-    main.appendChild(container);
-  }
+    container.appendChild(p);
+  });
+
+  main.appendChild(container);
+}
 
   if (vistaActual === 'chat') {
     const div = document.createElement("div");
