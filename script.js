@@ -143,8 +143,11 @@ function cambiarVista(vista) {
 
     entradas.forEach(linea => {
       const p = document.createElement("div");
-
-      if (linea.tipo === 'acotacion') {
+      
+      if (linea.tipo === 'titulo') {
+          p.className = "bloque-titulo";
+          p.textContent = linea.texto;
+      } else if (linea.tipo === 'acotacion') {
         p.className = vistaActual + "-acotacion";
         p.innerHTML = linea.texto.replace(/\n/g, "<br>");
       } else {
@@ -189,7 +192,14 @@ function cambiarVista(vista) {
     const div = document.createElement("div");
     div.className = "chat";
     entradas.forEach(linea => {
-      if (linea.tipo === 'acotacion') {
+      
+      if (linea.tipo === 'titulo') {
+        const titulo = document.createElement("div");
+        titulo.className = "bloque-titulo";
+        titulo.textContent = linea.texto;
+        div.appendChild(titulo);
+        
+      } else if (linea.tipo === 'acotacion') {
         const ac = document.createElement("div");
         ac.className = "chat-acotacion";
         ac.innerHTML = linea.texto.replace(/\n/g, "<br>");
