@@ -255,8 +255,8 @@ function navegarADireccion(direccion) {
 
   if (numeroSeleccionado === 'todo') {
     numeroSeleccionado = direccion === 'anterior'
-      ? ordenNumeros[ordenNumeros.length - 1].id
-      : ordenNumeros[0].id;
+      ? ordenNumeros[ordenNumeros.length - 1].id  // Ir al 14
+      : ordenNumeros[0].id;                        // Ir al 1a
     actualizarBotonesMenu();
     mostrarVista();
     return;
@@ -265,9 +265,15 @@ function navegarADireccion(direccion) {
   if (indexActual === -1) return;
 
   let nuevoIndex = direccion === 'anterior' ? indexActual - 1 : indexActual + 1;
-  if (nuevoIndex < 0 || nuevoIndex >= ordenNumeros.length) return;
 
-  numeroSeleccionado = ordenNumeros[nuevoIndex].id;
+  if (nuevoIndex < 0) {
+    numeroSeleccionado = 'todo'; // De 1a a LF
+  } else if (nuevoIndex >= ordenNumeros.length) {
+    numeroSeleccionado = 'todo'; // De 14 a LF
+  } else {
+    numeroSeleccionado = ordenNumeros[nuevoIndex].id;
+  }
+
   actualizarBotonesMenu();
   mostrarVista();
 }
