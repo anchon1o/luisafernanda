@@ -102,7 +102,34 @@ function cambiarVista(vista) {
   mostrarVista();
 }
 
-// mostrarVista se reemplaza más abajo
+function mostrarVista() {
+  const main = document.getElementById("main-content");
+  main.innerHTML = "";
+
+  const bloques = numeroSeleccionado === 'todo'
+    ? ordenNumeros.map(n => bloquesPorNumero[n.id] || '').join('\n\n')
+    : bloquesPorNumero[numeroSeleccionado] || 'Contenido no encontrado.';
+
+  const entradas = parsearBloques(bloques);
+
+  if (vistaActual === 'ensayo') {
+    const personajesUnicos = Array.from(new Set(
+      entradas.filter(e => e.tipo === 'dialogo').map(e => e.personaje)
+    ));
+
+    const filtro = document.createElement("div");
+    filtro.className = "filtro-ensayo";
+
+    const panel = document.createElement("div");
+    panel.id = "panel-personajes";
+    panel.style.display = "none";
+
+    const toggleBtn = document.createElement("button");
+    toggleBtn.textContent = "👥 Ocultar personajes";
+    toggleBtn.className = "toggle-ensayo";
+    toggleBtn.onclick = () => {
+      panel.style.display = panel.style.display === "none" ? "flex" : "none";
+    };
     filtro.appendChild(toggleBtn);
 
     personajesUnicos.forEach(p => {
@@ -143,11 +170,8 @@ function cambiarVista(vista) {
 
     entradas.forEach(linea => {
       const p = document.createElement("div");
-      
-      if (linea.tipo === 'titulo') {
-          p.className = "bloque-titulo";
-          p.textContent = linea.texto;
-      } else if (linea.tipo === 'acotacion') {
+
+      if (linea.tipo === 'acotacion') {
         p.className = vistaActual + "-acotacion";
         p.innerHTML = linea.texto.replace(/\n/g, "<br>");
       } else {
@@ -192,14 +216,7 @@ function cambiarVista(vista) {
     const div = document.createElement("div");
     div.className = "chat";
     entradas.forEach(linea => {
-      
-      if (linea.tipo === 'titulo') {
-        const titulo = document.createElement("div");
-        titulo.className = "bloque-titulo";
-        titulo.textContent = linea.texto;
-        div.appendChild(titulo);
-        
-      } else if (linea.tipo === 'acotacion') {
+      if (linea.tipo === 'acotacion') {
         const ac = document.createElement("div");
         ac.className = "chat-acotacion";
         ac.innerHTML = linea.texto.replace(/\n/g, "<br>");
@@ -303,17 +320,21 @@ function cambiarVista(vista) {
 
 
 
-// parsearBloques se reemplaza más abajo
+function parsearBloques(bloque) {
+  const lineas = bloque.split('\n');
+  const resultado = [];
+  let actual = null;
 
-    const matchTitulo = linea.match(/^==\s*(.+?)\s*==$/);
-    if (matchTitulo) {
-      resultado.push({ tipo: 'titulo', texto: matchTitulo[1].trim() });
+  for (let linea of lineas) {
+    linea = linea.trim();
+    if (linea.startsWith('//')) {
+      resultado.push({ tipo: 'acotacion', texto: linea.substring(2).trim() });
       continue;
     }
 
-    const matchDialogo = linea.match(/^\[([\wÁÉÍÓÚÑÜáéíóúñü\sº°.,'-]+)\]$/);
-    if (matchDialogo) {
-      actual = { tipo: 'dialogo', personaje: matchDialogo[1].trim(), texto: '' };
+    const match = linea.match(/^\[([\wÁÉÍÓÚÑÜáéíóúñü\sº°.,'-]+)\]$/);
+    if (match) {
+      actual = { tipo: 'dialogo', personaje: match[1].trim(), texto: '' };
       resultado.push(actual);
     } else if (actual) {
       actual.texto += (actual.texto ? '\n' : '') + linea;
@@ -322,7 +343,6 @@ function cambiarVista(vista) {
 
   return resultado;
 }
-
 
 function normalizar(nombre) {
   return nombre.toLowerCase().replaceAll(' ', '-').replaceAll('ñ','n');
@@ -432,170 +452,3 @@ function ajustarAlturaMain() {
 
 window.addEventListener("load", ajustarAlturaMain);
 window.addEventListener("resize", ajustarAlturaMain);
-function mostrarVista() {
-  const main = document.getElementById("main-content");
-  main.innerHTML = "";
-
-  const bloques = numeroSeleccionado === 'todo'
-    ? ordenNumeros.map(n => bloquesPorNumero[n.id] || '').join('\n\n')
-    : bloquesPorNumero[numeroSeleccionado] || 'Contenido no encontrado.';
-
-  const entradas = parsearBloques(bloques);
-
-  if (vistaActual === 'ensayo') {
-    const personajesUnicos = Array.from(new Set(
-      entradas.filter(e => e.tipo === 'dialogo').map(e => e.personaje)
-    ));
-
-    const filtro = document.createElement("div");
-    filtro.className = "filtro-ensayo";
-
-    const panel = document.createElement("div");
-    panel.id = "panel-personajes";
-    panel.style.display = "none";
-
-    const toggleBtn = document.createElement("button");
-    toggleBtn.textContent = "👥 Ocultar personajes";
-    toggleBtn.className = "toggle-ensayo";
-    toggleBtn.onclick = () => {
-      panel.style.display = panel.style.display === "none" ? "flex" : "none";
-    };
-    filtro.appendChild(toggleBtn);
-
-    personajesUnicos.forEach(p => {
-      const id = `chk-${normalizar(p)}`;
-      const label = document.createElement("label");
-      label.innerHTML = `<input type="checkbox" id="${id}" ${personajesOcultos.has(p) ? 'checked' : ''}/> ${p}`;
-      panel.appendChild(label);
-
-      label.querySelector("input").addEventListener("change", (e) => {
-        if (e.target.checked) {
-          personajesOcultos.add(p);
-        } else {
-          personajesOcultos.delete(p);
-        }
-
-        document.querySelectorAll(`.${normalizar(p)}`).forEach(el => {
-          if (vistaActual === 'ensayo') {
-            if (personajesOcultos.has(p)) {
-              el.classList.add("oculto");
-              el.innerHTML = `<strong>${p}</strong>:<br><em>— intervención oculta —</em>`;
-              el.dataset.textoOriginal = el.dataset.textoOriginal || el.innerHTML;
-            } else {
-              el.classList.remove("oculto");
-              el.innerHTML = `<strong>${p}</strong>:<br>${(el.dataset.textoOriginal || '').replace(/\n/g, "<br>")}`;
-            }
-          }
-        });
-      });
-    });
-
-    filtro.appendChild(panel);
-    main.appendChild(filtro);
-  }
-
-  if (vistaActual === 'guion' || vistaActual === 'ensayo') {
-    const container = document.createElement("div");
-    container.className = vistaActual;
-
-    entradas.forEach(linea => {
-      const p = document.createElement("div");
-
-      if (linea.tipo === 'acotacion') {
-        p.className = vistaActual + "-acotacion";
-        p.innerHTML = linea.texto.replace(/\n/g, "<br>");
-      } else if (linea.tipo === 'titulo') {
-        p.className = "bloque-titulo";
-        p.innerHTML = linea.texto;
-      } else {
-        p.className = `${vistaActual}-linea ${normalizar(linea.personaje)}`;
-        p.dataset.personaje = linea.personaje;
-        p.dataset.textoOriginal = linea.texto;
-
-        const renderContenido = (visible) => {
-          if (visible) {
-            p.innerHTML = `<strong>${linea.personaje}</strong>:<br>${linea.texto.replace(/\n/g, "<br>")}`;
-            p.classList.remove("oculto");
-            p.classList.remove("revelado");
-          } else {
-            p.innerHTML = `<strong>${linea.personaje}</strong>:<br><em>— intervención oculta —</em>`;
-            p.classList.add("oculto");
-            p.classList.remove("revelado");
-          }
-        };
-
-        if (vistaActual === 'ensayo' && personajesOcultos.has(linea.personaje)) {
-          renderContenido(false);
-        } else {
-          renderContenido(true);
-        }
-
-        if (vistaActual === 'ensayo') {
-          p.addEventListener("click", () => {
-            const visible = p.classList.contains("revelado") || !p.classList.contains("oculto");
-            renderContenido(!visible);
-            if (!visible) p.classList.add("revelado");
-          });
-        }
-      }
-
-      container.appendChild(p);
-    });
-
-    main.appendChild(container);
-  }
-
-  if (vistaActual === 'chat') {
-    const div = document.createElement("div");
-    div.className = "chat";
-    entradas.forEach(linea => {
-      if (linea.tipo === 'acotacion') {
-        const ac = document.createElement("div");
-        ac.className = "chat-acotacion";
-        ac.innerHTML = linea.texto.replace(/\n/g, "<br>");
-        div.appendChild(ac);
-      } else if (linea.tipo === 'titulo') {
-        const t = document.createElement("div");
-        t.className = "bloque-titulo";
-        t.innerHTML = linea.texto;
-        div.appendChild(t);
-      } else {
-        const bubble = document.createElement("div");
-        bubble.className = `bubble ${normalizar(linea.personaje)}`;
-        bubble.innerHTML = `<strong>${linea.personaje}:</strong><br>${linea.texto.replace(/\n/g, "<br>")}`;
-        div.appendChild(bubble);
-      }
-    });
-    main.appendChild(div);
-  }
-}
-
-function parsearBloques(bloque) {
-  const lineas = bloque.split('\n');
-  const resultado = [];
-  let actual = null;
-
-  for (let linea of lineas) {
-    linea = linea.trim();
-    if (linea.startsWith('//')) {
-      resultado.push({ tipo: 'acotacion', texto: linea.substring(2).trim() });
-      continue;
-    }
-
-    const matchTitulo = linea.match(/^==\s*(.+?)\s*==$/);
-    if (matchTitulo) {
-      resultado.push({ tipo: 'titulo', texto: matchTitulo[1].trim() });
-      continue;
-    }
-
-    const matchDialogo = linea.match(/^\[([\wÁÉÍÓÚÑÜáéíóúñü\sº°.,'-]+)\]$/);
-    if (matchDialogo) {
-      actual = { tipo: 'dialogo', personaje: matchDialogo[1].trim(), texto: '' };
-      resultado.push(actual);
-    } else if (actual) {
-      actual.texto += (actual.texto ? '\n' : '') + linea;
-    }
-  }
-
-  return resultado;
-}
