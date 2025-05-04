@@ -251,6 +251,15 @@ main {
   cursor: pointer;
 }
 
+.bloque-titulo {
+  background: black;
+  color: white;
+  padding: 0.5em 1em;
+  margin: 1em 0;
+  font-weight: bold;
+  text-align: center;
+}
+
 /* Acotaciones */
 .guion-acotacion,
 .chat-acotacion,
