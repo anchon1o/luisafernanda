@@ -139,11 +139,22 @@ h1 {
   margin: 1rem 0;
 }
 
-/* Área principal */
+
+#fijo {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
 main {
   padding: 1rem;
-  padding-top: var(--fijo-altura, 0px);
+  margin-top: var(--fijo-altura, 200px);
+  transition: margin-top 0.2s ease-in-out;
 }
+
 
 /* Guion */
 .guion {
@@ -297,4 +308,6 @@ main {
   font-style: normal;
   color: inherit;
 }
+
+
 
