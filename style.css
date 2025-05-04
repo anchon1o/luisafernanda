@@ -116,8 +116,8 @@ h1 {
 
 
 #menu-scroll button.activo {
-  background-color: #007BFF;
-  color: white;
+  background-color: #007BFF !important;
+  color: white !important;
   border-color: #0056b3;
   font-weight: bold;
 }
