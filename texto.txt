@@ -465,7 +465,7 @@ Por favor, que venga aprisa.
 
 
 
-### ▪️2) TEXTO HABLADO
+### ▪️3) TEXTO HABLADO
 
 
 
@@ -639,7 +639,7 @@ Vamos, pues.
 
 
 
-### ▪️3) TEXTO HABLADO
+### ▪️4) TEXTO HABLADO
 
 
 
@@ -868,7 +868,7 @@ del desdén con que los tratas.
 tengo un puente de esperanzas!
 
 
-### ▪️3) TEXTO HABLADO
+### ▪️5) TEXTO HABLADO
 
 
 
@@ -1074,7 +1074,7 @@ de aquel rosal!
 
 (Mutis por la verja)
 
-### ▪️4) TEXTO HABLADO
+### ▪️6) TEXTO HABLADO
 
 
 Salen nerviosos e intrigados Vidal y Aníbal. Este último saca en la mano un cabezón de madroños de vivo color.
@@ -1524,7 +1524,7 @@ sentir las flechas del amor!
 (Se van por el primer término izquierda)
 
 
-### ▪️6) TEXTO HABLADO
+### ▪️7) TEXTO HABLADO
 
 
 
@@ -1634,7 +1634,7 @@ Lo que quieras, pero...
 
 
 
-### ▪️4) TEXTO HABLADO
+### ▪️8) TEXTO HABLADO
 
 
 
@@ -1712,7 +1712,7 @@ Aquí tiene el refresquillo.
 
 
 
-### ▪️5) TEXTO HABLADO
+### ▪️9) TEXTO HABLADO
 
 
 
@@ -1772,7 +1772,7 @@ Pa mí que esta tía lo camela.
 
 
 
-### ▪️6) TEXTO HABLADO
+### ▪️10) TEXTO HABLADO
 
 
 
@@ -2038,7 +2038,7 @@ Beso a usted los pies.
 
 
 
-### ▪️7) TEXTO HABLADO
+### ▪️11) TEXTO HABLADO
 
 
 
@@ -2517,7 +2517,7 @@ Patio del parador del Bizco. A la izquierda del fondo, la portalada de entrada, 
 
 
 
-### ▪️9) TEXTO HABLADO
+### ▪️12) TEXTO HABLADO
 
 
 Mariana, una criada del parador y una vieja vecina oran de rodillas ante la imagen. Luisa Fernanda sentada, pensativa, en primer término, recostada en la mesa.
@@ -2720,7 +2720,7 @@ Aquí está.
 
 
 
-### ▪️7) TEXTO HABLADO
+### ▪️13) TEXTO HABLADO
 
 
 
@@ -2818,7 +2818,7 @@ que estás muy equivocado.
 
 
 
-### ▪️9) TEXTO HABLADO
+### ▪️14) TEXTO HABLADO
 
 
 
@@ -2887,7 +2887,7 @@ Tengo pendiente un desafío...
 
 
 
-### ▪️8) TEXTO HABLADO
+### ▪️15) TEXTO HABLADO
 
 
 
@@ -3014,7 +3014,7 @@ y me escuchen los demás.
 
 
 
-### ▪️9) TEXTO HABLADO
+### ▪️16) TEXTO HABLADO
 
 
 
@@ -3058,7 +3058,7 @@ los ojos de otra mujer!
 
 
 
-### ▪️10) TEXTO HABLADO
+### ▪️17) TEXTO HABLADO
 
 
 
@@ -3491,7 +3491,7 @@ morena clara! Etc., etc.
 ¡Ay, mi morena,
 morena clara! Etc., etc.
 
-### ▪️12) TEXTO HABLADO
+### ▪️18) TEXTO HABLADO
 
 
 
@@ -3798,7 +3798,7 @@ cuando no puede ser!
 
 (Todavía se oye como un eco de la voz de Javier que se aleja. Luisa Fernanda se enjuga una lágrima y, en este trance, la sorprende Vidal, que aparece por el foro derecha)
 
-### ▪️13) TEXTO HABLADO
+### ▪️19) TEXTO HABLADO
 
 
 
