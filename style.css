@@ -80,6 +80,15 @@ h1 {
   font-size: 1.5rem;
 }
 
+#fijo header {
+  padding: 0.3rem 1rem;
+}
+
+#fijo header h1 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
 /* Menú horizontal deslizante */
 #menu-numeros {
   overflow-x: auto;
