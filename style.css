@@ -324,3 +324,26 @@ main {
   font-style: normal;
   color: inherit;
 }
+
+.sigue {
+  padding: 1rem;
+}
+
+.sigue-linea {
+  border: 4px solid;
+  padding: 0.8rem;
+  margin: 0.6rem 0;
+  background: #f8f8f8;
+}
+
+.sigue-opciones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.sigue-linea.opcion {
+  cursor: pointer;
+  transition: border 0.3s ease;
+}
+
