@@ -132,57 +132,32 @@ main {
   background-color: #ddd;
 }
 
-/* COLORES DE PERSONAJES */
+/* COLORES DE PERSONAJES EN GUION Y CHAT */
 .guion-linea.luisa-fernanda strong,
-.ensayo-linea.luisa-fernanda strong,
 .chat .bubble.luisa-fernanda        { background-color: #f8d7da; }
-
 .guion-linea.vidal strong,
-.ensayo-linea.vidal strong,
 .chat .bubble.vidal                 { background-color: #fff3cd; }
-
 .guion-linea.javier strong,
-.ensayo-linea.javier strong,
 .chat .bubble.javier                { background-color: #d4edda; }
-
 .guion-linea.carolina strong,
-.ensayo-linea.carolina strong,
 .chat .bubble.carolina              { background-color: #e2d4f5; }
-
 .guion-linea.mariana strong,
-.ensayo-linea.mariana strong,
 .chat .bubble.mariana              { background-color: #d1f0f0; }
-
 .guion-linea.anibal strong,
-.ensayo-linea.anibal strong,
 .chat .bubble.anibal                { background-color: #d0e7ff; }
-
 .guion-linea.nogales strong,
-.ensayo-linea.nogales strong,
 .chat .bubble.nogales               { background-color: #ffe5b4; }
-
 .guion-linea.don-florito strong,
-.ensayo-linea.don-florito strong,
 .chat .bubble.don-florito           { background-color: #f3e5ff; }
-
 .guion-linea.bizco strong,
-.ensayo-linea.bizco strong,
 .chat .bubble.bizco                 { background-color: #ffedcc; }
-
 .guion-linea.rosita strong,
-.ensayo-linea.rosita strong,
 .chat .bubble.rosita                { background-color: #ffe5ec; }
-
 .guion-linea.saboyano strong,
-.ensayo-linea.saboyano strong,
 .chat .bubble.saboyano              { background-color: #cce5ff; }
-
 .guion-linea.coro strong,
-.ensayo-linea.coro strong,
 .chat .bubble.coro                  { background-color: #ffffff; }
-
 .guion-linea.narrador strong,
-.ensayo-linea.narrador strong,
 .chat .bubble.narrador              { background-color: #e0e0e0; }
 
 /* CHAT */
@@ -197,26 +172,27 @@ main {
 }
 
 /* ENSAYO */
-.ensayo {
-  font-size: 1.2rem;
-  padding: 1rem;
-  background: #fff;
-}
-
 .ensayo-linea {
   margin: 1rem 0;
-  padding: 1rem;
-  border-radius: 8px;
-  background: #f9f9f9;
-  border-left: 6px solid #ccc;
+  padding: 1.2rem;
+  border-radius: 0;
   white-space: pre-wrap;
+  background-color: #f9f9f9;
+  border: 2px solid #ccc;
+  color: #000;
+}
+
+.ensayo-linea strong {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.4rem;
 }
 
 .ensayo-linea.oculto {
   font-style: italic;
   opacity: 0.6;
-  background: #f4f4f4;
-  border-left: 6px dashed #bbb;
+  background: #eee;
+  border: 2px dashed #aaa;
   cursor: pointer;
 }
 
@@ -224,8 +200,23 @@ main {
   font-style: normal;
   opacity: 1;
   background: #fff;
-  border-left: 6px solid #999;
+  border: 2px solid #aaa;
 }
+
+/* Colores + bordes por personaje */
+.ensayo-linea.luisa-fernanda { background-color: #f8d7da; border-color: #c48a91; }
+.ensayo-linea.vidal          { background-color: #fff3cd; border-color: #d4ba6c; }
+.ensayo-linea.javier         { background-color: #d4edda; border-color: #81b494; }
+.ensayo-linea.carolina       { background-color: #e2d4f5; border-color: #aa8ed3; }
+.ensayo-linea.mariana        { background-color: #d1f0f0; border-color: #77c1c1; }
+.ensayo-linea.anibal         { background-color: #d0e7ff; border-color: #6ca6d4; }
+.ensayo-linea.nogales        { background-color: #ffe5b4; border-color: #e0b469; }
+.ensayo-linea.don-florito    { background-color: #f3e5ff; border-color: #c79edb; }
+.ensayo-linea.bizco          { background-color: #ffedcc; border-color: #e2b77c; }
+.ensayo-linea.rosita         { background-color: #ffe5ec; border-color: #d9a3b3; }
+.ensayo-linea.saboyano       { background-color: #cce5ff; border-color: #8bb3d6; }
+.ensayo-linea.coro           { background-color: #ffffff; border-color: #ccc; }
+.ensayo-linea.narrador       { background-color: #f0f0f0; border-color: #999; }
 
 /* FILTRO DE PERSONAJES */
 .filtro-ensayo {
