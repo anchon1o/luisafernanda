@@ -104,13 +104,12 @@ h1 {
 
 /* ÁREA PRINCIPAL DE TEXTO */
 main {
-  margin-top: 13.8rem; /* altura del bloque fijo */
-  height: calc(100vh - 13.8rem);
-  overflow-y: auto;
   padding: 1rem;
+  overflow-y: auto;
+  height: calc(100vh - var(--fijo-altura, 0px));
   box-sizing: border-box;
-  background-color: #f8f8f8;
 }
+
 
 /* GUION */
 .guion {
