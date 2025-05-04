@@ -47,28 +47,34 @@ function construirMenu() {
   const menu = document.getElementById('menu-scroll');
   menu.innerHTML = '';
 
+  // Crear botón "LF" para mostrar todo
   const botonTodo = document.createElement('button');
   botonTodo.textContent = 'LF';
-  botonTodo.dataset.numero = 'todo'; // <- importante
+  botonTodo.dataset.numero = 'todo'; // Asignar data-numero
   botonTodo.onclick = () => { filtrarPorNumero('todo'); };
   menu.appendChild(botonTodo);
 
+  // Función para agregar separadores
   const separador = () => {
     const span = document.createElement('span');
-    span.textContent = '  ';
+    span.textContent = '  '; // Dos espacios como separador
     menu.appendChild(span);
   };
 
   separador();
 
+  // Crear botones para cada número en ordenNumeros
   ordenNumeros.forEach((num, i) => {
     const btn = document.createElement('button');
     btn.textContent = num.label;
-    btn.dataset.numero = num.id; // <- aquí
+    btn.dataset.numero = num.id; // Asignar data-numero
     btn.onclick = () => { filtrarPorNumero(num.id); };
     menu.appendChild(btn);
     if ((i + 1) % 15 === 0) separador();
   });
+
+  // Actualizar la clase 'activo' en los botones
+  actualizarBotonesMenu();
 }
 
 function filtrarPorNumero(num) {
