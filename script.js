@@ -139,10 +139,15 @@ function mostrarVista() {
       panel.appendChild(label);
 
       label.querySelector("input").addEventListener("change", (e) => {
-        if (e.target.checked) personajesOcultos.add(p);
-        else personajesOcultos.delete(p);
-        mostrarVista();
+          if (e.target.checked) {
+            personajesOcultos.add(p);
+          } else {
+            personajesOcultos.delete(p);
+          }
+          // Solo actualiza la vista, no oculta el panel
+          mostrarVista();
       });
+
     });
 
     filtro.appendChild(panel);
