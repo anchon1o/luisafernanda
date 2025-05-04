@@ -78,13 +78,10 @@ function filtrarPorNumero(num) {
 function actualizarBotonesMenu() {
   const botones = document.querySelectorAll('#menu-scroll button');
   botones.forEach(btn => {
-    const texto = btn.textContent.trim();
-    if (
-      texto === 'LF' && numeroSeleccionado === 'todo' ||
-      texto.toLowerCase().startsWith('nº') && texto.toLowerCase().includes(numeroSeleccionado) ||
-      texto === '▪️' && numeroSeleccionado.startsWith('t')
-    ) {
+    const id = btn.dataset.numero;
+    if (id === numeroSeleccionado) {
       btn.classList.add('activo');
+      btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
     } else {
       btn.classList.remove('activo');
     }
