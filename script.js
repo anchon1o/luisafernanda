@@ -49,10 +49,7 @@ function construirMenu() {
 
   const botonTodo = document.createElement('button');
   botonTodo.textContent = 'LF';
-  botonTodo.dataset.numero = 'todo';
-  botonTodo.onclick = () => {
-    filtrarPorNumero('todo');
-  };
+  botonTodo.onclick = () => { filtrarPorNumero('todo'); };
   menu.appendChild(botonTodo);
 
   const separador = () => {
@@ -66,17 +63,11 @@ function construirMenu() {
   ordenNumeros.forEach((num, i) => {
     const btn = document.createElement('button');
     btn.textContent = num.label;
-    btn.dataset.numero = num.id;
-    btn.onclick = () => {
-      filtrarPorNumero(num.id);
-    };
+    btn.onclick = () => { filtrarPorNumero(num.id); };
     menu.appendChild(btn);
     if ((i + 1) % 15 === 0) separador();
   });
-
-  actualizarBotonesMenu(); // Marca el botón activo
 }
-
 
 function filtrarPorNumero(num) {
   numeroSeleccionado = num;
@@ -84,19 +75,21 @@ function filtrarPorNumero(num) {
   mostrarVista();
 }
 
-
 function actualizarBotonesMenu() {
   const botones = document.querySelectorAll('#menu-scroll button');
   botones.forEach(btn => {
-    const id = btn.dataset.numero;
-    if (id === numeroSeleccionado) {
+    const texto = btn.textContent.trim();
+    if (
+      texto === 'LF' && numeroSeleccionado === 'todo' ||
+      texto.toLowerCase().startsWith('nº') && texto.toLowerCase().includes(numeroSeleccionado) ||
+      texto === '▪️' && numeroSeleccionado.startsWith('t')
+    ) {
       btn.classList.add('activo');
     } else {
       btn.classList.remove('activo');
     }
   });
 }
-
 
 
 function cambiarVista(vista) {
