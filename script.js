@@ -333,7 +333,7 @@ function mostrarVista() {
     siguienteBtn.onclick = () => mostrarVista(); // Recarga
   
     container.appendChild(siguienteBtn);
-    crearContadorRacha(container, racha);
+    container.appendChild(barraRacha);
 
 
     main.appendChild(container);
