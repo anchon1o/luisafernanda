@@ -113,35 +113,40 @@ function mostrarVista() {
   const entradas = parsearBloques(bloques);
 
   if (vistaActual === 'ensayo') {
-    const panel = document.createElement("div");
-panel.id = "panel-personajes";
-panel.className = "panel-personajes"; // Añadido para estilo
-panel.style.display = "none";
+  const personajesUnicos = Array.from(new Set(
+    entradas.filter(e => e.tipo === 'dialogo').map(e => e.personaje)
+  ));
 
-personajesUnicos.forEach(p => {
-  const id = `chk-${normalizar(p)}`;
+  const filtro = document.createElement("div");
+  filtro.className = "filtro-ensayo";
 
-  const item = document.createElement("div");
-  item.className = "item-personaje";
+  const toggleBtn = document.createElement("button");
+  toggleBtn.textContent = "👥 Mostrar/Ocultar personajes";
+  toggleBtn.className = "toggle-ensayo";
+  toggleBtn.onclick = () => {
+    panel.style.display = panel.style.display === "none" ? "flex" : "none";
+  };
+  filtro.appendChild(toggleBtn);
 
-  const checkbox = document.createElement("input");
-  checkbox.type = "checkbox";
-  checkbox.id = id;
-  checkbox.checked = personajesOcultos.has(p);
-  checkbox.addEventListener("change", (e) => {
-    if (e.target.checked) personajesOcultos.add(p);
-    else personajesOcultos.delete(p);
-    mostrarVista();
-  });
+  const panel = document.createElement("div");
+  panel.id = "panel-personajes";
+  panel.style.display = "none";
 
-  const label = document.createElement("label");
-  label.setAttribute("for", id);
-  label.textContent = p;
+  personajesUnicos.forEach(p => {
+    const id = `chk-${normalizar(p)}`;
+    const label = document.createElement("label");
+    label.innerHTML = `<input type="checkbox" id="${id}" ${personajesOcultos.has(p) ? 'checked' : ''}/> ${p}`;
+    panel.appendChild(label);
 
-  item.appendChild(checkbox);
-  item.appendChild(label);
-  panel.appendChild(item);
-});
+    label.querySelector("input").addEventListener("change", (e) => {
+      if (e.target.checked) personajesOcultos.add(p);
+      else personajesOcultos.delete(p);
+      mostrarVista();
+    });
+
+  filtro.appendChild(panel);
+  main.appendChild(filtro);
+}
   }
 
   if (vistaActual === 'guion' || vistaActual === 'ensayo') {
