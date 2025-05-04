@@ -19,8 +19,8 @@ async function cargarTexto() {
       bloquesPorNumero[numeroActual] += textoBloque;
       textoBloque = '';
 
-      const matchMusical = linea.match(/^###\s+(Nº?[\dA-Z]+)\s+🎵/i);
-      const matchHablado = linea.match(/^###\s+▪️?(\d+)/i); // acepta ▪️1 o ▪️ 1 o ▪️1)
+      const matchMusical = linea.match(/^###\s+(Nº?[\dA-Z]+)\s*🎵/i);
+      const matchHablado = linea.match(/^###\s+▪️?(\d+)/i);
 
       if (matchMusical) {
         numeroActual = matchMusical[1].toLowerCase().replace(/^nº/, '');
@@ -189,19 +189,15 @@ const videos = {
 let reproductorVisible = true;
 
 function reproducir(version) {
-  console.log("Número seleccionado:", numeroSeleccionado);
-
   const claveLimpia = numeroSeleccionado.toLowerCase().replace(/^nº/, '');
-  console.log("Clave limpia:", claveLimpia);
-
   const clave = Object.keys(tiemposPorNumero).find(
     k => k.toLowerCase() === claveLimpia
   );
-  console.log("Clave encontrada:", clave);
 
   if (!clave || !tiemposPorNumero[clave]) {
     document.getElementById("reproductor").innerHTML = "";
     reproductorVisible = false;
+    ajustarAlturaMain();
     return;
   }
 
@@ -211,12 +207,14 @@ function reproducir(version) {
   if (tiempoInicio === undefined) {
     document.getElementById("reproductor").innerHTML = "";
     reproductorVisible = false;
+    ajustarAlturaMain();
     return;
   }
 
   if (reproductorVisible && document.getElementById("reproductor").dataset.clave === clave + version) {
     document.getElementById("reproductor").innerHTML = "";
     reproductorVisible = false;
+    ajustarAlturaMain();
     return;
   }
 
@@ -233,11 +231,23 @@ function reproducir(version) {
   contenedor.dataset.clave = clave + version;
   contenedor.appendChild(iframe);
   reproductorVisible = true;
+  ajustarAlturaMain();
 }
 
 function toggleReproductor() {
   const rep = document.getElementById("reproductor");
   rep.classList.toggle("colapsado");
+  ajustarAlturaMain();
 }
+
+function ajustarAlturaMain() {
+  const fijo = document.getElementById("fijo");
+  const main = document.querySelector("main");
+  const altura = fijo.offsetHeight;
+  main.style.setProperty('--fijo-altura', altura + 'px');
+}
+
+window.addEventListener("load", ajustarAlturaMain);
+window.addEventListener("resize", ajustarAlturaMain);
 
 cargarTexto();
