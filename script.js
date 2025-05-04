@@ -308,7 +308,7 @@ function mostrarVista() {
     // Botón para nueva pregunta
 
     const siguienteBtn = document.createElement("button");
-    siguienteBtn.textContent = "🔁 Siguiente";
+    siguienteBtn.textContent = "🎲 Otra";
     siguienteBtn.className = "btn-siguiente";
     siguienteBtn.onclick = () => mostrarVista(); // Recarga
     container.appendChild(siguienteBtn);
