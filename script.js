@@ -90,17 +90,31 @@ function mostrarVista() {
   const entradas = parsearBloques(bloques);
 
   if (vistaActual === 'ensayo') {
-    const personajesUnicos = Array.from(new Set(entradas.filter(e => e.tipo === 'dialogo').map(e => e.personaje)));
+    const personajesUnicos = Array.from(new Set(
+      entradas.filter(e => e.tipo === 'dialogo').map(e => e.personaje)
+    ));
 
     const filtro = document.createElement("div");
     filtro.className = "filtro-ensayo";
-    filtro.innerHTML = "<strong>Ocultar personajes:</strong><br>";
+
+    const toggleBtn = document.createElement("button");
+    toggleBtn.textContent = "👥 Mostrar/Ocultar personajes";
+    toggleBtn.className = "toggle-ensayo";
+    toggleBtn.onclick = () => {
+      const panel = document.getElementById("panel-personajes");
+      panel.style.display = panel.style.display === "none" ? "block" : "none";
+    };
+    filtro.appendChild(toggleBtn);
+
+    const panel = document.createElement("div");
+    panel.id = "panel-personajes";
+    panel.style.display = "none";
+
     personajesUnicos.forEach(p => {
       const id = `chk-${normalizar(p)}`;
       const label = document.createElement("label");
       label.innerHTML = `<input type="checkbox" id="${id}" ${personajesOcultos.has(p) ? 'checked' : ''}/> ${p}`;
-      label.style.marginRight = "1rem";
-      filtro.appendChild(label);
+      panel.appendChild(label);
 
       label.querySelector("input").addEventListener("change", (e) => {
         if (e.target.checked) personajesOcultos.add(p);
@@ -108,28 +122,46 @@ function mostrarVista() {
         mostrarVista();
       });
     });
+
+    filtro.appendChild(panel);
     main.appendChild(filtro);
   }
 
   if (vistaActual === 'guion' || vistaActual === 'ensayo') {
     const container = document.createElement("div");
     container.className = vistaActual;
+
     entradas.forEach(linea => {
+      const p = document.createElement("div");
+
       if (linea.tipo === 'acotacion') {
-        const p = document.createElement("div");
         p.className = vistaActual + "-acotacion";
         p.innerHTML = linea.texto.replace(/\n/g, "<br>");
-        container.appendChild(p);
       } else {
-        const p = document.createElement("div");
         p.className = `${vistaActual}-linea ${normalizar(linea.personaje)}`;
+
         if (vistaActual === 'ensayo' && personajesOcultos.has(linea.personaje)) {
           p.classList.add("oculto");
+          p.innerHTML = `<strong>${linea.personaje}</strong>:<br><em>— intervención oculta —</em>`;
+          p.dataset.textoOriginal = linea.texto;
+
+          p.addEventListener("click", () => {
+            if (p.classList.contains("revelado")) {
+              p.innerHTML = `<strong>${linea.personaje}</strong>:<br><em>— intervención oculta —</em>`;
+              p.classList.remove("revelado");
+            } else {
+              p.innerHTML = `<strong>${linea.personaje}</strong>:<br>${p.dataset.textoOriginal.replace(/\n/g, "<br>")}`;
+              p.classList.add("revelado");
+            }
+          });
+        } else {
+          p.innerHTML = `<strong>${linea.personaje}</strong>:<br>${linea.texto.replace(/\n/g, "<br>")}`;
         }
-        p.innerHTML = `<strong>${linea.personaje}</strong>:<br>${linea.texto.replace(/\n/g, "<br>")}`;
-        container.appendChild(p);
       }
+
+      container.appendChild(p);
     });
+
     main.appendChild(container);
   }
 
@@ -152,6 +184,7 @@ function mostrarVista() {
     main.appendChild(div);
   }
 }
+
 
 function parsearBloques(bloque) {
   const lineas = bloque.split('\n');
