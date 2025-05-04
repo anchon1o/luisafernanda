@@ -251,7 +251,7 @@ function parsearBloques(bloque) {
       continue;
     }
 
-    const match = linea.match(/^\[([A-ZÁÉÍÓÚÑÜ\s]+)\]$/);
+    const match = linea.match(/^\[([\wÁÉÍÓÚÑÜáéíóúñü\sº°.,'-]+)\]$/);
     if (match) {
       actual = { tipo: 'dialogo', personaje: match[1].trim(), texto: '' };
       resultado.push(actual);
