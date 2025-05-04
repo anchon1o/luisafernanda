@@ -170,8 +170,10 @@ h1 {
 }
 
 #reproductor {
-  text-align: center;
+  background-color: black;
   margin: 0;
+  border: none;
+  text-align: center;
 }
 
 #reproductor iframe {
@@ -181,7 +183,7 @@ h1 {
   margin: 0 auto;
   display: block;
   border: none;
-    background: #000;
+
 }
 
 #reproductor.colapsado {
