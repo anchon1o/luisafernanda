@@ -113,40 +113,40 @@ function mostrarVista() {
   const entradas = parsearBloques(bloques);
 
   if (vistaActual === 'ensayo') {
-  const personajesUnicos = Array.from(new Set(
-    entradas.filter(e => e.tipo === 'dialogo').map(e => e.personaje)
-  ));
+    const personajesUnicos = Array.from(new Set(
+      entradas.filter(e => e.tipo === 'dialogo').map(e => e.personaje)
+    ));
 
-  const filtro = document.createElement("div");
-  filtro.className = "filtro-ensayo";
+    const filtro = document.createElement("div");
+    filtro.className = "filtro-ensayo";
 
-  const toggleBtn = document.createElement("button");
-  toggleBtn.textContent = "👥 Mostrar/Ocultar personajes";
-  toggleBtn.className = "toggle-ensayo";
-  toggleBtn.onclick = () => {
-    panel.style.display = panel.style.display === "none" ? "flex" : "none";
-  };
-  filtro.appendChild(toggleBtn);
+    const panel = document.createElement("div");
+    panel.id = "panel-personajes";
+    panel.style.display = "none";
 
-  const panel = document.createElement("div");
-  panel.id = "panel-personajes";
-  panel.style.display = "none";
+    const toggleBtn = document.createElement("button");
+    toggleBtn.textContent = "👥 Mostrar/Ocultar personajes";
+    toggleBtn.className = "toggle-ensayo";
+    toggleBtn.onclick = () => {
+      panel.style.display = panel.style.display === "none" ? "flex" : "none";
+    };
+    filtro.appendChild(toggleBtn);
 
-  personajesUnicos.forEach(p => {
-    const id = `chk-${normalizar(p)}`;
-    const label = document.createElement("label");
-    label.innerHTML = `<input type="checkbox" id="${id}" ${personajesOcultos.has(p) ? 'checked' : ''}/> ${p}`;
-    panel.appendChild(label);
+    personajesUnicos.forEach(p => {
+      const id = `chk-${normalizar(p)}`;
+      const label = document.createElement("label");
+      label.innerHTML = `<input type="checkbox" id="${id}" ${personajesOcultos.has(p) ? 'checked' : ''}/> ${p}`;
+      panel.appendChild(label);
 
-    label.querySelector("input").addEventListener("change", (e) => {
-      if (e.target.checked) personajesOcultos.add(p);
-      else personajesOcultos.delete(p);
-      mostrarVista();
+      label.querySelector("input").addEventListener("change", (e) => {
+        if (e.target.checked) personajesOcultos.add(p);
+        else personajesOcultos.delete(p);
+        mostrarVista();
+      });
     });
 
-  filtro.appendChild(panel);
-  main.appendChild(filtro);
-}
+    filtro.appendChild(panel);
+    main.appendChild(filtro);
   }
 
   if (vistaActual === 'guion' || vistaActual === 'ensayo') {
