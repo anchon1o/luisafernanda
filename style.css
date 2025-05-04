@@ -197,6 +197,7 @@ main {
 /* Guion */
 .guion {
   font-family: 'Courier New', monospace;
+  background-color: #e0e0e0; /* Gris más oscuro */
 }
 
 .guion-linea {
@@ -229,6 +230,10 @@ main {
 }
 
 /* Ensayo */
+.ensayo {
+  background-color: #e0e0e0; /* Gris más oscuro */
+}
+
 .ensayo-linea {
   margin: 1rem 0;
   padding: 1rem;
