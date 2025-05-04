@@ -139,6 +139,26 @@ h1 {
   margin: 1rem 0;
 }
 
+#reproductor iframe {
+  width: 100%;
+  height: 250px;
+  max-width: 800px;
+  margin: 0 auto;
+  display: block;
+  border: none;
+}
+
+#reproductor.colapsado {
+  max-height: 0;
+  overflow: hidden;
+}
+
+#reproductor.colapsado iframe {
+  visibility: hidden;
+  height: 0;
+  pointer-events: none;
+}
+
 
 #fijo {
   position: fixed;
