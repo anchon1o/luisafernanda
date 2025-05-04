@@ -921,7 +921,7 @@ de su loca ambición,
 sus palabras olvida
 y hasta olvida su amor.
 
-[ANIBAL]
+[ANÍBAL]
 Es la pura verdad.
 
 [NOGALES]
@@ -936,7 +936,7 @@ ni nosotros gritar.
 [MARIANA]
 No te aflijas, mujer.
 
-NOGALES y ANIBAL
+NOGALES y ANÍBAL
 Es la pura verdad.
 
 [LUISA FERNANDA]
@@ -967,7 +967,7 @@ esta luz de amanecer!
 [NOGALES]
 Lo importante es decidir.
 
-[ANIBAL]
+[ANÍBAL]
 ¡La de palos que va a haber!
 ¡Ahora sí que soy feliz!
 //(Mariana se ha entrado en la posada por la puertecita. Vidal y Nogales entran por la puerta grande. Vidal queda a la derecha, contemplando a Luisa Fernanda, la cual enjugándose una lágrima va a hacer mutis por el portal, cuando se oye la voz de Carolina, por la derecha en alto y, luego, la de Javier. Luisa Fernanda, como aturdida, vuelve sobre sus pasos hacia la derecha, escuchando. Vidal se aparta de ese lado y, por el fondo, viene a colocarse a la izquierda)
@@ -1005,7 +1005,7 @@ hay un lugar para otra flor...
 
 ### Nº6A 🎵 INTRODUCCIÓN
 
-[MUSICOS]
+[MÚSICOS]
 El soldadito
 no la contesta
 cuando le escribe
@@ -1022,8 +1022,7 @@ y que, en su boda,
 fueron las arras
 los entorchados
 de brigadier!
-
-(Concluye el baile y las parejas empiezan a pasear del brazo, hasta que poco a poco van desapareciendo de la escena)
+//(Concluye el baile y las parejas empiezan a pasear del brazo, hasta que poco a poco van desapareciendo de la escena)
 
 [VENDEDORA]
 ¡De La Habana, cocos!
@@ -2483,7 +2482,7 @@ prisionero.
 ¡Ya de nuestras manos
 no se escapará!
 
-[ANIBAL]
+[ANÍBAL]
 ¡Callad!
 
 [JAVIER]
@@ -2522,7 +2521,7 @@ tan cobarde insistís,
 no podréis, asesinos,
 sin pasar sobre mí.
 
-[ANIBAL]
+[ANÍBAL]
 ¿Pero usté lo defiende?
 
 [CORO]
@@ -2554,7 +2553,7 @@ que sus ínfulas, no.
 ¿Qué ocurre en la calle?
 ¿Qué dice esa voz?
 
-[ANIBAL]
+[ANÍBAL]
 La cosa es muy clara.
 Que no estaba yo.
 
@@ -3069,7 +3068,7 @@ Que con el cerandero,
 andero y andar, etc., etc.
 (Recitado) ¡Bomba!
 
-[ANIBAL]
+[ANÍBAL]
 ¡Esa bomba es mía!
 
 (Se adelanta, toma a Mariana por una mano, la trae al centro de la escena e híncase de rodillas ante ella)
@@ -3119,7 +3118,7 @@ Vete, Javier...
 [VIDAL]
 Yo dictaré la sentencia.
 
-[ANIBAL]
+[ANÍBAL]
 (Aparte y con voz suave)
 ¡Bomba!
 
