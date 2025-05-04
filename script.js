@@ -1,3 +1,4 @@
+
 let bloquesPorNumero = {};
 let ordenNumeros = [];
 let vistaActual = 'guion';
@@ -92,15 +93,22 @@ function mostrarVista() {
   if (vistaActual === 'ensayo') {
     const personajesUnicos = Array.from(new Set(entradas.filter(e => e.tipo === 'dialogo').map(e => e.personaje)));
 
-    const filtro = document.createElement("div");
-    filtro.className = "filtro-ensayo";
-    filtro.innerHTML = "<strong>Ocultar personajes:</strong><br>";
+    const toggleBtn = document.createElement("button");
+    toggleBtn.textContent = "👥 Personajes";
+    toggleBtn.className = "boton-personajes";
+    toggleBtn.onclick = () => {
+      document.getElementById("menu-personajes").classList.toggle("visible");
+    };
+
+    const menu = document.createElement("div");
+    menu.id = "menu-personajes";
+    menu.className = "menu-personajes";
+
     personajesUnicos.forEach(p => {
       const id = `chk-${normalizar(p)}`;
       const label = document.createElement("label");
       label.innerHTML = `<input type="checkbox" id="${id}" ${personajesOcultos.has(p) ? 'checked' : ''}/> ${p}`;
-      label.style.marginRight = "1rem";
-      filtro.appendChild(label);
+      menu.appendChild(label);
 
       label.querySelector("input").addEventListener("change", (e) => {
         if (e.target.checked) personajesOcultos.add(p);
@@ -108,7 +116,9 @@ function mostrarVista() {
         mostrarVista();
       });
     });
-    main.appendChild(filtro);
+
+    main.appendChild(toggleBtn);
+    main.appendChild(menu);
   }
 
   if (vistaActual === 'guion' || vistaActual === 'ensayo') {
