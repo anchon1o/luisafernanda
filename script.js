@@ -317,11 +317,27 @@ function mostrarVista() {
 
   container.appendChild(opcionesGrid);
 
-  const siguienteBtn = document.createElement("button");
-  siguienteBtn.textContent = "🎲 Otra";
-  siguienteBtn.className = "btn-siguiente";
-  siguienteBtn.onclick = () => mostrarVista();
-  container.appendChild(siguienteBtn);
+  // Contenedor para botón y contador de racha
+const pie = document.createElement("div");
+pie.className = "sigue-pie";
+
+// Botón
+const siguienteBtn = document.createElement("button");
+siguienteBtn.textContent = "🎲 Otra";
+siguienteBtn.className = "btn-siguiente";
+siguienteBtn.onclick = () => mostrarVista();
+
+// Contador de racha
+const rachaDiv = document.createElement("div");
+rachaDiv.className = "racha-barra";
+rachaDiv.id = "racha-barra";
+rachaDiv.textContent = `🔥 Racha: ${rachaActual}`;
+
+// Añadir al pie
+pie.appendChild(siguienteBtn);
+pie.appendChild(rachaDiv);
+container.appendChild(pie);
+
 
   main.appendChild(container);
 
