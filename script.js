@@ -3,6 +3,8 @@ let ordenNumeros = [];
 let vistaActual = 'guion';
 let numeroSeleccionado = 'todo';
 let personajesOcultos = new Set();
+let rachaActual = 0;
+
 
 async function cargarTexto() {
   const resp = await fetch('texto.txt');
@@ -316,6 +318,7 @@ function mostrarVista() {
   });
 
   container.appendChild(opcionesGrid);
+  
 
   // Contenedor para botón y contador de racha
 const pie = document.createElement("div");
@@ -340,7 +343,7 @@ container.appendChild(pie);
 
 
   main.appendChild(container);
-
+}
   // Mostrar racha al cargar
   document.getElementById("racha-valor").textContent = racha;
 }
