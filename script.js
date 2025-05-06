@@ -408,7 +408,28 @@ function navegarADireccion(direccion) {
   mostrarVista();
 }
 
+let personajeFiltrado = null; // personaje actualmente seleccionado
 
+function mostrarSelectorPersonaje() {
+  const todosPersonajes = new Set();
+  Object.values(bloquesPorNumero).forEach(bloque => {
+    const entradas = parsearBloques(bloque);
+    entradas.forEach(e => {
+      if (e.tipo === 'dialogo') todosPersonajes.add(e.personaje);
+    });
+  });
+
+  const lista = Array.from(todosPersonajes).sort();
+  const nombre = prompt("Selecciona un personaje:\n\n" + lista.join("\n"));
+
+  if (nombre && lista.includes(nombre)) {
+    personajeFiltrado = nombre;
+  } else {
+    personajeFiltrado = null; // Si cancela o escribe algo no válido, quitamos filtro
+  }
+
+  actualizarBotonesMenu(); // volver a marcar botones con borde
+}
 
 let reproductorVisible = true;
 
