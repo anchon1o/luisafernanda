@@ -116,7 +116,7 @@ buen zurcidillo...
 Buenos días, Mariana.
 
 [MARIANA]
-Buenos, señora.
+Buenos días, señora.
 
 [ROSITA]
 La señora duquesa
@@ -233,6 +233,7 @@ a coronela, mi vida?
 [LUISA FERNANDA]
 Ya sabe que no
 me importa esperar.
+¿Que sube como la espuma?
 Donde esté me elevará.
 Le quiero porque me quiere.
 Y, además, porque
@@ -1613,8 +1614,6 @@ de cháchara con otra mujer...
 Sí, señora ¡Una duquesa!
 
 [LUISA FERNANDA]
-¿Una duquesa?
-
 ¿La duquesa Carolina?
 Pero, ¿qué quiere esa dama?
 
@@ -1766,7 +1765,7 @@ Pues lo siento yo, mujer,
 porque le iba a convidar.
 
 [JAVIER]
-(A Luisa Fernando, aparte)
+(A Luisa Fernanda, aparte)
 Ahora mismo te marchas
 porque yo quiero.
 
