@@ -89,26 +89,27 @@ function actualizarBotonesMenu() {
   const botones = document.querySelectorAll('#menu-scroll button');
   botones.forEach(btn => {
     const id = btn.dataset.numero;
+    const personaje = btn.dataset.personajeMarca;
 
-    // Limpiamos las clases previas de resaltado (además del activo)
-    btn.classList.remove('activo', 'resaltado-personaje');
-    btn.className = btn.className.replace(/\bpersonaje-[^\s]+\b/g, '');
-
-    // Marcar el botón activo
+    // Botón activo (número seleccionado)
     if (id === numeroSeleccionado) {
       btn.classList.add('activo');
       btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    } else {
+      btn.classList.remove('activo');
     }
 
-    // Marcar con borde si ese número contiene al personaje filtrado
-    if (personajeFiltrado && id && id !== 'todo') {
-      const entradas = parsearBloques(bloquesPorNumero[id] || '');
-      if (entradas.some(e => e.tipo === 'dialogo' && e.personaje === personajeFiltrado)) {
-        btn.classList.add('resaltado-personaje', `personaje-${normalizar(personajeFiltrado)}`);
-      }
+    // Contorno si el botón forma parte de los números donde aparece el personaje marcado
+    if (personajeSeleccionado && botonesConPersonaje.has(id)) {
+      btn.style.setProperty('border-color', `var(--color-${normalizar(personajeSeleccionado)})`);
+      btn.setAttribute('data-personaje-marca', 'true');
+    } else {
+      btn.style.removeProperty('border-color');
+      btn.removeAttribute('data-personaje-marca');
     }
   });
 }
+
 
 
 
