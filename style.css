@@ -125,6 +125,7 @@ h1 {
 
 }
 
+
 #menu-scroll button {
   font-size: 0.8rem;
   padding: 0.4rem 0.8rem;
@@ -135,11 +136,16 @@ h1 {
   flex-shrink: 0;
 }
 
+/* Contorno por personaje si coincide con botón */
+#menu-scroll button[data-personaje-marca] {
+  border: 3px solid var(--color-personaje-marca, transparent);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
 
 #menu-scroll button.activo {
   background-color: #007BFF !important;
   color: white !important;
-  border-color: #0056b3;
   font-weight: bold;
 }
 
