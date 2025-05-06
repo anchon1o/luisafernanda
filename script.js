@@ -89,14 +89,27 @@ function actualizarBotonesMenu() {
   const botones = document.querySelectorAll('#menu-scroll button');
   botones.forEach(btn => {
     const id = btn.dataset.numero;
+
+    // Limpiamos las clases previas de resaltado (además del activo)
+    btn.classList.remove('activo', 'resaltado-personaje');
+    btn.className = btn.className.replace(/\bpersonaje-[^\s]+\b/g, '');
+
+    // Marcar el botón activo
     if (id === numeroSeleccionado) {
       btn.classList.add('activo');
       btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-    } else {
-      btn.classList.remove('activo');
+    }
+
+    // Marcar con borde si ese número contiene al personaje filtrado
+    if (personajeFiltrado && id && id !== 'todo') {
+      const entradas = parsearBloques(bloquesPorNumero[id] || '');
+      if (entradas.some(e => e.tipo === 'dialogo' && e.personaje === personajeFiltrado)) {
+        btn.classList.add('resaltado-personaje', `personaje-${normalizar(personajeFiltrado)}`);
+      }
     }
   });
 }
+
 
 
 function cambiarVista(vista) {
