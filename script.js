@@ -89,28 +89,14 @@ function actualizarBotonesMenu() {
   const botones = document.querySelectorAll('#menu-scroll button');
   botones.forEach(btn => {
     const id = btn.dataset.numero;
-    const personaje = btn.dataset.personajeMarca;
-
-    // Botón activo (número seleccionado)
     if (id === numeroSeleccionado) {
       btn.classList.add('activo');
       btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
     } else {
       btn.classList.remove('activo');
     }
-
-    // Contorno si el botón forma parte de los números donde aparece el personaje marcado
-    if (personajeSeleccionado && botonesConPersonaje.has(id)) {
-      btn.style.setProperty('border-color', `var(--color-${normalizar(personajeSeleccionado)})`);
-      btn.setAttribute('data-personaje-marca', 'true');
-    } else {
-      btn.style.removeProperty('border-color');
-      btn.removeAttribute('data-personaje-marca');
-    }
   });
 }
-
-
 
 
 function cambiarVista(vista) {
@@ -422,28 +408,7 @@ function navegarADireccion(direccion) {
   mostrarVista();
 }
 
-let personajeFiltrado = null; // personaje actualmente seleccionado
 
-function mostrarSelectorPersonaje() {
-  const todosPersonajes = new Set();
-  Object.values(bloquesPorNumero).forEach(bloque => {
-    const entradas = parsearBloques(bloque);
-    entradas.forEach(e => {
-      if (e.tipo === 'dialogo') todosPersonajes.add(e.personaje);
-    });
-  });
-
-  const lista = Array.from(todosPersonajes).sort();
-  const nombre = prompt("Selecciona un personaje:\n\n" + lista.join("\n"));
-
-  if (nombre && lista.includes(nombre)) {
-    personajeFiltrado = nombre;
-  } else {
-    personajeFiltrado = null; // Si cancela o escribe algo no válido, quitamos filtro
-  }
-
-  actualizarBotonesMenu(); // volver a marcar botones con borde
-}
 
 let reproductorVisible = true;
 
