@@ -24,15 +24,14 @@
 
     <div id="barra-controles">
       <div class="controles-izquierda">
-        <button id="btn-personaje" onclick="mostrarSelectorPersonaje()">👤</button>
         <select id="vista" onchange="cambiarVista(this.value)">
           <option value="guion">Guion</option>
           <option value="chat">Chat</option>
           <option value="ensayo">Ensayo</option>
           <option value="sigue">Sigue</option>
         </select>
-        <button onclick="reproducir('R')">⚪</button>
-        <button onclick="reproducir('Z')">🔴</button>
+        <button onclick="reproducir('R')">R ⚪</button>
+        <button onclick="reproducir('Z')">Z 🔴</button>
         <button onclick="toggleReproductor()">⇵</button>
       </div>
       <div class="controles-derecha">
