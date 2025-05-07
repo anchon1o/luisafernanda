@@ -6,6 +6,8 @@
 
 //ACTO PRIMERO
 
+//Cuadro primero. Taller de costura con dos mesas.
+
 [ROSITA]
 Mi madre me criaba
 pa chalequera,
@@ -133,7 +135,7 @@ Y el peine de oro y plata
 con que se peina.
 
 [ROSITA]
-(Mi madre me criaba pa chalequera)
+Mi madre me criaba pa chalequera
 
 ### Nº1B 🎵 HABANERA
 
@@ -185,7 +187,7 @@ y que en su boda
 fueron las arras
 los entorchados
 de brigadier!
-//(El saboyano, tocando su aristón, vase por el fondo izquierda)
+//MUTIS Del Saboyano
 
 ### ▪️1) TEXTO HABLADO
 
@@ -281,8 +283,7 @@ comprometido
 mi corazón.
 
 [MARIANA]
-¡Ay,
-(ja, ja, ja)
+¡Ay, (ja, ja, ja)
 no me hagas reír!
 
 [JAVIER]
@@ -424,7 +425,7 @@ Don Luis Nogales.
 Don Javier Moreno.
 
 [NOGALES]
-(quiere estrecharle la mano pero Javier se muestra desconfiado)
+(Quiere estrecharle la mano pero Javier se muestra desconfiado)
 Ya nos conocimos.
 
 [JAVIER]
@@ -504,8 +505,8 @@ Vamos, pues.
 
 ### ▪️4) TEXTO HABLADO
 
+//Entran Luisa y Mariana
 [LUISA FERNANDA]
-(Saliendo por el foro izquierda, seguida por Mariana)
 ¡Javier!
 
 [MARIANA]
@@ -531,7 +532,7 @@ un amo que no tenga más
 que el nombre de tal,
 que sea un buen hombre?
 ¡Mírale! ¡Ni con reclamo!
-//(Sale por el foro derecha Vidal Hernando, joven aún, pero maduro; vestido como los labradores ricos de la alta Extremadura)
+//Entra Vidal Hernando
 
 [VIDAL]
 Mariana…
@@ -668,8 +669,7 @@ Luisa Fernanda...
 
 [LUISA FERNANDA]
 Adiós, Vidal.
-
-(Mutis por el portal)
+//(Mutis por el portal)
 
 [VIDAL]
 Los hombres de mi tierra
@@ -686,8 +686,8 @@ tengo un puente de esperanzas!
 
 ### ▪️5) TEXTO HABLADO
 
+//Entra Aníbal (de donde salió Javier)
 [ANÍBAL]
-(Sale de la posada por la puertecita)
 El coronel... ¡pan comido!
 ¡Tiembla en tu trono, Isabel!
 
@@ -727,8 +727,7 @@ anida dentro de un ser...
 ¿Cuál es el suyo?
 
 [ANÍBAL]
-Ascender
-cuanto antes a general.
+Ascender cuanto antes a general.
 
 [VIDAL]
 ¿Está adentro el coronel?
@@ -758,20 +757,19 @@ Me entero.
 Pues usté... ¡contrabandista!
 
 [VIDAL]
-¿El, soldado de fortuna?
+¿Él, soldado de fortuna?
 Yo, labriego infortunado.
 Alguien nos ha colocado
 frente a frente.
 
 [ANÍBAL]
 ¿Alguien o “alguna”?
-
-(Después de decir esto, enfáticamente mirando al foro izquierda, entra en la posada por donde Vidal)
+//Aníbal y Vidal se esconden tras maniquíes
 
 ### Nº4 🎵 DÚO “DE LA FLOR”
 
+//Entran Carolina y Javier
 [CAROLINA]
-(Dentro)
 Caballero de alto plumero,
 ¿dónde camina
 tan pinturero?
@@ -840,11 +838,9 @@ para el juego del amor.
 [JAVIER]
 ¡Digna es la flor
 de aquel rosal!
-//(Mutis por la verja)
+//Mutis
 
 ### ▪️6) TEXTO HABLADO
-
-//Salen nerviosos e intrigados Vidal y Aníbal. Este último saca en la mano un cabezón de madroños de vivo color.
 
 [ANÍBAL]
 ¡Ya lo cazó la duquesa!
@@ -856,9 +852,9 @@ de aquel rosal!
 Esa señora
 es la mejor cazadora
 del Jarama y su dehesa.
+//Entran Mariana y Nogales
 
 [MARIANA]
-(Saliendo con Nogales)
 Este Javier...
 
 [NOGALES]
@@ -888,7 +884,7 @@ Que es realista...
 [VIDAL]
 ¡Animo, que yo me alisto
 contra su causa!
-//(Sale Luisa Fernanda, trémula, celosa... Mariana acude junto a ella)
+//Entra Luisa Fernanda, trémula, celosa... Mariana acude junto a ella)
 
 [MARIANA]
 ¿Lo has visto?
@@ -908,11 +904,11 @@ a usté y a la libertad.
 
 [VIDAL]
 (A Nogales)
-La libertad... que me pida.
-Sangre y dinero.
+La libertad... 
+que me pida sangre y dinero.
 ¡Usté manda!
-
 (Le estrecha la mano)
+
 Y en cuanto a Luisa Fernanda,
 lo que ella quiera... ¡la vida!
 
@@ -975,15 +971,14 @@ Lo importante es decidir.
 ¡Ahora sí que soy feliz!
 //(Mariana se ha entrado en la posada por la puertecita. Vidal y Nogales entran por la puerta grande. Vidal queda a la derecha, contemplando a Luisa Fernanda, la cual enjugándose una lágrima va a hacer mutis por el portal, cuando se oye la voz de Carolina, por la derecha en alto y, luego, la de Javier. Luisa Fernanda, como aturdida, vuelve sobre sus pasos hacia la derecha, escuchando. Vidal se aparta de ese lado y, por el fondo, viene a colocarse a la izquierda)
 
+//Interno
 [CAROLINA]
-(Dentro)
 Al pasar el caballero
 por la puerta del Perdón,
 de los altos balconajes,
 a sus pies cayó una flor.
 
 [JAVIER]
-(Dentro)
 Y una dama le decía
 con graciosa y dulce voz:
 “Esa flor se me ha caído
@@ -1004,9 +999,11 @@ hay un lugar para otra flor...
 
 ## CUADRO PRIMERO
 
-//En el Paseo de La Florida, que se pierde hacia el fondo izquierda hasta el Portillo de San Vicente, que se ve lejano. En el lateral derecho, la ermita de San Antonio, formándose un rincón entre el pórtico que sobresale y el cuerpo principal del templo. En primer término de éste, la puerta de la rectoral. En la rinconada, frente al espectador, una mesa petitoria, revestida con unas faldas y un paño bordado. Sobrepuesta en las faldas, la siguiente inscripción:“Pan de San Antonio”.A la izquierda, un aguaducho, en primer término, con dos veladores y sillas delante. En segundo término, la fuente, que, a la sazón, existía en aquel paraje. Son practicables para los actores: a la derecha, la puerta de la rectoral, la del templo y el último término; a la izquierda, los términos primero y último. Es por la tarde.
-
 ### Nº6A 🎵 INTRODUCCIÓN
+
+// ACTO SEGUNDO
+
+//Segundo fondo (?). Entra el coro y monta los elementos escenográficos, mesas, etc.
 
 [MÚSICOS]
 El soldadito
@@ -1025,7 +1022,6 @@ y que, en su boda,
 fueron las arras
 los entorchados
 de brigadier!
-//(Concluye el baile y las parejas empiezan a pasear del brazo, hasta que poco a poco van desapareciendo de la escena)
 
 [VENDEDORA]
 ¡De La Habana, cocos!
@@ -1096,11 +1092,11 @@ no ha regresao?
 
 [ROSITA]
 ¡Nos ha matao!
-//(Concluye el baile y las parejas empiezan a pasear del brazo, hasta que poco a poco van desapareciendo de la escena)
 
-//(El matrimonio burgués se levanta, pasa por la mesa petitoria, en la que deposita una moneda, y entra en la ermita. Javier viene a ocupar la vacante en el velador, dando muestras de impaciencia. Nogales le vuelve la espalda al reconocerle. Entretanto, se han clareado los grupos hasta quedar solos en escena los pollos elegantes. Ahora salen de la ermita seis damiselas con vaporosos trajes de paseo y monísimas sombrillas. Con ellas, la duquesa Carolina)
 
 ### Nº6B 🎵 MAZURCA DE LAS SOMBRILLAS
+
+//Entran las damiselas -a un lado- y los pollos -al otro-, también Carolina y Javier.
 
 [DAMISELAS]
 A San Antonio
@@ -1203,17 +1199,24 @@ A la sombra de una sombrilla
 son ideales
 los madrigales,
 a media voz…
-//(Todos hacen mutis, emparejados, por derecha e izquierda del foro)
+
+[POLLOS y DAMISELAS]
+A la sombra de una sombrilla
+son ideales
+los madrigales,
+a media voz…
+
+//Todos hacen mutis, emparejados, por derecha e izquierda del foro. En una mesa queda Mariana, en la otra Aníbal con Nogales.
 
 [JAVIER y CAROLINA]
 ¡Qué amable intimidad!
 ¡Qué bueno el quitasol!
 ¡Qué gozo da
 sentir las flechas del amor!
-//(Se van por el primer término izquierda)
+//Mutis
 
 ### ▪️7) TEXTO HABLADO
-//(Salen Luisa Fernanda y Don Florito por el foro izquierda)
+//Entran Luisa Fernanda y Don Florito
 
 [DON FLORITO]
 Luisa Fernanda,
@@ -1277,9 +1280,10 @@ Lo que quieras, pero...
 
 [MARIANA]
 ¡Nada! Yo la acompaño.
+//Salen Luisa, Florito y Mariana
 
 ### ▪️8) TEXTO HABLADO
-//(Sale Vidal por el fondo derecha)
+//Entra Vidal
 
 [VIDAL]
 Buenas tardes, caballeros.
@@ -1402,7 +1406,7 @@ Me llaman Vidal Hernando.
 Y ¿qué empresa le trae por Madrid?
 
 [VIDAL]
-Negocios .
+Negocios.
 
 [CAROLINA]
 ¿De qué?
@@ -1467,12 +1471,10 @@ Ya le he visto el juego claro.
 Hablaremos como amigos.
 
 [VIDAL]
-Mucho me honra la amistad.
+Mucho me honra su amistad 
+como amigos verdaderos.
 
 [CAROLINA]
-Como amigos verdaderos.
-
-[VIDAL]
 Y con mucha claridad.
 
 [CAROLINA]
@@ -1586,7 +1588,7 @@ Beso a usted los pies.
 [BIZCO]
 Aquí viene ya de vuelta
 con su padre y la Mariana.
-//(Salen por la izquierda Luisa Fernanda, Mariana y Don Florito)
+//Entran Luisa Fernanda, Mariana y Don Florito)
 
 [LUISA FERNANDA]
 Vidal... ¿Estás disgustado?
@@ -1631,6 +1633,7 @@ No; pero...
 
 ### Nº8 🎵 CUARTETO Y SUBASTA
 
+//Entra Javier
 [JAVIER]
 ¿Dónde estará Carolina,
 que no la veo?
@@ -1677,7 +1680,8 @@ Vete tú a saber.
 [JAVIER]
 Eso… preguntando
 se ha de esclarecer.
-//(Avanza hacia el otro grupo)
+
+(Avanza hacia el otro grupo)
 
 Señorita, señorita…
 
@@ -1708,7 +1712,7 @@ No debía usté ayudarle.
 
 [VIDAL]
 Dos palabras, ¿por qué no?
-//(Luisa Fernanda se levanta y sale del grupo, aproximándose a Javier)
+//(Luisa Fernanda se levanta de la mesa, aproximándose a Javier)
 
 [JAVIER]
 ¡Cuánto tiempo sin verte
@@ -1749,8 +1753,9 @@ no un fariseo.
 Y además es un pollo
 muy elegante.
 
+//Vidal se levanta hacia Javier
+
 [VIDAL]
-(Ya de pie, a Luisa Fernanda. También se levanta Don Florito)
 Eso está bien dicho,
 porque un servidor
 todo lo contrario
@@ -1827,7 +1832,8 @@ Lo haré en otro lugar.
 
 [VIDAL]
 Yo creo que es inútil hablar.
-//(Javier da media vuelta hacia el fondo. Luisa Fernanda, Don Florito y Vidal se sientan. Sale de la rectoral Carolina, acompañada por Don Lucas, el párroco de San Antonio. Suena la campana de la ermita, salen algunas gentes del templo y acuden otras por el fondo y por la izquierda: entre ellas, los músicos ambulantes)
+//(Javier da media vuelta hacia el fondo. Luisa Fernanda, Don Florito y Vidal se sientan.
+//Entra Carolina, acompañada por Don Lucas, el párroco de San Antonio. Se suma más gente (coro)
 
 [MARIANA]
 Señora duquesa…
@@ -1855,7 +1861,7 @@ cada vez produce menos.
 
 [VIDAL]
 Pa que veas la importancia
-que en Madrid le da a un rico
+que en Madrid le dan a un rico
 labrador de Piedras Albas.
 
 [CAROLINA]
@@ -1889,6 +1895,11 @@ acuérdense de los pobres.
 Yo quiero que participen
 también de sus diversiones.
 En mi tierra de Granada,
+
+[CORO]
+¡Ole!
+
+[CAROLINA]
 para el culto de una imagen,
 las mocitas más honestas
 sacan a subasta el baile.
@@ -1918,8 +1929,7 @@ vale un dineral.
 
 [LUISA FERNANDA]
 Es un carcamal.
-
-(Se destaca de los grupos un hombre del pueblo)
+//(Se destaca de los grupos un hombre del pueblo)
 
 [UN HOMBRE]
 Sólo tengo un peso duro,
@@ -1984,7 +1994,6 @@ La subasta se acabó.
 (Después de entregar el bolso con el dinero a la duquesa)
 Y ahora baile usté con ella,
 que se la regalo yo.
-//(Un momento de sensación, Luisa Fernanda avanza y ocupa lugar entre Vidal y Javier, apartando al primero hacia la izquierda. Carolina detiene a Javier, que tiene el impulso de arrojarse sobre Vidal. Reacciona caballerescamente)
 
 [JAVIER]
 Bailaré con la Duquesa;
@@ -2005,7 +2014,7 @@ pronto lo recogeré.
 //Patio del parador del Bizco. A la izquierda del fondo, la portalada de entrada, ya vista desde fuera en el cuadro anterior. A la derecha, en primer término, ventana que da luz, desde el patio, a una habitación interior. En segundo término, del mismo lado, puerta que conduce a las habitaciones internas. En el fondo una imagen de la Virgen de la Paloma, alumbrada por una lamparilla. Una mesa tosca a la derecha, en los primeros términos. Varias sillas toscas convenientemente repartidas. Algunos arreos de caballerías. Hatos de viajeros y sacos de pienso. De día.
 
 ### ▪️12) TEXTO HABLADO
-//Mariana, una criada del parador y una vieja vecina oran de rodillas ante la imagen. Luisa Fernanda sentada, pensativa, en primer término, recostada en la mesa.
+//Mariana y Luisa Fernanda rezan
 
 [MARIANA]
 Mater purissima...
@@ -2101,7 +2110,7 @@ Don Vidal es lo más grande
 que hay en el globo terráqueo.
 Sereno, como un piloto;
 valiente, como un jabato...
-¡Ay!…
+¡HAY!…
 
 [LUISA FERNANDA]
 ¿Te escuece?
@@ -2112,8 +2121,8 @@ valiente, como un jabato...
 ¡Hay que verle disparando!
 Por él ya habríamos ido a la carga
 sobre el bando de la soldadesca real;
-pero que no le hagan caso,
-me duele...
+pero 
+que no le hagan caso ME DUELE...
 
 [LUISA FERNANDA]
 ¿Te duele?
@@ -2130,7 +2139,7 @@ La venda.
 Aquí está.
 
 ### ▪️13) TEXTO HABLADO
-//(Entran por el fondo Vidal, en mangas de camisa, con canana a la cintura y carabina; el Bizco Porras y otros dos hombres de pueblo)
+//(Entran por el fondo Vidal, en mangas de camisa, con canana a la cintura y carabina; el Bizco Porras y otros dos hombres de pueblo.)
 
 [BIZCO]
 ¿Han traído aquí al Aníbal?
@@ -2314,8 +2323,6 @@ y nada se presentía.
 [MARIANA]
 Pues... ya ve usté.
 
-
-
 [CAROLINA]
 Sí, ya vi,
 desde lejos, que se lucha.
@@ -2326,7 +2333,6 @@ si viene el aire hacía aquí.
 
 [CAROLINA]
 Pero, ¿qué quieren?
-
 ¡Quieren matar los egregios designios
 que nunca mueren!
 
@@ -2433,7 +2439,7 @@ pero es limpio y huele a espliego.
 [CAROLINA]
 (Ya en la puerta)
 Es muy mono el gabinete.
-//(Mutis por la derecha)
+//Mutis
 
 [MARIANA]
 Ahora es cuando se engalana.
@@ -2445,7 +2451,7 @@ Has estao... ¡de rechupete!
 
 ### Nº11 🎵 FINAL ACTO II
 
-//Sensación de revuelo en el fondo. Las cuatro mujeres que están en escena se mueven con curiosidad hacia la puerta. Se oyen en el interior gritos de “¡A él! ¡Muera!”.
+//Sensación de revuelo en el fondo. Las mujeres que están en escena se mueven con curiosidad hacia la puerta. Se oyen en el interior gritos de “¡A él! ¡Muera!”.
 
 [LUISA FERNANDA]
 ¿Oyes?…
@@ -2570,7 +2576,8 @@ Nos van a brear.
 
 [VIDAL]
 (Viendo a Javier)
-¡Ah! Vuestro guante, coronel,
+¡Ah!
+Vuestro guante, coronel,
 en la calle os devolví.
 Ha acabado el desafío
 y es notorio que perdí.
@@ -2758,11 +2765,6 @@ si es pecado enamorarse.
 
 [MARIANA]
 ¡Bien parlado!
-
-[DON FLORITO]
-(A Mariana)
-El extremeño
-se salió por madrigales.
 
 [LUISA FERNANDA]
 Quisiera corresponder
