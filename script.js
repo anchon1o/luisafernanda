@@ -25,7 +25,7 @@ async function cargarTexto() {
       const matchHablado = linea.match(/^###\s+▪️\s*(\d+)[\)]?/i);
 
       if (matchMusical) {
-        numeroActual = matchMusical[1].toLowerCase().replace(/^nº/, '');
+        numeroActual = matchMusical[1].replace(/^Nº/i, '').replace(/\s+/g, '').toLowerCase();
         ordenNumeros.push({ id: numeroActual, label: `${matchMusical[1]} 🎵` });
       } else if (matchHablado) {
         numeroActual = `t${matchHablado[1]}`;
