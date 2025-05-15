@@ -6,7 +6,10 @@
 
 //ACTO PRIMERO
 
-//Cuadro primero. Taller de costura con dos mesas.
+//Cuadro primero. Taller de costura con dos mesas y tres maniquíes
+//Mesa derecha: Rosita y costureras
+//Mesa izquierda: Mariana y costureras
+//Fondo: chicos.
 
 [ROSITA]
 Mi madre me criaba
@@ -38,6 +41,8 @@ Es que los hay... fascinantes.
 
 [ROSITA]
 No lo dirá usté por éstos
+
+//🟩◀️ Vendedor
 
 [VENDEDOR]
 Van por el camino real
@@ -100,7 +105,7 @@ Conforme.
 
 [NOGALES]
 Adiós.
-// Mutis de Nogales
+//🟥Nogales
 
 [MARIANA]
 Hasta luego.
@@ -138,6 +143,8 @@ con que se peina.
 Mi madre me criaba pa chalequera
 
 ### Nº1B 🎵 HABANERA
+
+//🟩◀️ Saboyano
 
 [SABOYANO]
 Marchaba a ser soldado
@@ -187,7 +194,7 @@ y que en su boda
 fueron las arras
 los entorchados
 de brigadier!
-//MUTIS Del Saboyano
+//🟥 Saboyano
 
 ### ▪️1) TEXTO HABLADO
 
@@ -252,7 +259,11 @@ Adiós, Mariana.
 [MARIANA]
 Hasta luego.
 
+//🟥▶️ Luisa Fernanda
+
 ### Nº2 🎵 DÚO Y ROMANZA
+
+//🟩 Javier
 
 [JAVIER]
 Buenos días, Mariana.
@@ -389,7 +400,11 @@ Por favor, que venga aprisa.
 [MARIANA]
 ¿De prisa vienes ahora?
 
+//🟥▶️ Mariana
+
 ### ▪️3) TEXTO HABLADO
+
+//🟩◀️ Aníbal, seguido de Nogales
 
 [ANÍBAL]
 (Avanzando hacia Javier)
@@ -501,11 +516,13 @@ y no se la escapa nada.
 [JAVIER]
 Vamos, pues.
 
-//(Los tres hacen mutis a la posada, por la puertecilla del centro, sin dejar de mirar al jardín vecino)
+
+//🟥◀️ Javier, Aníbal, Nogales
 
 ### ▪️4) TEXTO HABLADO
 
-//Entran Luisa y Mariana
+//🟩◀️ Luisa y Mariana
+
 [LUISA FERNANDA]
 ¡Javier!
 
@@ -531,8 +548,11 @@ te curaras.
 un amo que no tenga más
 que el nombre de tal,
 que sea un buen hombre?
+
+//🟩◀️ Vidal
+
+[MARIANA]
 ¡Mírale! ¡Ni con reclamo!
-//Entra Vidal Hernando
 
 [VIDAL]
 Mariana…
@@ -573,7 +593,8 @@ Usted... Callar.
 [MARIANA]
 Hasta luego.
 Me ha echado.
-//(Mutis a la posada)
+
+//🟥◀️Mariana
 
 [LUISA FERNANDA]
 Y yo... ¿qué he de hacer?
@@ -669,7 +690,8 @@ Luisa Fernanda...
 
 [LUISA FERNANDA]
 Adiós, Vidal.
-//(Mutis por el portal)
+
+//🟥◀️ Luisa Fernanda
 
 [VIDAL]
 Los hombres de mi tierra
@@ -686,7 +708,8 @@ tengo un puente de esperanzas!
 
 ### ▪️5) TEXTO HABLADO
 
-//Entra Aníbal (de donde salió Javier)
+//🟩▶️ Aníbal
+
 [ANÍBAL]
 El coronel... ¡pan comido!
 ¡Tiembla en tu trono, Isabel!
@@ -764,11 +787,13 @@ frente a frente.
 
 [ANÍBAL]
 ¿Alguien o “alguna”?
-//Aníbal y Vidal se esconden tras maniquíes
+
+//🟧 Aníbal y Vidal se esconden tras maniquíes
 
 ### Nº4 🎵 DÚO “DE LA FLOR”
 
-//Entran Carolina y Javier
+//🟩◀️Carolina 🟩▶️Javier
+
 [CAROLINA]
 Caballero de alto plumero,
 ¿dónde camina
@@ -838,9 +863,11 @@ para el juego del amor.
 [JAVIER]
 ¡Digna es la flor
 de aquel rosal!
-//Mutis
+//🟥
 
 ### ▪️6) TEXTO HABLADO
+
+//Se asoman Aníbal y Vidal
 
 [ANÍBAL]
 ¡Ya lo cazó la duquesa!
@@ -852,7 +879,7 @@ de aquel rosal!
 Esa señora
 es la mejor cazadora
 del Jarama y su dehesa.
-//Entran Mariana y Nogales
+//🟩▶️ Mariana y Nogales
 
 [MARIANA]
 Este Javier...
@@ -884,7 +911,7 @@ Que es realista...
 [VIDAL]
 ¡Animo, que yo me alisto
 contra su causa!
-//Entra Luisa Fernanda, trémula, celosa... Mariana acude junto a ella)
+//🟩▶️ Luisa Fernanda, trémula, celosa... Mariana acude junto a ella
 
 [MARIANA]
 ¿Lo has visto?
